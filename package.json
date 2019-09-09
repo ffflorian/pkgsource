@@ -1,0 +1,80 @@
+{
+  "author": "Florian Keller <github@floriankeller.de>",
+  "bin": {
+    "my-cli": "dist/cli.js"
+  },
+  "dependencies": {
+  },
+  "description": "A boilerplate for a modern™ TypeScript project.",
+  "devDependencies": {
+    "@ffflorian/prettier-config": "0.0.5",
+    "@ffflorian/tslint-config": "0.7.0",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/git": "7.0.16",
+    "@types/jasmine": "3.4.0",
+    "@types/node": "~12",
+    "husky": "3.0.5",
+    "jasmine": "3.4.0",
+    "lint-staged": "9.2.5",
+    "prettier": "1.18.2",
+    "rimraf": "3.0.0",
+    "semantic-release": "15.13.24",
+    "ts-node": "8.3.0",
+    "tslint": "5.19.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "typescript": "3.6.2"
+  },
+  "engines": {
+    "node": ">= 10.9"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "cli",
+    "typescript"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "license": "MIT",
+  "lint-staged": {
+    "*.{json,md,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "spec/**/*.ts": [
+      "tslint --project tsconfig.jasmine.json --fix",
+      "git add"
+    ],
+    "src/**/*.ts": [
+      "tslint --project tsconfig.json --fix",
+      "git add"
+    ]
+  },
+  "main": "dist/index.js",
+  "name": "@ffflorian/ts-boilerplate",
+  "prettier": "@ffflorian/prettier-config",
+  "private": true,
+  "repository": "https://github.com/ffflorian/ts-boilerplate.git",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "dist": "yarn clean && yarn build",
+    "fix": "yarn fix:other && yarn fix:ts",
+    "fix:other": "yarn prettier --write",
+    "fix:ts": "yarn lint:ts --fix && yarn lint:ts:spec --fix",
+    "lint": "yarn lint:ts && yarn lint:ts:spec && yarn lint:other",
+    "lint:other": "yarn prettier --list-different",
+    "lint:ts": "tslint --project tsconfig.json",
+    "lint:ts:spec": "tslint --project tsconfig.jasmine.json",
+    "prettier": "prettier \"*.{json,md,yml}\"",
+    "release": "semantic-release",
+    "start": "ts-node src/cli.ts",
+    "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
+  },
+  "version": "1.0.0"
+}
