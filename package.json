@@ -1,16 +1,21 @@
 {
   "author": "Florian Keller <github@floriankeller.de>",
-  "bin": {
-    "my-cli": "dist/cli.js"
-  },
   "dependencies": {
+    "cross-env": "5.2.1",
+    "express": "4.17.1",
+    "helmet": "3.21.0",
+    "logdown": "3.2.8",
+    "moment": "2.24.0",
+    "package-json": "6.5.0",
+    "pm2": "3.5.1",
+    "pm2-logrotate": "2.6.0"
   },
   "description": "A boilerplate for a modern™ TypeScript project.",
   "devDependencies": {
     "@ffflorian/prettier-config": "0.0.5",
     "@ffflorian/tslint-config": "0.7.0",
-    "@semantic-release/changelog": "3.0.4",
-    "@semantic-release/git": "7.0.16",
+    "@types/express": "4.17.1",
+    "@types/helmet": "0.0.44",
     "@types/jasmine": "3.4.0",
     "@types/node": "~12",
     "husky": "3.0.5",
@@ -18,7 +23,6 @@
     "lint-staged": "9.2.5",
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
-    "semantic-release": "15.13.24",
     "ts-node": "8.3.0",
     "tslint": "5.19.0",
     "tslint-config-prettier": "1.18.0",
@@ -56,10 +60,10 @@
     ]
   },
   "main": "dist/index.js",
-  "name": "@ffflorian/ts-boilerplate",
+  "name": "@ffflorian/pkgsource",
   "prettier": "@ffflorian/prettier-config",
   "private": true,
-  "repository": "https://github.com/ffflorian/ts-boilerplate.git",
+  "repository": "https://github.com/ffflorian/pkgsource.git",
   "scripts": {
     "build": "tsc",
     "clean": "rimraf dist",
@@ -72,8 +76,8 @@
     "lint:ts": "tslint --project tsconfig.json",
     "lint:ts:spec": "tslint --project tsconfig.jasmine.json",
     "prettier": "prettier \"*.{json,md,yml}\"",
-    "release": "semantic-release",
-    "start": "ts-node src/cli.ts",
+    "start": "pm2 start",
+    "start:dev": "cross-env NODE_DEBUG=\"pkgsource/*\" ts-node src/index.ts",
     "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
   },
   "version": "1.0.0"
