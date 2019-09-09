@@ -9,6 +9,20 @@ const logger = logdown('pkgsource/mainRoute', {
 
 const router = express.Router();
 
+const parseRepository = (repository: string | Record<string, string>): string | null => {
+  const cleanRepository = (repo: string) => repo.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
+
+  if (typeof repository === 'string') {
+    return cleanRepository(repository);
+  }
+
+  if (!!repository.url) {
+    return cleanRepository(repository.url);
+  }
+
+  return null;
+};
+
 export const packagesRoute = () => {
   return router.get(/^\/((?:@[^@/]+\/)?[^@/]+)(?:@([^@/]+))?\/?$/, async (req, res) => {
     let redirectSite = '';
@@ -18,17 +32,13 @@ export const packagesRoute = () => {
 
     try {
       const info = await packageJson(packageName, {fullMetadata: true, version});
-      if (info.homepage) {
+      const parsedRepository = !!info.repository && parseRepository(info.repository);
+      if (parsedRepository) {
+        logger.info(`Found repository "${parsedRepository}" for "${packageName}".`);
+        redirectSite = parsedRepository;
+      } else if (info.homepage) {
         logger.info(`Found homepage "${info.homepage}" for "${packageName}".`);
         redirectSite = info.homepage;
-      } else if (info.repository) {
-        if (typeof info.repository === 'string') {
-          logger.info(`Found repository "${info.repository}" for "${packageName}".`);
-          redirectSite = info.repository;
-        } else if (info.repository.url) {
-          logger.info(`Found repository URL "${info.repository.url}" for "${packageName}".`);
-          redirectSite = info.repository.url;
-        }
       }
     } catch (error) {
       if (error instanceof packageJson.VersionNotFoundError) {
@@ -54,6 +64,9 @@ export const packagesRoute = () => {
     }
 
     if (redirectSite) {
+      if ('raw' in req.query) {
+        return res.contentType('text/plain; charset=UTF-8').send(redirectSite);
+      }
       logger.info(`Redirecting to "${redirectSite}" ...`);
       return res.redirect(redirectSite);
     }
