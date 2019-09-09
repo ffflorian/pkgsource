@@ -19,7 +19,7 @@ const config: ServerConfig = {
   COMPRESS_MIN_SIZE: 500,
   DIST_DIR: path.resolve(__dirname),
   ENVIRONMENT: process.env.ENVIRONMENT || 'prod',
-  PORT_HTTP: Number(process.env.PORT) || 21080,
+  PORT_HTTP: Number(process.env.PORT) || 4000,
   VERSION: version,
 };
 
