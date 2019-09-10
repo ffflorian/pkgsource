@@ -13,3 +13,17 @@ export function hexToUint8Array(inputString: string): Uint8Array {
   const buffer = Buffer.from(inputString, 'hex');
   return new Uint8Array(buffer);
 }
+
+export function parseRepository(repository: string | Record<string, string>): string | null {
+  const cleanRepository = (repo: string) => repo.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
+
+  if (typeof repository === 'string') {
+    return cleanRepository(repository);
+  }
+
+  if (!!repository.url) {
+    return cleanRepository(repository.url);
+  }
+
+  return null;
+}

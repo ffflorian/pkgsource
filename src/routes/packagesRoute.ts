@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as logdown from 'logdown';
 import packageJson = require('package-json');
+import {parseRepository} from '../utils';
 
 const logger = logdown('pkgsource/mainRoute', {
   logger: console,
@@ -9,35 +10,25 @@ const logger = logdown('pkgsource/mainRoute', {
 
 const router = express.Router();
 
-const parseRepository = (repository: string | Record<string, string>): string | null => {
-  const cleanRepository = (repo: string) => repo.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
-
-  if (typeof repository === 'string') {
-    return cleanRepository(repository);
-  }
-
-  if (!!repository.url) {
-    return cleanRepository(repository.url);
-  }
-
-  return null;
-};
+const packageNameRegex = new RegExp('^\\/((?:@[^@/]+/)?[^@/]+)(?:@([^@/]+))?\\/?$');
 
 export const packagesRoute = () => {
-  return router.get(/^\/((?:@[^@/]+\/)?[^@/]+)(?:@([^@/]+))?\/?$/, async (req, res) => {
+  return router.get(packageNameRegex, async (req, res) => {
     let redirectSite = '';
 
     const packageName = req.params[0];
     const version = req.params[1] || 'latest';
 
+    logger.info(`Got request for package "${packageName}" (version "${version}").`);
+
     try {
       const info = await packageJson(packageName, {fullMetadata: true, version});
       const parsedRepository = !!info.repository && parseRepository(info.repository);
       if (parsedRepository) {
-        logger.info(`Found repository "${parsedRepository}" for "${packageName}".`);
+        logger.info(`Found repository "${parsedRepository}" for "${packageName}" (version "${version}").`);
         redirectSite = parsedRepository;
       } else if (info.homepage) {
-        logger.info(`Found homepage "${info.homepage}" for "${packageName}".`);
+        logger.info(`Found homepage "${info.homepage}" for "${packageName}" (version "${version}").`);
         redirectSite = info.homepage;
       }
     } catch (error) {
