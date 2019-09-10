@@ -10,7 +10,7 @@
     "pm2": "3.5.1",
     "pm2-logrotate": "2.6.0"
   },
-  "description": "A boilerplate for a modern™ TypeScript project.",
+  "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
     "@ffflorian/prettier-config": "0.0.5",
     "@ffflorian/tslint-config": "0.7.0",

@@ -1,14 +1,10 @@
-# ts-boilerplate [![Build Status](https://action-badges.now.sh/ffflorian/ts-boilerplate)](https://github.com/ffflorian/ts-boilerplate/actions/) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ffflorian/ts-boilerplate)](https://dependabot.com)
+# pkgsource [![Build Status](https://action-badges.now.sh/ffflorian/pkgsource)](https://github.com/ffflorian/pkgsource/actions/) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ffflorian/pkgsource&identifier=207300990)](https://dependabot.com)
 
-A boilerplate for a modern™ TypeScript project.
-
-## Installation
-
-Fork this repository or just [generate a new one](https://github.com/ffflorian/ts-boilerplate/generate) from this template.
+Find the source of an npm package in an instant. Try it out by visiting `pkgsource.xyz/{packageName}`, e.g. [pkgsource.xyz/nock](https://pkgsource.xyz/nock)
 
 ## Usage
 
-- Clone your new repository
-- Run `yarn` in the new repository
-- Start coding
-- Don't forget to update the `package.json`!
+```
+yarn
+yarn start:dev
+```
