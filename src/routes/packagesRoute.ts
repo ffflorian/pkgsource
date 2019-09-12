@@ -23,10 +23,7 @@ export const packagesRoute = () => {
     if (!validateResult.validForNewPackages) {
       logger.info(`Invalid package name: "${packageName}"`, validateResult);
 
-      return res.status(422).json({
-        code: 422,
-        message: 'Invalid package name',
-      });
+      return res.status(422).json({code: 422, message: 'Invalid package name'});
     }
 
     try {
@@ -34,26 +31,17 @@ export const packagesRoute = () => {
     } catch (error) {
       if (error instanceof packageJson.VersionNotFoundError) {
         logger.info(`Version "${version}" not found for package "${packageName}".`);
-        return res.status(404).json({
-          code: 404,
-          message: 'Version not found',
-        });
+        return res.status(404).json({code: 404, message: 'Version not found'});
       }
 
       if (error instanceof packageJson.PackageNotFoundError) {
         logger.info(`Package "${packageName}" not found.`);
-        return res.status(404).json({
-          code: 404,
-          message: 'Package not found',
-        });
+        return res.status(404).json({code: 404, message: 'Package not found'});
       }
 
       logger.error(error);
 
-      return res.status(500).json({
-        code: 500,
-        message: 'Internal server error',
-      });
+      return res.status(500).json({code: 500, message: 'Internal server error'});
     }
 
     const parsedRepository = !!packageInfo.repository && parseRepository(packageInfo.repository);
@@ -73,10 +61,7 @@ export const packagesRoute = () => {
 
     if (redirectSite && urlIsValid) {
       if ('raw' in req.query) {
-        return res.json({
-          code: 200,
-          url: redirectSite,
-        });
+        return res.json({code: 200, url: redirectSite});
       }
       logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
       return res.redirect(redirectSite);
