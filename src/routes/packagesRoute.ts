@@ -73,7 +73,10 @@ export const packagesRoute = () => {
 
     if (redirectSite && urlIsValid) {
       if ('raw' in req.query) {
-        return res.contentType('text/plain').send(redirectSite);
+        return res.json({
+          code: 200,
+          url: redirectSite,
+        });
       }
       logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
       return res.redirect(redirectSite);
