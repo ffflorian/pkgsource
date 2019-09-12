@@ -17,14 +17,18 @@ export const packagesRoute = () => {
     logger.info(`Got request for package "${packageName}" (version "${version}").`);
 
     try {
-      const info = await packageJson(packageName, {fullMetadata: true, version});
-      const parsedRepository = !!info.repository && parseRepository(info.repository);
+      const packageInfo = await packageJson(packageName, {fullMetadata: true, version});
+      const parsedRepository = !!packageInfo.repository && parseRepository(packageInfo.repository);
+
       if (parsedRepository) {
         logger.info(`Found repository "${parsedRepository}" for "${packageName}" (version "${version}").`);
         redirectSite = parsedRepository;
-      } else if (info.homepage) {
-        logger.info(`Found homepage "${info.homepage}" for "${packageName}" (version "${version}").`);
-        redirectSite = info.homepage;
+      } else if (!!packageInfo.homepage) {
+        logger.info(`Found homepage "${packageInfo.homepage}" for "${packageName}" (version "${version}").`);
+        redirectSite = packageInfo.homepage;
+      } else if (!!packageInfo.url) {
+        logger.info(`Found URL "${packageInfo.url}" for "${packageName}" (version "${version}").`);
+        redirectSite = packageInfo.url as string;
       }
     } catch (error) {
       if (error instanceof packageJson.VersionNotFoundError) {
@@ -59,7 +63,7 @@ export const packagesRoute = () => {
 
     return res.status(404).json({
       code: 404,
-      message: 'No source link found',
+      message: `No source link found. Please visit https://www.npmjs.com/package/${packageName}.`,
     });
   });
 };
