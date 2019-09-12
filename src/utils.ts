@@ -1,5 +1,6 @@
 import * as logdown from 'logdown';
 import * as moment from 'moment';
+import urlRegex = require('url-regex');
 
 export function formatDate(): string {
   return moment().format('YYYY-MM-DD HH:mm:ss');
@@ -43,4 +44,12 @@ export function parseRepository(repository: string | Record<string, string>): st
   }
 
   return null;
+}
+
+export function validateUrl(url: any): boolean {
+  if (typeof url !== 'string') {
+    return false;
+  }
+
+  return urlRegex({exact: true}).test(url);
 }

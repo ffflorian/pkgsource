@@ -2,7 +2,7 @@ import * as express from 'express';
 import packageJson = require('package-json');
 const validatePackageName = require('validate-npm-package-name');
 
-import {getLogger, parseRepository} from '../utils';
+import {getLogger, parseRepository, validateUrl} from '../utils';
 
 const logger = getLogger('pkgsource/mainRoute');
 const router = express.Router();
@@ -69,12 +69,16 @@ export const packagesRoute = () => {
       redirectSite = packageInfo.url;
     }
 
-    if (redirectSite) {
+    const urlIsValid = validateUrl(redirectSite);
+
+    if (redirectSite && urlIsValid) {
       if ('raw' in req.query) {
         return res.contentType('text/plain').send(redirectSite);
       }
       logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
       return res.redirect(redirectSite);
+    } else if (!urlIsValid) {
+      logger.info(`Invalid URL "${redirectSite}" for package "${packageName}".`);
     }
 
     logger.info(`No source URL found in package "${packageName}".`);
