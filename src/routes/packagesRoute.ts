@@ -61,12 +61,12 @@ export const packagesRoute = () => {
     if (parsedRepository) {
       logger.info(`Found repository "${parsedRepository}" for package "${packageName}" (version "${version}").`);
       redirectSite = parsedRepository;
-    } else if (!!packageInfo.homepage) {
+    } else if (!!packageInfo.homepage && typeof packageInfo.homepage === 'string') {
       logger.info(`Found homepage "${packageInfo.homepage}" for package "${packageName}" (version "${version}").`);
       redirectSite = packageInfo.homepage;
-    } else if (!!packageInfo.url) {
+    } else if (!!packageInfo.url && typeof packageInfo.url === 'string') {
       logger.info(`Found URL "${packageInfo.url}" for package "${packageName}" (version "${version}").`);
-      redirectSite = packageInfo.url as string;
+      redirectSite = packageInfo.url;
     }
 
     if (redirectSite) {
