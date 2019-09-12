@@ -1,19 +1,15 @@
 import * as express from 'express';
 import * as helmet from 'helmet';
 import * as http from 'http';
-import * as logdown from 'logdown';
 
 import {ServerConfig} from './config';
 import {healthCheckRoute} from './routes/_health/healthCheckRoute';
 import {internalErrorRoute, notFoundRoute} from './routes/error/errorRoutes';
 import {mainRoute} from './routes/mainRoute';
 import {packagesRoute} from './routes/packagesRoute';
-import {formatDate} from './utils';
+import {getLogger} from './utils';
 
-const logger = logdown('pkgsource/Server', {
-  logger: console,
-  markdown: false,
-});
+const logger = getLogger('pkgsource/Server');
 
 export class Server {
   private readonly app: express.Express;
@@ -63,7 +59,7 @@ export class Server {
         reject('Server is already running.');
       } else if (this.config.PORT_HTTP) {
         this.server = this.app.listen(this.config.PORT_HTTP, () => {
-          logger.info(`[${formatDate()}] Server is running on port ${this.config.PORT_HTTP}.`);
+          logger.info(`Server is running on port ${this.config.PORT_HTTP}.`);
           resolve(this.config.PORT_HTTP);
         });
       } else {

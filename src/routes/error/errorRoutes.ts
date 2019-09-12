@@ -1,14 +1,10 @@
 import * as express from 'express';
-import * as logdown from 'logdown';
 
-import {formatDate} from '../../utils';
+import {formatDate, getLogger} from '../../utils';
 
 const router = express.Router();
 
-const logger = logdown('pkgsource/errorRoutes', {
-  logger: console,
-  markdown: false,
-});
+const logger = getLogger('pkgsource/errorRoutes');
 
 export const internalErrorRoute = (): express.ErrorRequestHandler => (err, req, res, next) => {
   logger.error(`[${formatDate()}] ${err.stack}`);

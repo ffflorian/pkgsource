@@ -1,15 +1,10 @@
 import * as express from 'express';
-import * as logdown from 'logdown';
 import packageJson = require('package-json');
-import {parseRepository} from '../utils';
 
-const logger = logdown('pkgsource/mainRoute', {
-  logger: console,
-  markdown: false,
-});
+import {getLogger, parseRepository} from '../utils';
 
+const logger = getLogger('pkgsource/mainRoute');
 const router = express.Router();
-
 const packageNameRegex = new RegExp('^\\/((?:@[^@/]+/)?[^@/]+)(?:@([^@/]+))?\\/?$');
 
 export const packagesRoute = () => {
