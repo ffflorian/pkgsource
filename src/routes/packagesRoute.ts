@@ -19,7 +19,6 @@ export const packagesRoute = () => {
     logger.info(`Got request for package "${packageName}" (version "${version}").`);
 
     const validateResult = validatePackageName(packageName);
-    logger.info({validateResult});
 
     if (!validateResult.validForNewPackages) {
       logger.info(`Invalid package name: "${packageName}"`, validateResult);
