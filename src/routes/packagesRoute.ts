@@ -33,7 +33,7 @@ export const packagesRoute = () => {
       packageInfo = await packageJson(packageName, {fullMetadata: true, version});
     } catch (error) {
       if (error instanceof packageJson.VersionNotFoundError) {
-        logger.info(`Version "${version}" not found for "${packageName}".`);
+        logger.info(`Version "${version}" not found for package "${packageName}".`);
         return res.status(404).json({
           code: 404,
           message: 'Version not found',
@@ -59,13 +59,13 @@ export const packagesRoute = () => {
     const parsedRepository = !!packageInfo.repository && parseRepository(packageInfo.repository);
 
     if (parsedRepository) {
-      logger.info(`Found repository "${parsedRepository}" for "${packageName}" (version "${version}").`);
+      logger.info(`Found repository "${parsedRepository}" for package "${packageName}" (version "${version}").`);
       redirectSite = parsedRepository;
     } else if (!!packageInfo.homepage) {
-      logger.info(`Found homepage "${packageInfo.homepage}" for "${packageName}" (version "${version}").`);
+      logger.info(`Found homepage "${packageInfo.homepage}" for package "${packageName}" (version "${version}").`);
       redirectSite = packageInfo.homepage;
     } else if (!!packageInfo.url) {
-      logger.info(`Found URL "${packageInfo.url}" for "${packageName}" (version "${version}").`);
+      logger.info(`Found URL "${packageInfo.url}" for package "${packageName}" (version "${version}").`);
       redirectSite = packageInfo.url as string;
     }
 
@@ -73,7 +73,7 @@ export const packagesRoute = () => {
       if ('raw' in req.query) {
         return res.contentType('text/plain').send(redirectSite);
       }
-      logger.info(`Redirecting to "${redirectSite}" ...`);
+      logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
       return res.redirect(redirectSite);
     }
 
