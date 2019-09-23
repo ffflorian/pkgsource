@@ -3,7 +3,7 @@
   "dependencies": {
     "cross-env": "5.2.1",
     "express": "4.17.1",
-    "helmet": "3.21.0",
+    "helmet": "3.21.1",
     "logdown": "3.2.8",
     "moment": "2.24.0",
     "package-json": "6.5.0",
