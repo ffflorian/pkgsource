@@ -37,6 +37,7 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://pkgsource.xyz",
   "keywords": [
     "cli",
     "typescript"
@@ -62,7 +63,7 @@
     ]
   },
   "main": "dist/index.js",
-  "name": "@ffflorian/pkgsource",
+  "name": "pkgsource",
   "prettier": "@ffflorian/prettier-config",
   "private": true,
   "repository": "https://github.com/ffflorian/pkgsource.git",
