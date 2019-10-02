@@ -1,7 +1,7 @@
 {
   "author": "Florian Keller <github@floriankeller.de>",
   "dependencies": {
-    "cross-env": "6.0.0",
+    "cross-env": "6.0.2",
     "express": "4.17.1",
     "helmet": "3.21.1",
     "logdown": "3.2.8",
