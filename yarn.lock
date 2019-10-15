@@ -3034,10 +3034,10 @@ pm2-multimeter@^0.1.2:
   dependencies:
     charm "~0.1.1"
 
-pm2@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/pm2/-/pm2-4.0.0.tgz#b7ce44342a32cf1f3e4b5cf027d00194d23eb29b"
-  integrity sha512-PLJy3ex9pRrtP2ACs9qO45MGEk//AfYN1gjBvlGs725B51o5PkT8ZGP0YIFnOba3xRzsgIXG4g/Hf6gfztiNSQ==
+pm2@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/pm2/-/pm2-4.0.2.tgz#d1bfbd3f6be0d9981da847f035da7ee5830d069c"
+  integrity sha512-fn4fJ0dZODqGSAbMbjD8+zBUqwMCJcmz77yjp+02f7fe3fwovSNOJySZjT+G2MSlwIfeUKufjjxlxZ6fdglkng==
   dependencies:
     "@pm2/agent" "^0.5.26"
     "@pm2/io" "^4.3.2"
