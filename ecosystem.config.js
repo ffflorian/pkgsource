@@ -1,9 +1,11 @@
+const path = require('path');
+
 module.exports = {
   apps: [
     {
       env: {
-        LOG_ERROR: `${process.env.HOME}/.pm2/logs/pkgsource-error.log`,
-        LOG_OUTPUT: `${process.env.HOME}/.pm2/logs/pkgsource-out.log`,
+        LOG_ERROR: path.join(__filename, 'logs/pkgsource-error.log'),
+        LOG_OUTPUT: path.join(__filename, 'logs/pkgsource-out.log'),
         NODE_DEBUG: 'pkgsource/*',
       },
       name: 'pkgsource',

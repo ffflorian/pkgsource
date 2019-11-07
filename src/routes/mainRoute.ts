@@ -1,10 +1,10 @@
 import * as express from 'express';
 
 import {ServerConfig} from '../config';
-import {parseRepository} from '../utils';
+import {RepositoryParser} from '../RepositoryParser';
 
-const {repository} = require('../../package.json');
-const repositoryUrl = parseRepository(repository);
+const {repository}: {repository: string} = require('../../package.json');
+const repositoryUrl = RepositoryParser.parseRepository(repository);
 
 const router = express.Router();
 

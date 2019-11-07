@@ -1,8 +1,9 @@
 import * as express from 'express';
 import packageJson = require('package-json');
-const validatePackageName = require('validate-npm-package-name');
+import validatePackageName = require('validate-npm-package-name');
 
-import {getLogger, parseRepository, validateUrl} from '../utils';
+import {RepositoryParser} from '../RepositoryParser';
+import {getLogger} from '../utils';
 
 const logger = getLogger('pkgsource/mainRoute');
 const router = express.Router();
@@ -44,7 +45,7 @@ export const packagesRoute = () => {
       return res.status(500).json({code: 500, message: 'Internal server error'});
     }
 
-    const parsedRepository = !!packageInfo.repository && parseRepository(packageInfo.repository);
+    const parsedRepository = !!packageInfo.repository && RepositoryParser.parseRepository(packageInfo.repository);
 
     if (parsedRepository) {
       logger.info(`Found repository "${parsedRepository}" for package "${packageName}" (version "${version}").`);
@@ -57,7 +58,7 @@ export const packagesRoute = () => {
       redirectSite = packageInfo.url;
     }
 
-    const urlIsValid = validateUrl(redirectSite);
+    const urlIsValid = RepositoryParser.validateUrl(redirectSite);
 
     if (redirectSite && urlIsValid) {
       if ('raw' in req.query) {
