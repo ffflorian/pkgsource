@@ -1,3 +1,8 @@
 import {Router} from 'express';
+import * as HTTP_STATUS from 'http-status-codes';
 
-export const healthCheckRoute = () => Router().get('/_health/?', (req, res) => res.sendStatus(200));
+export function healthCheckRoute(): Router {
+  return Router().get('/_health/?', (req, res) => {
+    res.sendStatus(HTTP_STATUS.OK);
+  });
+}

@@ -1,8 +1,7 @@
 import * as express from 'express';
-import packageJson = require('package-json');
-import validatePackageName = require('validate-npm-package-name');
+import * as HTTP_STATUS from 'http-status-codes';
 
-import {RepositoryParser} from '../RepositoryParser';
+import {ParseStatus, RepositoryParser} from '../RepositoryParser';
 import {getLogger} from '../utils';
 
 const logger = getLogger('pkgsource/mainRoute');
@@ -11,70 +10,50 @@ const packageNameRegex = new RegExp('^\\/((?:@[^@/]+/)?[^@/]+)(?:@([^@/]+))?\\/?
 
 export const packagesRoute = () => {
   return router.get(packageNameRegex, async (req, res) => {
-    let packageInfo;
-    let redirectSite = '';
-
     const packageName = req.params[0];
-    const version = req.params[1] || 'latest';
+    const version = req.params[1];
 
     logger.info(`Got request for package "${packageName}" (version "${version}").`);
 
-    const validateResult = validatePackageName(packageName);
+    const parseResult = await RepositoryParser.getPackageUrl(packageName, version);
 
-    if (!validateResult.validForNewPackages) {
-      logger.info(`Invalid package name: "${packageName}"`, validateResult);
+    if (parseResult.status === ParseStatus.SUCCESS) {
+      const redirectSite = parseResult.url;
 
-      return res.status(422).json({code: 422, message: 'Invalid package name'});
-    }
-
-    try {
-      packageInfo = await packageJson(packageName, {fullMetadata: true, version});
-    } catch (error) {
-      if (error instanceof packageJson.VersionNotFoundError) {
-        logger.info(`Version "${version}" not found for package "${packageName}".`);
-        return res.status(404).json({code: 404, message: 'Version not found'});
-      }
-
-      if (error instanceof packageJson.PackageNotFoundError) {
-        logger.info(`Package "${packageName}" not found.`);
-        return res.status(404).json({code: 404, message: 'Package not found'});
-      }
-
-      logger.error(error);
-
-      return res.status(500).json({code: 500, message: 'Internal server error'});
-    }
-
-    const parsedRepository = !!packageInfo.repository && RepositoryParser.parseRepository(packageInfo.repository);
-
-    if (parsedRepository) {
-      logger.info(`Found repository "${parsedRepository}" for package "${packageName}" (version "${version}").`);
-      redirectSite = parsedRepository;
-    } else if (!!packageInfo.homepage && typeof packageInfo.homepage === 'string') {
-      logger.info(`Found homepage "${packageInfo.homepage}" for package "${packageName}" (version "${version}").`);
-      redirectSite = packageInfo.homepage;
-    } else if (!!packageInfo.url && typeof packageInfo.url === 'string') {
-      logger.info(`Found URL "${packageInfo.url}" for package "${packageName}" (version "${version}").`);
-      redirectSite = packageInfo.url;
-    }
-
-    const urlIsValid = RepositoryParser.validateUrl(redirectSite);
-
-    if (redirectSite && urlIsValid) {
       if ('raw' in req.query) {
-        return res.json({code: 200, url: redirectSite});
+        logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
+        return res.json({code: HTTP_STATUS.OK, url: redirectSite});
       }
+
       logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
-      return res.redirect(redirectSite);
-    } else if (!urlIsValid) {
-      logger.info(`Invalid URL "${redirectSite}" for package "${packageName}".`);
+      return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
     }
 
-    logger.info(`No source URL found in package "${packageName}".`);
-
-    return res.status(404).json({
-      code: 404,
-      message: `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`,
-    });
+    switch (parseResult.status) {
+      case ParseStatus.INVALID_PACKAGE_NAME: {
+        return res
+          .status(HTTP_STATUS.UNPROCESSABLE_ENTITY)
+          .json({code: HTTP_STATUS.UNPROCESSABLE_ENTITY, message: 'Invalid package name'});
+      }
+      case ParseStatus.INVALID_URL:
+      case ParseStatus.NO_URL_FOUND: {
+        return res.status(HTTP_STATUS.NOT_FOUND).json({
+          code: HTTP_STATUS.NOT_FOUND,
+          message: `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`,
+        });
+      }
+      case ParseStatus.PACKAGE_NOT_FOUND: {
+        return res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Package not found'});
+      }
+      case ParseStatus.VERSION_NOT_FOUND: {
+        return res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Version not found'});
+      }
+      case ParseStatus.SERVER_ERROR:
+      default: {
+        return res
+          .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
+          .json({code: HTTP_STATUS.INTERNAL_SERVER_ERROR, message: 'Internal server error'});
+      }
+    }
   });
 };
