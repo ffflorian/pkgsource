@@ -17,23 +17,26 @@ export const packagesRoute = () => {
 
     const parseResult = await RepositoryParser.getPackageUrl(packageName, version);
 
-    if (parseResult.status === ParseStatus.SUCCESS) {
-      const redirectSite = parseResult.url;
-
-      if ('raw' in req.query) {
-        logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
-        return res.json({code: HTTP_STATUS.OK, url: redirectSite});
-      }
-
-      logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
-      return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
-    }
-
     switch (parseResult.status) {
+      case ParseStatus.SUCCESS: {
+        const redirectSite = parseResult.url;
+
+        if ('raw' in req.query) {
+          logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
+          return res.json({
+            code: HTTP_STATUS.OK,
+            url: redirectSite,
+          });
+        }
+
+        logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
+        return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
+      }
       case ParseStatus.INVALID_PACKAGE_NAME: {
-        return res
-          .status(HTTP_STATUS.UNPROCESSABLE_ENTITY)
-          .json({code: HTTP_STATUS.UNPROCESSABLE_ENTITY, message: 'Invalid package name'});
+        return res.status(HTTP_STATUS.UNPROCESSABLE_ENTITY).json({
+          code: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+          message: 'Invalid package name',
+        });
       }
       case ParseStatus.INVALID_URL:
       case ParseStatus.NO_URL_FOUND: {
@@ -43,16 +46,23 @@ export const packagesRoute = () => {
         });
       }
       case ParseStatus.PACKAGE_NOT_FOUND: {
-        return res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Package not found'});
+        return res.status(HTTP_STATUS.NOT_FOUND).json({
+          code: HTTP_STATUS.NOT_FOUND,
+          message: 'Package not found',
+        });
       }
       case ParseStatus.VERSION_NOT_FOUND: {
-        return res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Version not found'});
+        return res.status(HTTP_STATUS.NOT_FOUND).json({
+          code: HTTP_STATUS.NOT_FOUND,
+          message: 'Version not found',
+        });
       }
       case ParseStatus.SERVER_ERROR:
       default: {
-        return res
-          .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
-          .json({code: HTTP_STATUS.INTERNAL_SERVER_ERROR, message: 'Internal server error'});
+        return res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
+          code: HTTP_STATUS.INTERNAL_SERVER_ERROR,
+          message: 'Internal server error',
+        });
       }
     }
   });

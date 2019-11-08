@@ -23,7 +23,7 @@ export class Server {
     // The order is important here, please don't sort!
     this.initSecurityHeaders();
     this.app.use(healthCheckRoute());
-    this.app.use(mainRoute(this.config));
+    this.app.use(mainRoute());
     this.app.use(packagesRoute());
     this.app.use(notFoundRoute());
     this.app.use(internalErrorRoute());
