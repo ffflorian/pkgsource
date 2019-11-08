@@ -9,7 +9,7 @@ import {mainRoute} from './routes/mainRoute';
 import {packagesRoute} from './routes/packagesRoute';
 import {getLogger} from './utils';
 
-const logger = getLogger('pkgsource/Server');
+const logger = getLogger('Server');
 
 export class Server {
   private readonly app: express.Express;

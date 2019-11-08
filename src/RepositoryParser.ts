@@ -4,7 +4,7 @@ import validatePackageName = require('validate-npm-package-name');
 
 import {getLogger} from './utils';
 
-const logger = getLogger('pkgsource/RepositoryParser');
+const logger = getLogger('RepositoryParser');
 
 export enum ParseStatus {
   INVALID_PACKAGE_NAME = 'INVALID_NAME',
@@ -16,21 +16,16 @@ export enum ParseStatus {
   VERSION_NOT_FOUND = 'VERSION_NOT_FOUND',
 }
 
-export interface ParseResultError {
-  status: Exclude<ParseStatus, ParseStatus.SUCCESS>;
-}
-
-export interface ParseResultSuccess {
-  status: ParseStatus.SUCCESS;
-  url: string;
-}
-
-export type ParseResult = ParseResultSuccess | ParseResultError;
+export type ParseResult =
+  | {
+      status: Exclude<ParseStatus, ParseStatus.SUCCESS>;
+    }
+  | {
+      status: ParseStatus.SUCCESS;
+      url: string;
+    };
 
 export class RepositoryParser {
-  static cleanRepositoryUrl(repo: string): string {
-    return repo.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
-  }
   static async getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
     let packageInfo;
     let parsedUrl;
@@ -103,7 +98,11 @@ export class RepositoryParser {
     return null;
   }
 
-  static validateUrl(url: any): boolean {
+  private static cleanRepositoryUrl(repo: string): string {
+    return repo.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
+  }
+
+  private static validateUrl(url: any): boolean {
     if (typeof url !== 'string') {
       return false;
     }

@@ -2,7 +2,7 @@ import {config} from './config';
 import {Server} from './Server';
 import {getLogger} from './utils';
 
-const logger = getLogger('pkgsource/index');
+const logger = getLogger('index');
 
 const server = new Server(config);
 

@@ -4,7 +4,7 @@ import * as HTTP_STATUS from 'http-status-codes';
 import {ParseStatus, RepositoryParser} from '../RepositoryParser';
 import {getLogger} from '../utils';
 
-const logger = getLogger('pkgsource/mainRoute');
+const logger = getLogger('routes/mainRoute');
 const router = express.Router();
 const packageNameRegex = new RegExp('^\\/((?:@[^@/]+/)?[^@/]+)(?:@([^@/]+))?\\/?$');
 
