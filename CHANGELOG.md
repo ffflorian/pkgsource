@@ -1,0 +1,19 @@
+# [1.1.0](https://github.com/ffflorian/pkgsource/compare/v1.0.0...v1.1.0) (2019-11-08)
+
+### Bug Fixes
+
+- Check 'url' key ([3d517ed](https://github.com/ffflorian/pkgsource/commit/3d517ed62ea2e7252b0f98468a0a9abf3458b7c6))
+- Check value types returned from packageJson ([9d6cc9a](https://github.com/ffflorian/pkgsource/commit/9d6cc9a4d8da90f7ab5249531468a7c088cbdee7))
+
+### Features
+
+- Add automatic releases ([#50](https://github.com/ffflorian/pkgsource/issues/50)) ([99bb367](https://github.com/ffflorian/pkgsource/commit/99bb367586de877b2b3edf2b4e630876ea163cd1))
+- Add more logging ([947066e](https://github.com/ffflorian/pkgsource/commit/947066ee1679173bf1b6d9c0551e0ac19bf591ee))
+- Add raw for main URL ([0e2fc5e](https://github.com/ffflorian/pkgsource/commit/0e2fc5e485596ca0c05097c9c18450260339cf97))
+- add raw, use source over homepage ([386aa61](https://github.com/ffflorian/pkgsource/commit/386aa6194f0be6d7708beeea54e426d7d44eaef4))
+- Add redirect to homepage ([c847517](https://github.com/ffflorian/pkgsource/commit/c8475178f9e84cdb9c7a92de8b160baf17c806fe))
+- Logging with date, robots.txt file ([231d797](https://github.com/ffflorian/pkgsource/commit/231d79717ff250643343c1ac84e70797059c5936))
+- Return JSON for raw ([8c4d9af](https://github.com/ffflorian/pkgsource/commit/8c4d9affc16b106680c250d5d58f4e869a602954))
+- Simple redirect ([a9173d5](https://github.com/ffflorian/pkgsource/commit/a9173d59903b4d6942e623f82a6857586058ab3f))
+- validate npm package name ([04f7603](https://github.com/ffflorian/pkgsource/commit/04f76039971da4f327a55c13b0ca1eaa4acab758))
+- Validate source URL ([5678e54](https://github.com/ffflorian/pkgsource/commit/5678e546223225d20b655397511b1c44971526e9))
