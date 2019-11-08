@@ -6,8 +6,8 @@ export function formatDate(): string {
 }
 
 // tslint:disable:typedef
-export function getLogger(prefix: string) {
-  const logger = logdown(prefix, {
+export function getLogger(name: string) {
+  const logger = logdown(`pkgsource/${name}`, {
     logger: console,
     markdown: false,
   });

@@ -1,27 +1,36 @@
-import * as express from 'express';
+import {Router} from 'express';
+import * as HTTP_STATUS from 'http-status-codes';
 
-import {ServerConfig} from '../config';
 import {RepositoryParser} from '../RepositoryParser';
 
 const {repository}: {repository: string} = require('../../package.json');
-const repositoryUrl = RepositoryParser.parseRepository(repository);
+const repositoryUrl = RepositoryParser.parseRepositoryEntry(repository);
 
-const router = express.Router();
+const router = Router();
 
-export const mainRoute = (config: ServerConfig) => {
+export function mainRoute(): Router {
   return router
     .get('/', (req, res) => {
-      if (repositoryUrl) {
-        if ('raw' in req.query) {
-          return res.json({
-            code: 200,
-            url: repositoryUrl,
-          });
-        }
-        return res.redirect(repositoryUrl);
+      if (!repositoryUrl) {
+        return res.contentType('text/plain').send('Hello!');
       }
-      return res.contentType('text/plain').send('Hello!');
+
+      if ('raw' in req.query) {
+        return res.json({
+          code: HTTP_STATUS.OK,
+          url: repositoryUrl,
+        });
+      }
+
+      return res.redirect(repositoryUrl);
     })
-    .get('/robots.txt', (req, res) => res.contentType('text/plain').send('User-agent: *\nDisallow: /'))
-    .get('/favicon.ico', (req, res) => res.status(404).send({code: 404, message: 'Not found'}));
-};
+    .get('/robots.txt', (req, res) => {
+      return res.contentType('text/plain').send('User-agent: *\nDisallow: /');
+    })
+    .get('/favicon.ico', (req, res) => {
+      return res.status(HTTP_STATUS.NOT_FOUND).send({
+        code: HTTP_STATUS.NOT_FOUND,
+        message: 'Not found',
+      });
+    });
+}
