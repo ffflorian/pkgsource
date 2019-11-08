@@ -1,14 +1,14 @@
-import * as express from 'express';
+import {Router} from 'express';
 import * as HTTP_STATUS from 'http-status-codes';
 
 import {ParseStatus, RepositoryParser} from '../RepositoryParser';
 import {getLogger} from '../utils';
 
 const logger = getLogger('routes/mainRoute');
-const router = express.Router();
+const router = Router();
 const packageNameRegex = new RegExp('^\\/((?:@[^@/]+/)?[^@/]+)(?:@([^@/]+))?\\/?$');
 
-export const packagesRoute = () => {
+export function packagesRoute(): Router {
   return router.get(packageNameRegex, async (req, res) => {
     const packageName = req.params[0];
     const version = req.params[1];
@@ -66,4 +66,4 @@ export const packagesRoute = () => {
       }
     }
   });
-};
+}

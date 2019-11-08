@@ -14,6 +14,7 @@ const logger = getLogger('Server');
 export class Server {
   private readonly app: express.Express;
   private server?: http.Server;
+
   constructor(private readonly config: ServerConfig) {
     this.app = express();
     this.init();
