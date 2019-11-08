@@ -1,9 +1,9 @@
-name: Build, lint and test
+name: Pull request
 
-on: [push, pull_request]
+on: pull_request
 
 jobs:
-  build_lint_test:
+  build_test:
     name: Build, lint and test
     runs-on: ubuntu-latest
     steps:
