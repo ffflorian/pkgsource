@@ -7,6 +7,7 @@ import {getLogger} from '../utils';
 const logger = getLogger('routes/mainRoute');
 const router = Router();
 const packageNameRegex = new RegExp('^\\/((?:@[^@/]+/)?[^@/]+)(?:@([^@/]+))?\\/?$');
+const unpkgBase = 'https://unpkg.com/browse';
 
 export function packagesRoute(): Router {
   return router.get(packageNameRegex, async (req, res) => {
@@ -16,7 +17,7 @@ export function packagesRoute(): Router {
     logger.info(`Got request for package "${packageName}" (version "${version}").`);
 
     if ('unpkg' in req.query) {
-      const redirectSite = `https://unpkg.com/browse/${packageName}@${version}/`;
+      const redirectSite = `${unpkgBase}/${packageName}@${version}/`;
       if ('raw' in req.query) {
         logger.info(`Returning unpkg info for "${packageName}": "${redirectSite}" ...`);
         return res.json({
