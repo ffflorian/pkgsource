@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/ffflorian/pkgsource/compare/v1.2.0...v1.3.0) (2019-11-09)
+
+### Features
+
+- Forward to unpkg.com ([#53](https://github.com/ffflorian/pkgsource/issues/53)) ([46e314b](https://github.com/ffflorian/pkgsource/commit/46e314b180f22ffd973429e67ceeb48d3513a688))
+
 # [1.2.0](https://github.com/ffflorian/pkgsource/compare/v1.1.0...v1.2.0) (2019-11-09)
 
 ### Features
