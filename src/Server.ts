@@ -3,10 +3,14 @@ import * as helmet from 'helmet';
 import * as http from 'http';
 
 import {ServerConfig} from './config';
-import {healthCheckRoute} from './routes/_health/healthCheckRoute';
-import {internalErrorRoute, notFoundRoute} from './routes/error/errorRoutes';
-import {mainRoute} from './routes/mainRoute';
-import {packagesRoute} from './routes/packagesRoute';
+import {
+  healthCheckRoute,
+  initSwaggerRoute,
+  internalErrorRoute,
+  mainRoute,
+  notFoundRoute,
+  packagesRoute,
+} from './routes/';
 import {getLogger} from './utils';
 
 const logger = getLogger('Server');
@@ -25,6 +29,7 @@ export class Server {
     this.initSecurityHeaders();
     this.app.use(healthCheckRoute());
     this.app.use(mainRoute());
+    initSwaggerRoute(this.app, this.config);
     this.app.use(packagesRoute());
     this.app.use(notFoundRoute());
     this.app.use(internalErrorRoute());
