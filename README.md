@@ -8,8 +8,6 @@ Visit `pkgsource.xyz/{packageName}` in your web browser, e.g. [`pkgsource.xyz/no
 
 ### Get the repository for a specific version
 
-**Note**: this doesn't mean you will get the exact source for the specific version, instead you will be redirected to the package's repository. If you need the source code for the exact version, please use [unpkg](https://unpkg.com).
-
 Visit `pkgsource.xyz/{packageName}@{version}` in your web browser, e.g. [`pkgsource.xyz/lodash@4.17.15`](https://pkgsource.xyz/lodash@4.17.15). This also works with npm tags, e.g. [`pkgsource.xyz/typescript@beta`](https://pkgsource.xyz/typescript@beta)
 
 If no version is specified, the latest version is assumed.
@@ -17,6 +15,10 @@ If no version is specified, the latest version is assumed.
 ### Get the raw data
 
 Visit `pkgsource.xyz/{packageName}?raw` in your web browser, e.g. [`pkgsource.xyz/commander?raw`](https://pkgsource.xyz/commander?raw).
+
+### Get source code for a specific version
+
+Visit `pkgsource.xyz/{packageName}?unpkg` in your web browser, e.g. [`pkgsource.xyz/express@4.17.1?unpkg`](https://pkgsource.xyz/express@4.17.1?unpkg). You can use the same features (`raw`, version, tags) as mentioned above.
 
 ## Server usage
 
