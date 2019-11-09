@@ -4,10 +4,10 @@ import * as HTTP_STATUS from 'http-status-codes';
 import {ParseStatus, RepositoryParser} from '../RepositoryParser';
 import {getLogger} from '../utils';
 
-const logger = getLogger('routes/mainRoute');
+const logger = getLogger('routes/packagesRoute');
 const router = Router();
 const packageNameRegex = new RegExp('^\\/((?:@[^@/]+/)?[^@/]+)(?:@([^@/]+))?\\/?$');
-const unpkgBase = 'https://unpkg.com/browse';
+export const unpkgBase = 'https://unpkg.com/browse';
 
 export function packagesRoute(): Router {
   return router.get(packageNameRegex, async (req, res) => {
@@ -19,7 +19,7 @@ export function packagesRoute(): Router {
     if ('unpkg' in req.query) {
       const redirectSite = `${unpkgBase}/${packageName}@${version}/`;
       if ('raw' in req.query) {
-        logger.info(`Returning unpkg info for "${packageName}": "${redirectSite}" ...`);
+        logger.info(`Returning raw unpkg info for "${packageName}": "${redirectSite}" ...`);
         return res.json({
           code: HTTP_STATUS.OK,
           url: redirectSite,
