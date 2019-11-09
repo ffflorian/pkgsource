@@ -120,7 +120,7 @@ export class RepositoryParser {
     return parsedURL.href;
   }
 
-  private static validateUrl(url: any): boolean {
+  private static validateUrl(url: string): boolean {
     if (!urlRegex({exact: true}).test(url)) {
       logger.info(`URL "${url}" is not matching the RegEx.`);
       return false;
