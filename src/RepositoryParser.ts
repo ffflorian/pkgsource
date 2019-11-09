@@ -74,7 +74,10 @@ export class RepositoryParser {
       return {status: ParseStatus.NO_URL_FOUND};
     }
 
-    parsedUrl = parsedUrl.trim().toLowerCase();
+    parsedUrl = parsedUrl
+      .toString()
+      .trim()
+      .toLowerCase();
 
     const urlIsValid = RepositoryParser.validateUrl(parsedUrl);
 
@@ -118,10 +121,6 @@ export class RepositoryParser {
   }
 
   private static validateUrl(url: any): boolean {
-    if (typeof url !== 'string') {
-      return false;
-    }
-
     if (!urlRegex({exact: true}).test(url)) {
       logger.info(`URL "${url}" is not matching the RegEx.`);
       return false;
