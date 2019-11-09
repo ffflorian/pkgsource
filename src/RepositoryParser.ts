@@ -123,6 +123,7 @@ export class RepositoryParser {
     }
 
     if (!urlRegex({exact: true}).test(url)) {
+      logger.info(`URL "${url}" is not matching the RegEx.`);
       return false;
     }
 
@@ -130,7 +131,7 @@ export class RepositoryParser {
       new URL(url);
       return true;
     } catch (error) {
-      logger.info(`Could not create URL from url "${url}": ${error}`);
+      logger.info(`Could not create new URL from "${url}": ${error}`);
       return false;
     }
   }
