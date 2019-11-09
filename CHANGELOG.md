@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/ffflorian/pkgsource/compare/v1.1.0...v1.2.0) (2019-11-09)
+
+### Features
+
+- Forward to HTTPS for known sites ([#52](https://github.com/ffflorian/pkgsource/issues/52)) ([6d142a6](https://github.com/ffflorian/pkgsource/commit/6d142a637ccfad50b6116ced1c2fb20fd7fb9565))
+
 # [1.1.0](https://github.com/ffflorian/pkgsource/compare/v1.0.0...v1.1.0) (2019-11-08)
 
 ### Bug Fixes
