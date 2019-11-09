@@ -1,3 +1,9 @@
+# [1.4.0](https://github.com/ffflorian/pkgsource/compare/v1.3.0...v1.4.0) (2019-11-09)
+
+### Features
+
+- Add Swagger UI ([#54](https://github.com/ffflorian/pkgsource/issues/54)) ([acdfa57](https://github.com/ffflorian/pkgsource/commit/acdfa5715a0bf585e93c15da1ad13df468f4702e))
+
 # [1.3.0](https://github.com/ffflorian/pkgsource/compare/v1.2.0...v1.3.0) (2019-11-09)
 
 ### Features
