@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/ffflorian/pkgsource/compare/v1.4.0...v1.4.1) (2019-11-09)
+
+### Bug Fixes
+
+- Publish swagger.json ([18a9eec](https://github.com/ffflorian/pkgsource/commit/18a9eec0909d139d0e5f1022d35a9bd13789e94c))
+
 # [1.4.0](https://github.com/ffflorian/pkgsource/compare/v1.3.0...v1.4.0) (2019-11-09)
 
 ### Features
