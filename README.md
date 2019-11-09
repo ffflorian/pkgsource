@@ -41,3 +41,7 @@ yarn
 yarn dist
 yarn start
 ```
+
+### Swagger UI
+
+Open [`/_swagger-ui`](https://pkgsource.xyz/_swagger-ui) in the browser to try it out.
