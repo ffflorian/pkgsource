@@ -30,6 +30,7 @@ export class RepositoryParser {
   public static async getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
     let packageInfo;
     let parsedUrl;
+    let parsedRepository;
 
     const validateResult = validatePackageName(rawPackageName);
 
@@ -56,7 +57,9 @@ export class RepositoryParser {
       return {status: ParseStatus.SERVER_ERROR};
     }
 
-    const parsedRepository = !!packageInfo.repository && RepositoryParser.parseRepositoryEntry(packageInfo.repository);
+    if (packageInfo.repository) {
+      parsedRepository = RepositoryParser.parseRepositoryEntry(packageInfo.repository);
+    }
 
     if (parsedRepository) {
       logger.info(`Found repository "${parsedRepository}" for package "${rawPackageName}" (version "${version}").`);

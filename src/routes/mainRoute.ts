@@ -1,20 +1,12 @@
 import {Router} from 'express';
 import * as HTTP_STATUS from 'http-status-codes';
 
-import {RepositoryParser} from '../RepositoryParser';
-
-const {repository}: {repository: string} = require('../../package.json');
-const repositoryUrl = RepositoryParser.parseRepositoryEntry(repository);
-
 const router = Router();
+const repositoryUrl = 'https://github.com/ffflorian/pkgsource';
 
 export function mainRoute(): Router {
   return router
     .get('/', (req, res) => {
-      if (!repositoryUrl) {
-        return res.contentType('text/plain').send('Hello!');
-      }
-
       if ('raw' in req.query) {
         return res.json({
           code: HTTP_STATUS.OK,
