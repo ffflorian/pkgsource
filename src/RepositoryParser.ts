@@ -1,4 +1,5 @@
 import packageJson = require('package-json');
+import {URL} from 'url';
 import urlRegex = require('url-regex');
 import validatePackageName = require('validate-npm-package-name');
 
@@ -26,7 +27,7 @@ export type ParseResult =
     };
 
 export class RepositoryParser {
-  static async getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
+  public static async getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
     let packageInfo;
     let parsedUrl;
 
@@ -73,6 +74,11 @@ export class RepositoryParser {
       return {status: ParseStatus.NO_URL_FOUND};
     }
 
+    parsedUrl = parsedUrl
+      .toString()
+      .trim()
+      .toLowerCase();
+
     const urlIsValid = RepositoryParser.validateUrl(parsedUrl);
 
     if (!urlIsValid) {
@@ -80,33 +86,52 @@ export class RepositoryParser {
       return {status: ParseStatus.INVALID_URL};
     }
 
+    parsedUrl = RepositoryParser.tryHTTPS(parsedUrl);
+
     return {
       status: ParseStatus.SUCCESS,
       url: parsedUrl,
     };
   }
 
-  static parseRepositoryEntry(repository: string | Record<string, string>): string | null {
+  public static parseRepositoryEntry(repository: string | Record<string, string>): string | null {
     if (typeof repository === 'string') {
       return RepositoryParser.cleanRepositoryUrl(repository);
     }
 
-    if (!!repository.url) {
+    if (repository.url) {
       return RepositoryParser.cleanRepositoryUrl(repository.url);
     }
 
     return null;
   }
 
+  private static readonly knownSSLHosts = ['bitbucket.org', 'github.com', 'gitlab.com', 'sourceforge.net'];
+
   private static cleanRepositoryUrl(repo: string): string {
     return repo.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
   }
 
-  private static validateUrl(url: any): boolean {
-    if (typeof url !== 'string') {
+  private static tryHTTPS(url: string): string {
+    const parsedURL = new URL(url);
+    if (RepositoryParser.knownSSLHosts.includes(parsedURL.hostname)) {
+      parsedURL.protocol = 'https:';
+    }
+    return parsedURL.href;
+  }
+
+  private static validateUrl(url: string): boolean {
+    if (!urlRegex({exact: true}).test(url)) {
+      logger.info(`URL "${url}" is not matching the RegEx.`);
       return false;
     }
 
-    return urlRegex({exact: true}).test(url);
+    try {
+      new URL(url);
+      return true;
+    } catch (error) {
+      logger.info(`Could not create new URL from "${url}": ${error}`);
+      return false;
+    }
   }
 }
