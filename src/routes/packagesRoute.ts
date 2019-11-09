@@ -16,9 +16,9 @@ export function packagesRoute(): Router {
 
     logger.info(`Got request for package "${packageName}" (version "${version}").`);
 
-    if ('unpkg' in req.query) {
+    if ('unpkg' in req.query && req.query.unpkg !== 'false') {
       const redirectSite = `${unpkgBase}/${packageName}@${version}/`;
-      if ('raw' in req.query) {
+      if ('raw' in req.query && req.query.raw !== 'false') {
         logger.info(`Returning raw unpkg info for "${packageName}": "${redirectSite}" ...`);
         return res.json({
           code: HTTP_STATUS.OK,
@@ -35,7 +35,7 @@ export function packagesRoute(): Router {
       case ParseStatus.SUCCESS: {
         const redirectSite = parseResult.url;
 
-        if ('raw' in req.query) {
+        if ('raw' in req.query && req.query.raw !== 'false') {
           logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
           return res.json({
             code: HTTP_STATUS.OK,

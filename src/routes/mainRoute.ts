@@ -13,9 +13,9 @@ export function mainRoute(): Router {
     .get('/', (req, res) => {
       logger.info('Got request for main site');
 
-      if ('unpkg' in req.query) {
+      if ('unpkg' in req.query && req.query.unpkg !== 'false') {
         const redirectSite = `${unpkgBase}/pkgsource@latest/`;
-        if ('raw' in req.query) {
+        if ('raw' in req.query && req.query.raw !== 'false') {
           logger.info(`Returning raw unpkg info main site: "${redirectSite}" ...`);
           return res.json({
             code: HTTP_STATUS.OK,
@@ -26,7 +26,7 @@ export function mainRoute(): Router {
         return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
       }
 
-      if ('raw' in req.query) {
+      if ('raw' in req.query && req.query.raw !== 'false') {
         logger.info(`Returning raw info for main page: "${repositoryUrl}" ...`);
         return res.json({
           code: HTTP_STATUS.OK,
