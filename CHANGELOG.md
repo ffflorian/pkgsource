@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/ffflorian/pkgsource/compare/v1.4.1...v1.4.2) (2020-01-24)
+
+### Bug Fixes
+
+- Install pm2-logrotate and correct log file directories ([166254d](https://github.com/ffflorian/pkgsource/commit/166254d0fe97b84aca8abcc7fcff44e517e335e8))
+
 ## [1.4.1](https://github.com/ffflorian/pkgsource/compare/v1.4.0...v1.4.1) (2019-11-09)
 
 ### Bug Fixes
