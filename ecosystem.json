@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "env": {
+        "NODE_DEBUG": "pkgsource/*"
+      },
+      "error_file": "logs/pkgsource-error.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "name": "pkgsource",
+      "out_file": "./logs/pkgsource-out.log",
+      "script": "dist/index.js"
+    }
+  ]
+}
