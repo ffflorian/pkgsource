@@ -1,8 +1,8 @@
+import * as dateFns from 'date-fns';
 import * as logdown from 'logdown';
-import * as moment from 'moment';
 
 export function formatDate(): string {
-  return moment().format('YYYY-MM-DD HH:mm:ss');
+  return dateFns.format(new Date(), 'yyyy-mm-dd HH:mm:ss');
 }
 
 // tslint:disable:typedef
@@ -19,9 +19,4 @@ export function getLogger(name: string) {
     log: (...args: any[]) => logger.log(`[${formatDate()}]`, ...args),
     warn: (...args: any[]) => logger.warn(`[${formatDate()}]`, ...args),
   };
-}
-
-export function formatUptime(uptime: number): string {
-  const duration = moment.duration(uptime, 'seconds').asMilliseconds();
-  return moment.utc(duration).format('HH:mm:ss');
 }
