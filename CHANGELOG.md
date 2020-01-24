@@ -1,3 +1,9 @@
+## [1.4.3](https://github.com/ffflorian/pkgsource/compare/v1.4.2...v1.4.3) (2020-01-24)
+
+### Bug Fixes
+
+- Use JS for pm2 configuration ([88a5cb0](https://github.com/ffflorian/pkgsource/commit/88a5cb0064a8e1952b6077a81e26a7de30e6ef47))
+
 ## [1.4.2](https://github.com/ffflorian/pkgsource/compare/v1.4.1...v1.4.2) (2020-01-24)
 
 ### Bug Fixes
