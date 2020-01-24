@@ -11,39 +11,39 @@ export const unpkgBase = 'https://unpkg.com/browse';
 
 export function packagesRoute(): Router {
   return router.get(packageNameRegex, async (req, res) => {
-    const packageName = req.params[0];
+    const rawPackageName = req.params[0];
     const version = req.params[1] || 'latest';
 
-    logger.info(`Got request for package "${packageName}" (version "${version}").`);
+    logger.info(`Got request for package "${rawPackageName}" (version "${version}").`);
 
     if ('unpkg' in req.query && req.query.unpkg !== 'false') {
-      const redirectSite = `${unpkgBase}/${packageName}@${version}/`;
+      const redirectSite = `${unpkgBase}/${rawPackageName}@${version}/`;
       if ('raw' in req.query && req.query.raw !== 'false') {
-        logger.info(`Returning raw unpkg info for "${packageName}": "${redirectSite}" ...`);
+        logger.info(`Returning raw unpkg info for "${rawPackageName}": "${redirectSite}" ...`);
         return res.json({
           code: HTTP_STATUS.OK,
           url: redirectSite,
         });
       }
-      logger.info(`Redirecting package "${packageName}" to unpkg: "${redirectSite}" ...`);
+      logger.info(`Redirecting package "${rawPackageName}" to unpkg: "${redirectSite}" ...`);
       return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
     }
 
-    const parseResult = await RepositoryParser.getPackageUrl(packageName, version);
+    const parseResult = await RepositoryParser.getPackageUrl(rawPackageName, version);
 
     switch (parseResult.status) {
       case ParseStatus.SUCCESS: {
         const redirectSite = parseResult.url;
 
         if ('raw' in req.query && req.query.raw !== 'false') {
-          logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
+          logger.info(`Returning raw info for "${rawPackageName}": "${redirectSite}" ...`);
           return res.json({
             code: HTTP_STATUS.OK,
             url: redirectSite,
           });
         }
 
-        logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
+        logger.info(`Redirecting package "${rawPackageName}" to "${redirectSite}" ...`);
         return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
       }
       case ParseStatus.INVALID_PACKAGE_NAME: {
@@ -56,7 +56,7 @@ export function packagesRoute(): Router {
       case ParseStatus.NO_URL_FOUND: {
         return res.status(HTTP_STATUS.NOT_FOUND).json({
           code: HTTP_STATUS.NOT_FOUND,
-          message: `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`,
+          message: `No source URL found. Please visit https://www.npmjs.com/package/${rawPackageName}.`,
         });
       }
       case ParseStatus.PACKAGE_NOT_FOUND: {

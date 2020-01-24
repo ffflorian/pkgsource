@@ -3,10 +3,10 @@ import * as HTTP_STATUS from 'http-status-codes';
 
 import {getLogger} from '../utils';
 import {unpkgBase} from './packagesRoute';
+import {repositoryURL} from '../lib';
 
 const logger = getLogger('routes/mainRoute');
 const router = Router();
-const repositoryUrl = 'https://github.com/ffflorian/pkgsource';
 
 export function mainRoute(): Router {
   return router
@@ -27,15 +27,15 @@ export function mainRoute(): Router {
       }
 
       if ('raw' in req.query && req.query.raw !== 'false') {
-        logger.info(`Returning raw info for main page: "${repositoryUrl}" ...`);
+        logger.info(`Returning raw info for main page: "${repositoryURL}" ...`);
         return res.json({
           code: HTTP_STATUS.OK,
-          url: repositoryUrl,
+          url: repositoryURL,
         });
       }
 
-      logger.info(`Redirecting main page to "${repositoryUrl}" ...`);
-      return res.redirect(repositoryUrl);
+      logger.info(`Redirecting main page to "${repositoryURL}" ...`);
+      return res.redirect(repositoryURL);
     })
     .get('/robots.txt', (req, res) => {
       return res.contentType('text/plain').send('User-agent: *\nDisallow: /');
