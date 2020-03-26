@@ -2,7 +2,7 @@ import * as dateFns from 'date-fns';
 import * as logdown from 'logdown';
 
 export function formatDate(): string {
-  return dateFns.format(new Date(), 'yyyy-mm-dd HH:mm:ss');
+  return dateFns.format(new Date(), 'yyyy-MM-dd HH:mm:ss');
 }
 
 // tslint:disable:typedef
