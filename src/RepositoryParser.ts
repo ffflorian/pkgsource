@@ -1,7 +1,7 @@
-import packageJson = require('package-json');
+import * as packageJson from 'package-json';
 import {URL} from 'url';
-import urlRegex = require('url-regex');
-import validatePackageName = require('validate-npm-package-name');
+import * as urlRegex from 'url-regex';
+import * as validatePackageName from 'validate-npm-package-name';
 
 import {getLogger} from './utils';
 
@@ -77,10 +77,7 @@ export class RepositoryParser {
       return {status: ParseStatus.NO_URL_FOUND};
     }
 
-    parsedUrl = parsedUrl
-      .toString()
-      .trim()
-      .toLowerCase();
+    parsedUrl = parsedUrl.toString().trim().toLowerCase();
 
     const urlIsValid = RepositoryParser.validateUrl(parsedUrl);
 

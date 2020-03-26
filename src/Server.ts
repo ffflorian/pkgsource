@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as helmet from 'helmet';
 import * as http from 'http';
 
-import {ServerConfig} from './config';
+import type {ServerConfig} from './config';
 import {
   healthCheckRoute,
   initSwaggerRoute,
