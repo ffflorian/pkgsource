@@ -1,3 +1,9 @@
+## [1.4.4](https://github.com/ffflorian/pkgsource/compare/v1.4.3...v1.4.4) (2020-03-26)
+
+### Bug Fixes
+
+- Log month formatting ([726ec94](https://github.com/ffflorian/pkgsource/commit/726ec94e6df2f67da787cc0d896e4cba87dd2a00))
+
 ## [1.4.3](https://github.com/ffflorian/pkgsource/compare/v1.4.2...v1.4.3) (2020-01-24)
 
 ### Bug Fixes
