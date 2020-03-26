@@ -25,9 +25,9 @@ import {ServerConfig} from '../config';
 const swaggerDocument = require('../../swagger.json');
 
 export function initSwaggerRoute(app: express.Express, config: ServerConfig): void {
-  const swaggerUiOptions = {
+  const swaggerOptions: swaggerUi.SwaggerOptions = {
     host: `localhost:${config.PORT_HTTP}`,
   };
 
-  app.use('/_swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {options: swaggerUiOptions}));
+  app.use('/_swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {}, {options: swaggerOptions}));
 }
