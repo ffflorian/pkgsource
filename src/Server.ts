@@ -39,7 +39,7 @@ export class Server {
     if (this.config.DEVELOPMENT) {
       this.app.use(helmet.noCache());
     } else {
-      this.app.use((req, res, next) => {
+      this.app.use((_, res, next) => {
         const milliSeconds = 1000;
         res.header('Cache-Control', `public, max-age=${this.config.CACHE_DURATION_SECONDS}`);
         res.header('Expires', new Date(Date.now() + this.config.CACHE_DURATION_SECONDS * milliSeconds).toUTCString());
@@ -62,14 +62,14 @@ export class Server {
   start(): Promise<number> {
     return new Promise((resolve, reject) => {
       if (this.server) {
-        reject('Server is already running.');
+        reject(new Error('Server is already running.'));
       } else if (this.config.PORT_HTTP) {
         this.server = this.app.listen(this.config.PORT_HTTP, () => {
           logger.info(`Server is running on port ${this.config.PORT_HTTP}.`);
           resolve(this.config.PORT_HTTP);
         });
       } else {
-        reject('Server port not specified.');
+        reject(new Error('Server port not specified.'));
       }
     });
   }

@@ -7,7 +7,7 @@ const logger = getLogger('routes/errorRoutes');
 const router = Router();
 
 export function internalErrorRoute(): ErrorRequestHandler {
-  return (err, req, res) => {
+  return (err, _, res) => {
     logger.error(`[${formatDate()}] ${err.stack}`);
     const error = {
       code: HTTP_STATUS.INTERNAL_SERVER_ERROR,
@@ -19,7 +19,7 @@ export function internalErrorRoute(): ErrorRequestHandler {
 }
 
 export function notFoundRoute(): Router {
-  return router.get('*', (req, res) => {
+  return router.get('*', (_, res) => {
     const error = {
       code: HTTP_STATUS.NOT_FOUND,
       message: 'Not found',

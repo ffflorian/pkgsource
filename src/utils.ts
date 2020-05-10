@@ -5,7 +5,6 @@ export function formatDate(): string {
   return dateFns.format(new Date(), 'yyyy-MM-dd HH:mm:ss');
 }
 
-// tslint:disable:typedef
 export function getLogger(name: string) {
   const logger = logdown(`pkgsource/${name}`, {
     logger: console,
