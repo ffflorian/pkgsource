@@ -37,10 +37,10 @@ export function mainRoute(): Router {
       logger.info(`Redirecting main page to "${repositoryUrl}" ...`);
       return res.redirect(repositoryUrl);
     })
-    .get('/robots.txt', (req, res) => {
+    .get('/robots.txt', (_, res) => {
       return res.contentType('text/plain').send('User-agent: *\nDisallow: /');
     })
-    .get('/favicon.ico', (req, res) => {
+    .get('/favicon.ico', (_, res) => {
       return res.status(HTTP_STATUS.NOT_FOUND).send({
         code: HTTP_STATUS.NOT_FOUND,
         message: 'Not found',
