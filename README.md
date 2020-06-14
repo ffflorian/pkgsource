@@ -22,6 +22,14 @@ Visit `pkgsource.xyz/{packageName}?unpkg` in your web browser, e.g. [`pkgsource.
 
 ## Server usage
 
+### Docker
+
+```
+docker run -p 4000:4000 ffflorian/pkgsource
+```
+
+### Local
+
 Prerequisites:
 
 - [Node.js](https://nodejs.org) >= 10.9
