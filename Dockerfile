@@ -4,8 +4,6 @@ RUN apt-get update \
     && apt-get -y install git \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /home/node/app
-
 ADD bin /etc/scripts
 
 EXPOSE 4000
