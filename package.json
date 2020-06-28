@@ -7,10 +7,10 @@
     "forever": "3.0.0",
     "helmet": "3.23.2",
     "http-status-codes": "1.4.0",
+    "is-url-superb": "4.0.0",
     "logdown": "3.3.1",
     "package-json": "6.5.0",
     "swagger-ui-express": "4.1.4",
-    "url-regex": "5.0.0",
     "validate-npm-package-name": "3.0.0"
   },
   "description": "Find the source of an npm package in an instant.",

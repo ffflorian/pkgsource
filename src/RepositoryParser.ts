@@ -1,6 +1,6 @@
 import * as packageJson from 'package-json';
 import {URL} from 'url';
-import * as urlRegex from 'url-regex';
+import isUrl = require('is-url-superb');
 import * as validatePackageName from 'validate-npm-package-name';
 
 import {getLogger} from './utils';
@@ -121,7 +121,7 @@ export class RepositoryParser {
   }
 
   private static validateUrl(url: string): boolean {
-    if (!urlRegex({exact: true}).test(url)) {
+    if (!isUrl(url)) {
       logger.info(`URL "${url}" is not matching the RegEx.`);
       return false;
     }
