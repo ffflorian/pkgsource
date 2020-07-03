@@ -46,7 +46,7 @@
     "description": "Find the source of an npm package in an instant.",
     "license": {
       "name": "GPL-3.0",
-      "url": "https://github.com/ffflorian/pkgsource/blob/master/LICENSE"
+      "url": "https://github.com/ffflorian/pkgsource/blob/main/LICENSE"
     },
     "title": "pkgsource",
     "version": "1.3.0"
