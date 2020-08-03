@@ -1,5 +1,6 @@
 import * as express from 'express';
-import * as helmet from 'helmet';
+import helmet from 'helmet';
+import nocache = require('nocache');
 import * as http from 'http';
 
 import type {ServerConfig} from './config';
@@ -37,7 +38,7 @@ export class Server {
 
   initCaching(): void {
     if (this.config.DEVELOPMENT) {
-      this.app.use(helmet.noCache());
+      this.app.use(nocache());
     } else {
       this.app.use((_, res, next) => {
         const milliSeconds = 1000;
