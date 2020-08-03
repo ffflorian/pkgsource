@@ -9,6 +9,7 @@
     "http-status-codes": "1.4.0",
     "is-url-superb": "4.0.0",
     "logdown": "3.3.1",
+    "nocache": "2.1.0",
     "package-json": "6.5.0",
     "swagger-ui-express": "4.1.4",
     "validate-npm-package-name": "3.0.0"
