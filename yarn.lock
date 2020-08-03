@@ -408,13 +408,6 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/helmet@0.0.47":
-  version "0.0.47"
-  resolved "https://registry.npmjs.org/@types/helmet/-/helmet-0.0.47.tgz#ec5161541b649142205b7c558bca14801c5ce129"
-  integrity sha512-TcHA/djjdUtrMtq/QAayVLrsgjNNZ1Uhtz0KhfH01mrmjH44E54DA1A0HNbwW0H/NBFqV+tGMo85ACuEhMXcdg==
-  dependencies:
-    "@types/express" "*"
-
 "@types/jasmine@3.5.12":
   version "3.5.12"
   resolved "https://registry.npmjs.org/@types/jasmine/-/jasmine-3.5.12.tgz#5c378c1545cdc7cb339cff5578f854b6d1e0a17d"

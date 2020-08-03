@@ -1,7 +1,7 @@
-import * as packageJson from 'package-json';
+import packageJson from 'package-json';
 import {URL} from 'url';
-import isUrl = require('is-url-superb');
-import * as validatePackageName from 'validate-npm-package-name';
+import isUrl from 'is-url-superb';
+import validatePackageName from 'validate-npm-package-name';
 
 import {getLogger} from './utils';
 

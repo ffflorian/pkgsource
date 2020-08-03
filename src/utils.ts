@@ -1,5 +1,5 @@
 import * as dateFns from 'date-fns';
-import * as logdown from 'logdown';
+import logdown from 'logdown';
 
 export function formatDate(): string {
   return dateFns.format(new Date(), 'yyyy-MM-dd HH:mm:ss');

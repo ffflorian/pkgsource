@@ -1,6 +1,6 @@
-import * as express from 'express';
+import express from 'express';
 import helmet from 'helmet';
-import nocache = require('nocache');
+import nocache from 'nocache';
 import * as http from 'http';
 
 import type {ServerConfig} from './config';
