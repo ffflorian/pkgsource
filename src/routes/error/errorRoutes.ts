@@ -1,6 +1,6 @@
 import {ErrorRequestHandler, Router} from 'express';
 
-import * as HTTP_STATUS from 'http-status-codes';
+import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import {formatDate, getLogger} from '../../utils';
 
 const logger = getLogger('routes/errorRoutes');
