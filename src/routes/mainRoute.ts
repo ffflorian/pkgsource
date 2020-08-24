@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import * as HTTP_STATUS from 'http-status-codes';
+import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
 import {getLogger} from '../utils';
 import {unpkgBase} from './packagesRoute';
