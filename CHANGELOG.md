@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/ffflorian/pkgsource/compare/v1.4.4...v1.4.5) (2020-08-24)
+
+
+### Bug Fixes
+
+* Use esModuleInterop and remove old types ([2781419](https://github.com/ffflorian/pkgsource/commit/27814194dfefa03d936ab8917c5ec4655a8bcfcd))
+
 ## [1.4.4](https://github.com/ffflorian/pkgsource/compare/v1.4.3...v1.4.4) (2020-03-26)
 
 ### Bug Fixes
