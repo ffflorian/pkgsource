@@ -1,4 +1,4 @@
-# pkgsource [![Build Status](https://github.com/ffflorian/pkgsource/workflows/Build/badge.svg)](https://github.com/ffflorian/pkgsource/actions/) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ffflorian/pkgsource)](https://dependabot.com)
+# pkgsource [![Build Status](https://github.com/ffflorian/pkgsource/workflows/Build/badge.svg)](https://github.com/ffflorian/pkgsource/actions/)
 
 Find (almost) every npm package's repository in an instant.
 
