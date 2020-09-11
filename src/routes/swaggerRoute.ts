@@ -1,33 +1,19 @@
-/*
- * Wire
- * Copyright (C) 2018 Wire Swiss GmbH
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see http://www.gnu.org/licenses/.
- *
- */
-
 import * as express from 'express';
+import * as findUp from 'find-up';
 import * as swaggerUi from 'swagger-ui-express';
 
 import {ServerConfig} from '../config';
 
-const swaggerDocument = require('../../swagger.json');
+const swaggerJsonPath = findUp.sync('swagger.json', {allowSymlinks: false, cwd: __dirname});
+if (!swaggerJsonPath) {
+  throw new Error('Could not find file `swagger.json`');
+}
+const swaggerDocument = require(swaggerJsonPath);
 
 export function initSwaggerRoute(app: express.Express, config: ServerConfig): void {
   const swaggerOptions: swaggerUi.SwaggerOptions = {
     host: `localhost:${config.PORT_HTTP}`,
   };
 
-  app.use('/_swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {}, {options: swaggerOptions}));
+  app.use('/_swagger-ui/?', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {}, {options: swaggerOptions}));
 }
