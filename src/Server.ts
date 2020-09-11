@@ -11,6 +11,7 @@ import {
   mainRoute,
   notFoundRoute,
   packagesRoute,
+  infoRoute,
 } from './routes/';
 import {getLogger} from './utils';
 
@@ -29,6 +30,7 @@ export class Server {
     // The order is important here, please don't sort!
     this.initSecurityHeaders();
     this.app.use(healthCheckRoute());
+    this.app.use(infoRoute());
     this.app.use(mainRoute());
     initSwaggerRoute(this.app, this.config);
     this.app.use(packagesRoute());

@@ -1,6 +1,12 @@
 import * as path from 'path';
+import * as findUp from 'find-up';
 
-const {version}: {version: string} = require('../package.json');
+const packageJsonPath = findUp.sync('package.json', {allowSymlinks: false});
+if (!packageJsonPath) {
+  throw new Error('Could not find file `swagger.json`');
+}
+
+const {version}: {version: string} = require(packageJsonPath);
 
 export interface ServerConfig {
   CACHE_DURATION_SECONDS: number;
