@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/ffflorian/pkgsource/compare/v1.4.5...v1.5.0) (2020-09-11)
+
+
+### Features
+
+* Add info route ([#380](https://github.com/ffflorian/pkgsource/issues/380)) ([13870f2](https://github.com/ffflorian/pkgsource/commit/13870f28853ff209da48a06414b958d0394277bb))
+
 ## [1.4.5](https://github.com/ffflorian/pkgsource/compare/v1.4.4...v1.4.5) (2020-08-24)
 
 

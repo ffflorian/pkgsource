@@ -106,5 +106,5 @@
     "start:dev": "node bin/commit_hash.js && cross-env NODE_DEBUG=\"pkgsource/*\" ts-node src/index.ts",
     "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
   },
-  "version": "1.4.5"
+  "version": "1.5.0"
 }
