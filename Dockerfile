@@ -6,6 +6,8 @@ RUN apt-get update \
 
 ADD bin /etc/scripts
 
-EXPOSE 4000
+ENV PORT=4000
+
+EXPOSE ${PORT}
 
 CMD [ "/etc/scripts/start.sh" ]
