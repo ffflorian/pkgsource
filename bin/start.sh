@@ -2,9 +2,9 @@
 
 export NODE_DEBUG="pkgsource/*"
 
-git clone https://github.com/ffflorian/pkgsource.git /app --depth 1
+git clone https://github.com/ffflorian/pkgsource.git /pkgsource --depth 1
 
-cd /app
+cd /pkgsource
 
 yarn
 yarn dist
