@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/ffflorian/pkgsource/compare/v1.5.0...v1.6.0) (2020-10-01)
+
+
+### Features
+
+* Use pm2 instead of forever ([a95852c](https://github.com/ffflorian/pkgsource/commit/a95852ca489db9d5efa877776985f0a2232baf88))
+
 # [1.5.0](https://github.com/ffflorian/pkgsource/compare/v1.4.5...v1.5.0) (2020-09-11)
 
 
