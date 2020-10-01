@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/ffflorian/pkgsource/compare/v1.6.0...v1.6.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* Add PORT as env variable in Docker ([1f39664](https://github.com/ffflorian/pkgsource/commit/1f39664ebb3d09de1ac07fb06526d4bbe99f864a))
+
 # [1.6.0](https://github.com/ffflorian/pkgsource/compare/v1.5.0...v1.6.0) (2020-10-01)
 
 
