@@ -10,3 +10,4 @@ yarn
 yarn dist
 
 yarn start
+npx pm2 logs
