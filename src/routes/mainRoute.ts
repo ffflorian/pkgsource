@@ -11,12 +11,12 @@ const repositoryUrl = 'https://github.com/ffflorian/pkgsource';
 export function mainRoute(): Router {
   return router
     .get('/', (req, res) => {
-      logger.info('Got request for main site');
+      logger.info('Got request for main page');
 
       if ('unpkg' in req.query && req.query.unpkg !== 'false') {
         const redirectSite = `${unpkgBase}/pkgsource@latest/`;
         if ('raw' in req.query && req.query.raw !== 'false') {
-          logger.info(`Returning raw unpkg info main site: "${redirectSite}" ...`);
+          logger.info(`Returning raw unpkg info for main page: "${redirectSite}" ...`);
           return res.json({
             code: HTTP_STATUS.OK,
             url: redirectSite,
