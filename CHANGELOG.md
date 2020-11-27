@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/ffflorian/pkgsource/compare/v1.6.1...v1.6.2) (2020-11-27)
+
+
+### Bug Fixes
+
+* Update dependencies ([1dd422c](https://github.com/ffflorian/pkgsource/commit/1dd422c5b069c1ca801cd1645e00511788303c21))
+
 ## [1.6.1](https://github.com/ffflorian/pkgsource/compare/v1.6.0...v1.6.1) (2020-10-01)
 
 
