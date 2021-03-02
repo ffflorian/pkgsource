@@ -1807,10 +1807,10 @@ data-uri-to-buffer@1:
   resolved "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-1.2.0.tgz#77163ea9c20d8641b4707e8f18abdf9a78f34835"
   integrity sha512-vKQ9DTQPN1FLYiiEEOQ6IBGFqvjCa5rSK3cWMy/Nespm5d/x3dGFT9UBZnkLxCwua/IXBi2TYnwTEpsOvhC4UQ==
 
-date-fns@2.17.0:
-  version "2.17.0"
-  resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.17.0.tgz#afa55daea539239db0a64e236ce716ef3d681ba1"
-  integrity sha512-ZEhqxUtEZeGgg9eHNSOAJ8O9xqSgiJdrL0lzSSfMF54x6KXWJiOH/xntSJ9YomJPrYH/p08t6gWjGWq1SDJlSA==
+date-fns@2.18.0:
+  version "2.18.0"
+  resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.18.0.tgz#08e50aee300ad0d2c5e054e3f0d10d8f9cdfe09e"
+  integrity sha512-NYyAg4wRmGVU4miKq5ivRACOODdZRY3q5WLmOJSq8djyzftYphU7dTHLcEtLqEvfqMKQ0jVv91P4BAwIjsXIcw==
 
 dateformat@^3.0.0:
   version "3.0.3"
