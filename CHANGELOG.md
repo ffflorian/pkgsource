@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/ffflorian/pkgsource/compare/v1.6.2...v1.6.3) (2021-04-22)
+
+
+### Bug Fixes
+
+* Remove is-url-superb ([f727c5a](https://github.com/ffflorian/pkgsource/commit/f727c5a0d58c8790c8491d4454e8063dcebc0592))
+
 ## [1.6.2](https://github.com/ffflorian/pkgsource/compare/v1.6.1...v1.6.2) (2020-11-27)
 
 
