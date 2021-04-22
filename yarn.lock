@@ -3552,11 +3552,6 @@ is-typedarray@~1.0.0:
   resolved "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
-is-url-superb@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/is-url-superb/-/is-url-superb-6.0.0.tgz#d8d235d4ad00a456aeeebea906df5f23c1ec2271"
-  integrity sha512-wtbUoVlIatwULXm6skTLeTdztxif+0gFvse2JJRKQQWyHGzPMPRF8V6dpxId3jV+WoEqpCd03pp6Fb4ApteClQ==
-
 isarray@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"

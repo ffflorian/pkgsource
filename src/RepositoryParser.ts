@@ -1,7 +1,6 @@
 import packageJson from 'package-json';
 import {URL} from 'url';
-import isUrl from 'is-url-superb';
-import validatePackageName from 'validate-npm-package-name';
+import * as validatePackageName from 'validate-npm-package-name';
 
 import {getLogger} from './utils';
 
@@ -121,11 +120,6 @@ export class RepositoryParser {
   }
 
   private static validateUrl(url: string): boolean {
-    if (!isUrl(url)) {
-      logger.info(`URL "${url}" is not matching the RegEx.`);
-      return false;
-    }
-
     try {
       new URL(url);
       return true;
