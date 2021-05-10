@@ -99,10 +99,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@es-joy/jsdoccomment@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.npmjs.org/@es-joy/jsdoccomment/-/jsdoccomment-0.4.3.tgz#c66b42aa66d2e0718f77fccc8d9061cf0b1092ac"
-  integrity sha512-t0JWZfQiG+Qkr6+tl05dlGcgE/MMPqs7QfNlFkTsbpcCu2Zfukcan/fIiHKTc0iOs4Yh3cnfklMayJnlmKaOwQ==
+"@es-joy/jsdoccomment@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.npmjs.org/@es-joy/jsdoccomment/-/jsdoccomment-0.4.4.tgz#8a25154156edbfc29e310943ebb17ee29122c9df"
+  integrity sha512-ua4qDt9dQb4qt5OI38eCZcQZYE5Bq3P0GzgvDARdT8Lt0mAUpxKTPy8JGGqEvF77tG1irKDZ3WreeezEa3P43w==
   dependencies:
     comment-parser "^1.1.5"
     esquery "^1.4.0"
@@ -624,10 +624,10 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/jasmine@3.7.0":
-  version "3.7.0"
-  resolved "https://registry.npmjs.org/@types/jasmine/-/jasmine-3.7.0.tgz#0bec645334621c1cd32648d02865ff36d201bf07"
-  integrity sha512-a/RDj4aOSY1BGlrmj2rtXJeLk5kS/k39xWZlHKfwDUqYeGpxV6f4WG59vCn3T3FXnlhMGBrAAtx0xg/+J8mR0g==
+"@types/jasmine@3.7.1":
+  version "3.7.1"
+  resolved "https://registry.npmjs.org/@types/jasmine/-/jasmine-3.7.1.tgz#35b86511a389673ac1a706c6010b35788a0d998d"
+  integrity sha512-MP1bcwS0MXQSKPBd20wv0rqF+GOfHTchz4mKFkS4ajAmz2oYwhOpSE9FPe611TOOarA061itZwUQUYRI5mPJsA==
 
 "@types/json-schema@^7.0.3":
   version "7.0.4"
@@ -1770,10 +1770,10 @@ data-uri-to-buffer@3:
   resolved "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-3.0.1.tgz#594b8973938c5bc2c33046535785341abc4f3636"
   integrity sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
 
-date-fns@2.21.2:
-  version "2.21.2"
-  resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.21.2.tgz#9db92305cf00626e9122e56c72195b17725594aa"
-  integrity sha512-FMkG7pIPx64mGIpS2LOb3Wp3O606H/hatoiz7G0oiYWai1izdM4tF1dd7QABv2NogkIDI4wxsfLLFQSuVvDHgA==
+date-fns@2.21.3:
+  version "2.21.3"
+  resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.21.3.tgz#8f5f6889d7a96bbcc1f0ea50239b397a83357f9b"
+  integrity sha512-HeYdzCaFflc1i4tGbj7JKMjM4cKGYoyxwcIIkHzNgCkX8xXDNJDZXgDDVchIWpN4eQc3lH37WarduXFZJOtxfw==
 
 dateformat@^3.0.0:
   version "3.0.3"
@@ -2168,12 +2168,12 @@ eslint-plugin-jasmine@4.1.2:
   resolved "https://registry.npmjs.org/eslint-plugin-jasmine/-/eslint-plugin-jasmine-4.1.2.tgz#50cc20d603b02b37727f8d174d4b83b9b8ef25a5"
   integrity sha512-Jr52EBi6Ql5WVDvRCKBID9kRD6/CaObvCWmgHpqobczX2Mzt8/QMu9vpgx6q/O5jyQ9CIGrKaEbPuEfHRf8guw==
 
-eslint-plugin-jsdoc@33.1.0:
-  version "33.1.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-33.1.0.tgz#9aa52d0eb0126ea42528aa352265007dce320565"
-  integrity sha512-nyH1qAj5f4uDnDpg4aiAS65wJSfxfBDf0lIgNfxtew31z3VRaM8WsVmpe4UhI2u27oOD/ChRuye6KAzzuHn6Jw==
+eslint-plugin-jsdoc@33.1.1:
+  version "33.1.1"
+  resolved "https://registry.npmjs.org/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-33.1.1.tgz#f3e6d74a6a3bd9624d54e1a9ccbd83a30ddb0824"
+  integrity sha512-6Avc2czg/mh0zmuU3H4v2xTXOALl9OiMGpn55nBDydhU684cVgvn2VtXm1JgH+2TW5SxEDnX3o/FUgda7LgVYA==
   dependencies:
-    "@es-joy/jsdoccomment" "^0.4.3"
+    "@es-joy/jsdoccomment" "^0.4.4"
     comment-parser "1.1.5"
     debug "^4.3.1"
     esquery "^1.4.0"
@@ -5084,10 +5084,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
-  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
+prettier@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-2.3.0.tgz#b6a5bf1284026ae640f17f7ff5658a7567fc0d18"
+  integrity sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==
 
 proc-log@^1.0.0:
   version "1.0.0"
