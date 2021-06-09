@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/ffflorian/pkgsource/compare/v1.6.3...v1.6.4) (2021-06-09)
+
+
+### Bug Fixes
+
+* Install procps in Docker ([c884723](https://github.com/ffflorian/pkgsource/commit/c884723a7004de0d366c548dfba5ba622395ce08))
+
 ## [1.6.3](https://github.com/ffflorian/pkgsource/compare/v1.6.2...v1.6.3) (2021-04-22)
 
 
