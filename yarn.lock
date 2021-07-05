@@ -750,10 +750,10 @@
     "@types/express" "*"
     "@types/serve-static" "*"
 
-"@types/validate-npm-package-name@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/@types/validate-npm-package-name/-/validate-npm-package-name-3.0.2.tgz#91798f047eee96f14c4a64f873936f21715ff0b9"
-  integrity sha512-7ohzD2fh5iV74brBLY2SdEI/nt4vnUoY1++r0P8QEAL5utR0fTFGeGijJMLHTmeNriroZQphGyVp46CbIuILMA==
+"@types/validate-npm-package-name@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@types/validate-npm-package-name/-/validate-npm-package-name-3.0.3.tgz#970c1949b0b677e970aa6e60db4e0f6aaf5fb293"
+  integrity sha512-dLhCHEIjf9++/vHaHCo/ngJzGqGGbPh/f7HKwznEk3WFL64t/VKuRiVpyQH4afX93YkCV94I9M0Cx+DBLk1Dsg==
 
 "@typescript-eslint/eslint-plugin@4.28.1":
   version "4.28.1"
