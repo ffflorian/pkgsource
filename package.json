@@ -10,7 +10,7 @@
     "logdown": "3.3.1",
     "nocache": "3.0.1",
     "package-json": "7.0.0",
-    "pm2": "5.1.0",
+    "pm2": "5.1.1",
     "swagger-ui-express": "4.1.6",
     "validate-npm-package-name": "3.0.0"
   },
