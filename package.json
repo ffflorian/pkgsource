@@ -4,7 +4,7 @@
     "cross-env": "7.0.3",
     "date-fns": "2.23.0",
     "express": "4.17.1",
-    "find-up": "5.0.0",
+    "find-up": "6.0.0",
     "helmet": "4.6.0",
     "http-status-codes": "2.1.4",
     "logdown": "3.3.1",
