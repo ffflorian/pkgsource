@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/ffflorian/pkgsource/compare/v1.6.4...v1.6.5) (2021-09-04)
+
+
+### Bug Fixes
+
+* Trim package name on request ([78e3957](https://github.com/ffflorian/pkgsource/commit/78e3957077aef1661607899b56e23824e1bd6670))
+
 ## [1.6.4](https://github.com/ffflorian/pkgsource/compare/v1.6.3...v1.6.4) (2021-06-09)
 
 
