@@ -1,4 +1,4 @@
-import packageJson from 'package-json';
+import packageJson = require('package-json');
 import {URL} from 'url';
 import * as validatePackageName from 'validate-npm-package-name';
 
@@ -27,9 +27,9 @@ export type ParseResult =
 
 export class RepositoryParser {
   public static async getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
-    let packageInfo;
-    let parsedUrl;
-    let parsedRepository;
+    let packageInfo: packageJson.FullMetadata;
+    let parsedUrl: string | null = null;
+    let parsedRepository: string | null = null;
 
     const validateResult = validatePackageName(rawPackageName);
 
@@ -63,10 +63,10 @@ export class RepositoryParser {
     if (parsedRepository) {
       logger.info(`Found repository "${parsedRepository}" for package "${rawPackageName}" (version "${version}").`);
       parsedUrl = parsedRepository;
-    } else if (!!packageInfo.homepage && typeof packageInfo.homepage === 'string') {
+    } else if (typeof packageInfo?.homepage === 'string') {
       logger.info(`Found homepage "${packageInfo.homepage}" for package "${rawPackageName}" (version "${version}").`);
       parsedUrl = packageInfo.homepage;
-    } else if (!!packageInfo.url && typeof packageInfo.url === 'string') {
+    } else if (typeof packageInfo.url === 'string') {
       logger.info(`Found URL "${packageInfo.url}" for package "${rawPackageName}" (version "${version}").`);
       parsedUrl = packageInfo.url;
     }

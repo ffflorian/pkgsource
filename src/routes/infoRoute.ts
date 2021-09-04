@@ -27,11 +27,11 @@ if (!commitPath) {
 }
 
 export function infoRoute(): Router {
-  return router.get('/_info/?', (_req, res) => {
-    return res.json({
+  return router.get('/_info/?', (_req, res) =>
+    res.json({
       code: HTTP_STATUS.OK,
       ...(commit ? {commit} : undefined),
       ...(version ? {version} : undefined),
-    });
-  });
+    })
+  );
 }

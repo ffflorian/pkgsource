@@ -3,6 +3,7 @@ import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
 import {ParseStatus, RepositoryParser} from '../RepositoryParser';
 import {getLogger} from '../utils';
+const {name} = require('../../package.json');
 
 const logger = getLogger('routes/packagesRoute');
 const router = Router();
@@ -11,7 +12,7 @@ export const unpkgBase = 'https://unpkg.com/browse';
 
 export function packagesRoute(): Router {
   return router.get(packageNameRegex, async (req, res) => {
-    const packageName = req.params[0];
+    const packageName = req.params[0]?.trim() || name;
     const version = req.params[1] || 'latest';
 
     logger.info(`Got request for package "${packageName}" (version "${version}").`);
