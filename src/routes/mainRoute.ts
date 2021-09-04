@@ -4,26 +4,36 @@ import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import {getLogger} from '../utils';
 import {unpkgBase} from './packagesRoute';
 
+interface MainRouteResponseBody {
+  code: HTTP_STATUS;
+  message?: string;
+  url?: string;
+}
+
+type MainRouteQueryParameters = Record<'unpkg' | 'raw', string>;
+
+type MainRouteParamsDictionary = [string, string];
+
 const logger = getLogger('routes/mainRoute');
 const router = Router();
 const repositoryUrl = 'https://github.com/ffflorian/pkgsource';
 
 export function mainRoute(): Router {
   return router
-    .get('/', (req, res) => {
+    .get<MainRouteParamsDictionary, MainRouteResponseBody, void, MainRouteQueryParameters>('/', (req, res) => {
       logger.info('Got request for main page');
 
       if ('unpkg' in req.query && req.query.unpkg !== 'false') {
-        const redirectSite = `${unpkgBase}/pkgsource@latest/`;
+        const redirectUrl = `${unpkgBase}/pkgsource@latest/`;
         if ('raw' in req.query && req.query.raw !== 'false') {
-          logger.info(`Returning raw unpkg info for main page: "${redirectSite}" ...`);
+          logger.info(`Returning raw unpkg info for main page: "${redirectUrl}" ...`);
           return res.json({
             code: HTTP_STATUS.OK,
-            url: redirectSite,
+            url: redirectUrl,
           });
         }
-        logger.info(`Redirecting main page to unpkg: "${redirectSite}" ...`);
-        return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
+        logger.info(`Redirecting main page to unpkg: "${redirectUrl}" ...`);
+        return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
       }
 
       if ('raw' in req.query && req.query.raw !== 'false') {
