@@ -40,6 +40,7 @@ export function packagesRoute(): Router {
           logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
           return res.json({
             code: HTTP_STATUS.OK,
+            packageInfo: parseResult.packageInfo,
             url: redirectSite,
           });
         }
@@ -57,7 +58,8 @@ export function packagesRoute(): Router {
       case ParseStatus.NO_URL_FOUND: {
         return res.status(HTTP_STATUS.NOT_FOUND).json({
           code: HTTP_STATUS.NOT_FOUND,
-          message: `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`,
+          message: 'No source URL found',
+          packageInfo: parseResult.packageInfo,
         });
       }
       case ParseStatus.PACKAGE_NOT_FOUND: {

@@ -17,13 +17,15 @@ export enum ParseStatus {
 }
 
 export type ParseResult =
-  | {
-      status: Exclude<ParseStatus, ParseStatus.SUCCESS>;
-    }
-  | {
-      status: ParseStatus.SUCCESS;
-      url: string;
-    };
+  | {packageInfo?: packageJson.FullMetadata} & (
+      | {
+          status: Exclude<ParseStatus, ParseStatus.SUCCESS>;
+        }
+      | {
+          status: ParseStatus.SUCCESS;
+          url: string;
+        }
+    );
 
 export class RepositoryParser {
   public static async getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
@@ -73,7 +75,7 @@ export class RepositoryParser {
 
     if (!parsedUrl) {
       logger.info(`No source URL found in package "${rawPackageName}".`);
-      return {status: ParseStatus.NO_URL_FOUND};
+      return {packageInfo, status: ParseStatus.NO_URL_FOUND};
     }
 
     parsedUrl = parsedUrl.toString().trim().toLowerCase();
@@ -82,12 +84,13 @@ export class RepositoryParser {
 
     if (!urlIsValid) {
       logger.info(`Invalid URL "${parsedUrl}" for package "${rawPackageName}".`);
-      return {status: ParseStatus.INVALID_URL};
+      return {packageInfo, status: ParseStatus.INVALID_URL};
     }
 
     parsedUrl = RepositoryParser.tryHTTPS(parsedUrl);
 
     return {
+      packageInfo,
       status: ParseStatus.SUCCESS,
       url: parsedUrl,
     };
