@@ -36,7 +36,6 @@ function cleanUrl(url: string): string | null {
   if (parsedURL) {
     parsedURL.hash = '';
     parsedURL.password = '';
-    parsedURL.pathname = parsedURL.pathname.replace(/\.git$/, '');
     parsedURL.protocol = knownSSLHosts.includes(parsedURL.hostname) ? 'https:' : 'http:';
     parsedURL.search = '';
     parsedURL.username = '';
