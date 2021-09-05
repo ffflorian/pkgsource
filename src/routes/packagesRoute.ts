@@ -2,7 +2,7 @@ import {Router} from 'express';
 import {URL} from 'url';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
-import {ParseStatus, RepositoryParser} from '../RepositoryParser';
+import {getPackageUrl, ParseStatus} from '../RepositoryParser';
 import {getLogger, queryParameterExists, validateUrl} from '../utils';
 
 interface PackagesRouteResponseBody {
@@ -26,6 +26,8 @@ export function packagesRoute(): Router {
     async (request, response) => {
       const packageName = request.params[0]?.trim() || 'pkgsource';
       const version = request.params[1]?.trim() || 'latest';
+      let errorCode: HTTP_STATUS;
+      let errorMessage: string;
 
       logger.info(`Got request for package "${packageName}" (version "${version}").`);
 
@@ -50,10 +52,7 @@ export function packagesRoute(): Router {
         return response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
       }
 
-      const parseResult = await RepositoryParser.getPackageUrl(packageName, version);
-
-      let errorCode: HTTP_STATUS;
-      let errorMessage: string;
+      const parseResult = await getPackageUrl(packageName, version);
 
       switch (parseResult.status) {
         case ParseStatus.SUCCESS: {

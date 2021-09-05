@@ -23,13 +23,12 @@ export function getLogger(name: string) {
   };
 }
 
-export function validateUrl(url: string): boolean {
+export function validateUrl(url: string): URL | null {
   try {
-    new URL(url);
-    return true;
+    return new URL(url);
   } catch (error) {
     getLogger('utils').info(`Could not create new URL from "${url}": ${error}`);
-    return false;
+    return null;
   }
 }
 
