@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/ffflorian/pkgsource/compare/v1.6.6...v1.7.0) (2021-09-05)
+
+
+### Features
+
+* Remove username from parsed repository URL ([332f648](https://github.com/ffflorian/pkgsource/commit/332f6488173b7da80c03067c4330db90430b540e))
+
 ## [1.6.6](https://github.com/ffflorian/pkgsource/compare/v1.6.5...v1.6.6) (2021-09-05)
 
 
