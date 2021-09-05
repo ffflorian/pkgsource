@@ -102,5 +102,5 @@
     "start:dev": "yarn build:commit && cross-env NODE_DEBUG=\"pkgsource/*\" ts-node src/index.ts",
     "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
   },
-  "version": "1.6.5"
+  "version": "1.6.6"
 }

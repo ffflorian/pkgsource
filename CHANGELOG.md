@@ -1,3 +1,10 @@
+## [1.6.6](https://github.com/ffflorian/pkgsource/compare/v1.6.5...v1.6.6) (2021-09-05)
+
+
+### Bug Fixes
+
+* Validate redirection URL ([#708](https://github.com/ffflorian/pkgsource/issues/708)) ([f278552](https://github.com/ffflorian/pkgsource/commit/f27855254d172f916d3e913183d2d189ed9b7e7f))
+
 ## [1.6.5](https://github.com/ffflorian/pkgsource/compare/v1.6.4...v1.6.5) (2021-09-04)
 
 
