@@ -2,7 +2,7 @@ import packageJson = require('package-json');
 import {URL} from 'url';
 import * as validatePackageName from 'validate-npm-package-name';
 
-import {getLogger} from './utils';
+import {getLogger, validateUrl} from './utils';
 
 const logger = getLogger('RepositoryParser');
 
@@ -78,7 +78,7 @@ export class RepositoryParser {
 
     parsedUrl = parsedUrl.toString().trim().toLowerCase();
 
-    const urlIsValid = RepositoryParser.validateUrl(parsedUrl);
+    const urlIsValid = validateUrl(parsedUrl);
 
     if (!urlIsValid) {
       logger.info(`Invalid URL "${parsedUrl}" for package "${rawPackageName}".`);
@@ -117,15 +117,5 @@ export class RepositoryParser {
       parsedURL.protocol = 'https:';
     }
     return parsedURL.href;
-  }
-
-  private static validateUrl(url: string): boolean {
-    try {
-      new URL(url);
-      return true;
-    } catch (error) {
-      logger.info(`Could not create new URL from "${url}": ${error}`);
-      return false;
-    }
   }
 }
