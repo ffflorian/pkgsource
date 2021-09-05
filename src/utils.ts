@@ -2,6 +2,7 @@ import {URL} from 'url';
 import * as dateFns from 'date-fns';
 import * as logdown from 'logdown';
 import type {Request} from 'express';
+import type {ParamsDictionary} from 'express-serve-static-core';
 
 export function formatDate(): string {
   return dateFns.format(new Date(), 'yyyy-MM-dd HH:mm:ss');
@@ -32,9 +33,9 @@ export function validateUrl(url: string): boolean {
   }
 }
 
-export function queryParameterExists<ReqQuery extends Record<string, string>>(
+export function queryParameterExists<ReqQuery extends ParamsDictionary, Parameter extends keyof ReqQuery>(
   request: Request<any, any, any, ReqQuery>,
-  parameter: string
+  parameter: Parameter
 ): boolean {
   return parameter in request.query && request.query[parameter] !== 'false';
 }
