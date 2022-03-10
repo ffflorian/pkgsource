@@ -1,7 +1,7 @@
 import * as express from 'express';
-import * as helmet from 'helmet';
 import * as nocache from 'nocache';
 import * as http from 'http';
+import helmet from 'helmet';
 
 import type {ServerConfig} from './config';
 import {
