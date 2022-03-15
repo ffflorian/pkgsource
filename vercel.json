@@ -5,6 +5,11 @@
       "use": "@vercel/node"
     }
   ],
+  "functions": {
+    "src/Server.ts": {
+      "includeFiles": "swagger.json"
+    }
+  },
   "routes": [
     {
       "dest": "src/Server.ts",
