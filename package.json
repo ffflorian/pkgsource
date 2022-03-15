@@ -81,10 +81,10 @@
   },
   "repository": "https://github.com/ffflorian/pkgsource.git",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && yarn build:commit",
     "build:commit": "git rev-parse HEAD > commit",
     "clean": "rimraf dist",
-    "dist": "yarn clean && yarn build && yarn build:commit",
+    "dist": "yarn clean && yarn build",
     "flatten": "publish-flat -o flattened",
     "fix": "yarn fix:other && yarn fix:ts && yarn fix:ts:spec",
     "fix:other": "yarn prettier --write",
