@@ -1,10 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "src/Server.ts",
-      "use": "@vercel/node"
-    }
-  ],
   "functions": {
     "src/Server.ts": {
       "includeFiles": "swagger.json"
