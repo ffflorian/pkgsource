@@ -2,6 +2,6 @@
   "compilerOptions": {
     "rootDir": "."
   },
-  "exclude": ["dist", "node_modules", "src"],
+  "exclude": ["dist", "node_modules", "api"],
   "extends": "./tsconfig.json"
 }
