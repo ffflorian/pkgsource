@@ -69,7 +69,7 @@
     "spec/**/*.ts": [
       "eslint --config .eslintrc.spec.json --fix"
     ],
-    "src/**/*.ts": [
+    "api/**/*.ts": [
       "eslint --fix"
     ]
   },
@@ -92,12 +92,12 @@
     "fix:ts:spec": "yarn lint:ts:spec --fix",
     "lint": "yarn lint:ts && yarn lint:ts:spec && yarn lint:other",
     "lint:other": "yarn prettier --list-different",
-    "lint:ts": "eslint --ignore-path .gitignore --ext .ts src/",
+    "lint:ts": "eslint --ignore-path .gitignore --ext .ts api/",
     "lint:ts:spec": "eslint --ignore-path .gitignore --ext .ts --config .eslintrc.spec.json spec/",
     "postversion": "node ../node_modules/publish-flat/cli-copy.js -i package.json -o ../package.json version",
     "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
-    "start:dev": "yarn build:commit && cross-env NODE_DEBUG=\"pkgsource/*\" ts-node src/index.ts",
+    "start:dev": "yarn build:commit && cross-env NODE_DEBUG=\"pkgsource/*\" ts-node api/index.ts",
     "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
   },
   "version": "1.7.0"

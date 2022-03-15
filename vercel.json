@@ -1,12 +1,12 @@
 {
   "functions": {
-    "src/Server.ts": {
+    "api/Server.ts": {
       "includeFiles": "swagger.json"
     }
   },
   "routes": [
     {
-      "dest": "src/Server.ts",
+      "dest": "api/Server.ts",
       "methods": ["GET"],
       "src": "/(.*)"
     }
