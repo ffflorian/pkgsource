@@ -4,6 +4,9 @@
       "includeFiles": "swagger.json"
     }
   },
+  "github": {
+    "silent": true
+  },
   "routes": [
     {
       "dest": "src/Server.ts",
