@@ -1,7 +1,7 @@
 import path from 'path';
 import findUp from 'find-up';
 
-const packageJsonPath = findUp.sync('swagger.json', {allowSymlinks: false});
+const packageJsonPath = findUp.sync('package.json', {allowSymlinks: false});
 if (!packageJsonPath) {
   throw new Error('Could not find file `swagger.json`');
 }
