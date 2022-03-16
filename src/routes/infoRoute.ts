@@ -1,6 +1,6 @@
 import {Router} from 'express';
-import * as findUp from 'find-up';
-import * as fs from 'fs';
+import findUp from 'find-up';
+import fs from 'fs';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
 import {getLogger} from '../utils';

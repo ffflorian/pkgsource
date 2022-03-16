@@ -1,6 +1,6 @@
 import {URL} from 'url';
 import * as dateFns from 'date-fns';
-import * as logdown from 'logdown';
+import logdown from 'logdown';
 import type {Request} from 'express';
 import type {ParamsDictionary} from 'express-serve-static-core';
 
