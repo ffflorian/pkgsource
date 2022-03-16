@@ -55,7 +55,7 @@ export function packagesRoute(): Router {
       }
 
       const parseResult = await getPackageUrl(packageName, version);
-      let packageInfo: packageJson.FullMetadata | undefined;
+      const packageInfo = parseResult.packageInfo;
 
       switch (parseResult.status) {
         case ParseStatus.SUCCESS: {
@@ -65,7 +65,7 @@ export function packagesRoute(): Router {
             logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
             return response.json({
               code: HTTP_STATUS.OK,
-              packageInfo: parseResult.packageInfo,
+              packageInfo: packageInfo,
               url: redirectSite,
             });
           }
@@ -83,9 +83,8 @@ export function packagesRoute(): Router {
         case ParseStatus.INVALID_URL:
         case ParseStatus.NO_URL_FOUND: {
           errorCode = HTTP_STATUS.NOT_FOUND;
-          packageInfo = parseResult.packageInfo;
           errorMessage = `No source URL found.`;
-          break;
+          return response.status(errorCode).json({code: errorCode, message: errorMessage, packageInfo});
         }
 
         case ParseStatus.PACKAGE_NOT_FOUND: {
@@ -108,7 +107,7 @@ export function packagesRoute(): Router {
         }
       }
 
-      return response.status(errorCode).json({code: errorCode, message: errorMessage, packageInfo});
+      return response.status(errorCode).json({code: errorCode, message: errorMessage});
     }
   );
 }
