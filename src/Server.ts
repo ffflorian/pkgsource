@@ -2,7 +2,6 @@ import express, {Application} from 'express';
 import nocache from 'nocache';
 import http from 'http';
 import helmet from 'helmet';
-import {config} from './config';
 
 import type {ServerConfig} from './config';
 import {
@@ -18,7 +17,7 @@ import {getLogger} from './utils';
 
 const logger = getLogger('Server');
 
-class Server {
+export class Server {
   public readonly app: Application;
   private server?: http.Server;
 
@@ -87,6 +86,3 @@ class Server {
     }
   }
 }
-
-const app = new Server(config).app;
-export = app;
