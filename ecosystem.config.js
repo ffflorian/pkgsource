@@ -7,7 +7,7 @@ module.exports = {
         NODE_DEBUG: 'pkgsource/*',
       },
       name: 'pkgsource',
-      script: 'dist/index.js',
+      script: 'dist/src/index.js',
     },
   ],
 };
