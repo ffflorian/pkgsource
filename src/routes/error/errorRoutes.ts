@@ -3,27 +3,36 @@ import {ErrorRequestHandler, Router} from 'express';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import {formatDate, getLogger} from '../../utils';
 
+interface InternalErrorRouteResponseBody {
+  code: HTTP_STATUS;
+  message: string;
+  stack?: string;
+}
+
+interface NotFoundRouteResponseBody {
+  code: HTTP_STATUS;
+  message: string;
+}
+
 const logger = getLogger('routes/errorRoutes');
 const router = Router();
 
-export function internalErrorRoute(): ErrorRequestHandler {
-  return (err, _, res) => {
-    logger.error(`[${formatDate()}] ${err.stack}`);
-    const error = {
+export function internalErrorRoute(): ErrorRequestHandler<void, InternalErrorRouteResponseBody> {
+  return (error: Error, _request, response) => {
+    logger.error(`[${formatDate()}] ${error.stack}`);
+    return response.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
       code: HTTP_STATUS.INTERNAL_SERVER_ERROR,
       message: 'Internal server error',
-      stack: err.stack,
-    };
-    return res.status(error.code).json(error);
+      stack: error.stack,
+    });
   };
 }
 
 export function notFoundRoute(): Router {
-  return router.get('*', (_, res) => {
-    const error = {
+  return router.get<void, NotFoundRouteResponseBody>('*', (_request, response) =>
+    response.status(HTTP_STATUS.NOT_FOUND).json({
       code: HTTP_STATUS.NOT_FOUND,
       message: 'Not found',
-    };
-    return res.status(error.code).json(error);
-  });
+    })
+  );
 }

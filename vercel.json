@@ -1,0 +1,18 @@
+{
+  "functions": {
+    "api/vercel.ts": {
+      "includeFiles": "{swagger,package}.json"
+    }
+  },
+  "github": {
+    "silent": true
+  },
+  "routes": [
+    {
+      "dest": "api/vercel.ts",
+      "methods": ["GET"],
+      "src": "/(.*)"
+    }
+  ],
+  "version": 2
+}

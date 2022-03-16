@@ -1,9 +1,9 @@
-import * as path from 'path';
-import * as findUp from 'find-up';
+import path from 'path';
+import findUp from 'find-up';
 
 const packageJsonPath = findUp.sync('package.json', {allowSymlinks: false});
 if (!packageJsonPath) {
-  throw new Error('Could not find file `swagger.json`');
+  throw new Error('Could not find file `package.json`');
 }
 
 const {version}: {version: string} = require(packageJsonPath);

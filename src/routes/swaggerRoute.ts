@@ -1,6 +1,6 @@
-import * as express from 'express';
-import * as findUp from 'find-up';
-import * as swaggerUi from 'swagger-ui-express';
+import express from 'express';
+import findUp from 'find-up';
+import swaggerUi from 'swagger-ui-express';
 
 import {ServerConfig} from '../config';
 
@@ -10,7 +10,7 @@ if (!swaggerJsonPath) {
 }
 const swaggerDocument = require(swaggerJsonPath);
 
-export function initSwaggerRoute(app: express.Express, config: ServerConfig): void {
+export function initSwaggerRoute(app: express.Application, config: ServerConfig): void {
   const swaggerOptions: swaggerUi.SwaggerOptions = {
     host: `localhost:${config.PORT_HTTP}`,
   };

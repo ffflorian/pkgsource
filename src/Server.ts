@@ -1,7 +1,7 @@
-import * as express from 'express';
-import * as helmet from 'helmet';
-import * as nocache from 'nocache';
-import * as http from 'http';
+import express, {Application} from 'express';
+import nocache from 'nocache';
+import http from 'http';
+import helmet from 'helmet';
 
 import type {ServerConfig} from './config';
 import {
@@ -18,7 +18,7 @@ import {getLogger} from './utils';
 const logger = getLogger('Server');
 
 export class Server {
-  private readonly app: express.Express;
+  public readonly app: Application;
   private server?: http.Server;
 
   constructor(private readonly config: ServerConfig) {

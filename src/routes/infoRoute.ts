@@ -1,14 +1,19 @@
 import {Router} from 'express';
-import * as findUp from 'find-up';
-import * as fs from 'fs';
+import findUp from 'find-up';
+import fs from 'fs';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
 import {getLogger} from '../utils';
 
+interface InfoRouteResponseBody {
+  code: HTTP_STATUS;
+  commit?: string;
+  version?: string;
+}
+
 const logger = getLogger('routes/infoRoute');
 
 const router = Router();
-
 let version: string;
 let commit: string;
 
@@ -27,11 +32,11 @@ if (!commitPath) {
 }
 
 export function infoRoute(): Router {
-  return router.get('/_info/?', (_req, res) =>
+  return router.get<void, InfoRouteResponseBody>('/_info/?', (_request, res) =>
     res.json({
       code: HTTP_STATUS.OK,
-      ...(commit ? {commit} : undefined),
-      ...(version ? {version} : undefined),
+      ...(commit && {commit}),
+      ...(version && {version}),
     })
   );
 }
