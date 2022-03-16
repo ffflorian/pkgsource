@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/vercel.ts": {
-      "includeFiles": "swagger.json"
+      "includeFiles": "{swagger,package}.json"
     }
   },
   "github": {
