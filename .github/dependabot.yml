@@ -17,6 +17,9 @@ updates:
       - dependency-name: 'husky'
         versions:
           - '>= 5.a'
+      - dependency-name: 'package-json'
+        versions:
+          - '>= 7.x'
       - dependency-name: 'find-up'
         versions:
           - '>= 6.a'
