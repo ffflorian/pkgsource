@@ -11,7 +11,7 @@
     "nocache": "3.0.4",
     "package-json": "7.0.0",
     "pm2": "5.2.0",
-    "swagger-ui-express": "4.4.0",
+    "swagger-ui-express": "4.5.0",
     "validate-npm-package-name": "4.0.0"
   },
   "description": "Find the source of an npm package in an instant.",
