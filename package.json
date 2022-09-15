@@ -2,7 +2,7 @@
   "author": "Florian Imdahl <git@ffflorian.de>",
   "dependencies": {
     "cross-env": "7.0.3",
-    "date-fns": "2.29.2",
+    "date-fns": "2.29.3",
     "express": "4.18.1",
     "find-up": "5.0.0",
     "helmet": "6.0.0",
