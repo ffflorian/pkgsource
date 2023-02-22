@@ -150,10 +150,10 @@
   resolved "https://registry.yarnpkg.com/@ffflorian/prettier-config/-/prettier-config-0.2.1.tgz#af35f166511685991b7118ae16f6466cff0cc278"
   integrity sha512-LDXPRxblOtOLubdxEGYaERdD8Nh8vuSZ5UG6nwSRehXlDezEyKkehqSUnMyxj/f63d1NeuS1MdobR1vQD72UbA==
 
-"@ffflorian/semantic-release-config@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.npmjs.org/@ffflorian/semantic-release-config/-/semantic-release-config-0.5.2.tgz#33bab73292255c1586018efc35e33a3cbebe33d5"
-  integrity sha512-+fydImDqg6DL+eUx1rfDP2R00JAuRl12O4lMtGW9T07qXp9wpmp7PJFfQ0PzSW3yeiIsHQQMtLzUAe1XEPIdXw==
+"@ffflorian/semantic-release-config@0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@ffflorian/semantic-release-config/-/semantic-release-config-0.6.1.tgz#4f7da015a11532e5f3307df20492e08f8d015285"
+  integrity sha512-RO/IVB0wrvtksifjeUy9A2aPzYqKo0zZD4LWBqIC7LMsWu4JbRrAkSVOyYOFF5HLRSHVg/k3RaftUUXcbgRuZQ==
 
 "@gar/promisify@^1.0.1", "@gar/promisify@^1.1.3":
   version "1.1.3"
