@@ -42,7 +42,7 @@
     "eslint-plugin-typescript-sort-keys": "2.1.0",
     "eslint-plugin-unused-imports": "1.1.5",
     "jasmine": "4.6.0",
-    "prettier": "2.8.4",
+    "prettier": "2.8.5",
     "publish-flat": "1.4.3",
     "rimraf": "4.4.0",
     "semantic-release": "20.1.1",
