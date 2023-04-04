@@ -20,7 +20,7 @@
     "@ffflorian/eslint-config": "0.8.3",
     "@ffflorian/prettier-config": "0.2.1",
     "@ffflorian/semantic-release-config": "0.6.1",
-    "@semantic-release/changelog": "6.0.2",
+    "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@types/express": "4.17.17",
     "@types/jasmine": "4.3.1",
