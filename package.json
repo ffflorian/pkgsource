@@ -43,7 +43,7 @@
     "eslint-plugin-unused-imports": "1.1.5",
     "jasmine": "4.6.0",
     "prettier": "2.8.7",
-    "publish-flat": "1.4.3",
+    "publish-flat": "1.6.0",
     "rimraf": "5.0.0",
     "semantic-release": "21.0.1",
     "ts-node": "10.9.1",
