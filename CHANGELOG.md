@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/ffflorian/pkgsource/compare/v1.7.0...v1.8.0) (2023-04-10)
+
+
+### Features
+
+* Don't publish from flattened directory ([75c55ae](https://github.com/ffflorian/pkgsource/commit/75c55ae4e9286dd0e216cb2de8b06c19c4f5c9c6))
+
 # [1.7.0](https://github.com/ffflorian/pkgsource/compare/v1.6.6...v1.7.0) (2021-09-05)
 
 
