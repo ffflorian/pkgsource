@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/ffflorian/pkgsource/compare/v1.8.0...v1.8.1) (2023-04-11)
+
+
+### Bug Fixes
+
+* Swagger UI CSS URL ([#1053](https://github.com/ffflorian/pkgsource/issues/1053)) ([08ec16e](https://github.com/ffflorian/pkgsource/commit/08ec16e9048f7524d1e81c6de86c8e005725104c))
+
 # [1.8.0](https://github.com/ffflorian/pkgsource/compare/v1.7.0...v1.8.0) (2023-04-10)
 
 
