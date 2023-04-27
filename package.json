@@ -49,7 +49,7 @@
     "typescript": "5.0.4"
   },
   "engines": {
-    "node": ">= 10.9"
+    "node": ">= 14.10"
   },
   "files": [
     "dist",
@@ -88,5 +88,6 @@
     "start:dev": "yarn build:commit && cross-env NODE_DEBUG=\"pkgsource/*\" ts-node src/index.ts",
     "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
   },
-  "version": "1.8.1"
+  "version": "1.8.1",
+  "packageManager": "yarn@3.5.0"
 }
