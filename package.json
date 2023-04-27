@@ -63,6 +63,7 @@
   "license": "GPL-3.0",
   "main": "dist/index.js",
   "name": "pkgsource",
+  "packageManager": "yarn@3.5.0",
   "prettier": "@ffflorian/prettier-config",
   "release": {
     "extends": "@ffflorian/semantic-release-config"
@@ -81,13 +82,12 @@
     "lint:other": "yarn prettier --list-different",
     "lint:ts": "eslint --ignore-path .gitignore --ext .ts src/",
     "lint:ts:spec": "eslint --ignore-path .gitignore --ext .ts --config .eslintrc.spec.json spec/",
-    "prettier": "prettier \"*.{json,md,yml}\"",
     "postversion": "VERSION=$(jq '.version' package.json) && jq \".info.version |= ${VERSION}\" swagger.json > swagger.tmp && mv swagger.tmp swagger.json",
+    "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
     "start": "pm2 start",
     "start:dev": "yarn build:commit && cross-env NODE_DEBUG=\"pkgsource/*\" ts-node src/index.ts",
     "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
   },
-  "version": "1.8.1",
-  "packageManager": "yarn@3.5.0"
+  "version": "1.8.1"
 }
