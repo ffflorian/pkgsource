@@ -7648,7 +7648,7 @@ __metadata:
     prettier: 2.8.8
     rimraf: 5.0.1
     semantic-release: 21.0.7
-    swagger-ui-express: 4.6.3
+    swagger-ui-express: 5.0.0
     ts-node: 10.9.1
     typescript: 5.1.6
     validate-npm-package-name: 5.0.0
@@ -9168,21 +9168,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui-dist@npm:>=4.11.0":
-  version: 4.15.5
-  resolution: "swagger-ui-dist@npm:4.15.5"
-  checksum: b032ecc1245e10729d0fb0fc681fc61115a78925b9410fe0fa5fe025a0a3e7d1505dacc3b5d7d2355835d118162843ad9a754a810010a4bbf65ef71466e40512
+"swagger-ui-dist@npm:>=5.0.0":
+  version: 5.4.2
+  resolution: "swagger-ui-dist@npm:5.4.2"
+  checksum: eb80a699474b247800f7ce2594ecf75a3c92ee3da752d890fe6be7f358628f08b353ab403151826cb4a8010c055bccc1ccd8b6fe5c3673a9b1b126e7e6da599d
   languageName: node
   linkType: hard
 
-"swagger-ui-express@npm:4.6.3":
-  version: 4.6.3
-  resolution: "swagger-ui-express@npm:4.6.3"
+"swagger-ui-express@npm:5.0.0":
+  version: 5.0.0
+  resolution: "swagger-ui-express@npm:5.0.0"
   dependencies:
-    swagger-ui-dist: ">=4.11.0"
+    swagger-ui-dist: ">=5.0.0"
   peerDependencies:
     express: ">=4.0.0 || >=5.0.0-beta"
-  checksum: bd0e02d2572685fcd82701b29f27ba6a27bc72de2b1553e84f884d008a0bf85a3711c9e236bb658130d702892866744d1a8a30b52b887e4f8224635c57afc63d
+  checksum: 565b89717315577785edc6d2f4df8ce83207baa2b714264170ffa677522d2103c184091e146b7cce7baf254e96116c5bb2cb1ab907dc1152fdead3090690983b
   languageName: node
   linkType: hard
 
