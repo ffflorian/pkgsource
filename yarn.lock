@@ -1452,10 +1452,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/validate-npm-package-name@npm:4.0.1":
-  version: 4.0.1
-  resolution: "@types/validate-npm-package-name@npm:4.0.1"
-  checksum: 06ec45859e001591dc01bf32d2b864ccb231387d4c26853162a3d82a0b57d3b51c96c7faf3549787ba54ed8824cb33837fdae7f85f7069d336ec53c18ce289e2
+"@types/validate-npm-package-name@npm:4.0.2":
+  version: 4.0.2
+  resolution: "@types/validate-npm-package-name@npm:4.0.2"
+  checksum: 3f35a3cc8ddd919b456843f36d55a4f1df5f03d5d9b6494b4d8f5f3b24e3f24a11c922772d9970a67f1249214da18c157776e9c6d2e72227799459849dfd9c76
   languageName: node
   linkType: hard
 
@@ -7781,7 +7781,7 @@ __metadata:
     "@types/jasmine": 5.1.2
     "@types/node": ~18
     "@types/swagger-ui-express": 4.1.5
-    "@types/validate-npm-package-name": 4.0.1
+    "@types/validate-npm-package-name": 4.0.2
     "@typescript-eslint/eslint-plugin": 6.10.0
     "@typescript-eslint/parser": 6.10.0
     babel-eslint: 10.1.0
