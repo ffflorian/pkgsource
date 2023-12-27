@@ -4,9 +4,9 @@ pre-commit:
     prettier:
       glob: '*.{json,md,yml}'
       run: npx prettier --write {staged_files} && git add {staged_files}
-    eslint:
+    oxlint:
       glob: 'src/**/*.ts'
-      run: npx eslint --fix {staged_files} && git add {staged_files}
-    eslint_spec:
+      run: npx oxlint --fix {staged_files} && git add {staged_files}
+    oxlint_spec:
       glob: 'spec/**/*.ts'
-      run: npx eslint --config .eslintrc.spec.json --fix {staged_files} && git add {staged_files}
+      run: npx oxlint --config .eslintrc.spec.json --fix {staged_files} && git add {staged_files}
