@@ -3794,18 +3794,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unused-imports@npm:1.1.5":
-  version: 1.1.5
-  resolution: "eslint-plugin-unused-imports@npm:1.1.5"
+"eslint-plugin-unused-imports@npm:3.0.0":
+  version: 3.0.0
+  resolution: "eslint-plugin-unused-imports@npm:3.0.0"
   dependencies:
     eslint-rule-composer: ^0.3.0
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^4.14.2
-    eslint: ^6.0.0 || ^7.0.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    eslint: ^8.0.0
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
-  checksum: fd1ef93fd414240594ea2f78cd7334523c244af12a610442c6dbf78b0058915c363ce78032730962f510fdd2792ded0607bc13adea9a724d1c5cec736704c99d
+  checksum: 51666f62cc8dccba2895ced83f3c1e0b78b68c357e17360e156c4db548bfdeda34cbd8725192fb4903f22d5069400fb22ded6039631df01ee82fd618dc307247
   languageName: node
   linkType: hard
 
@@ -7857,7 +7857,7 @@ __metadata:
     eslint-plugin-simple-import-sort: 10.0.0
     eslint-plugin-sort-keys-fix: 1.1.2
     eslint-plugin-typescript-sort-keys: 3.1.0
-    eslint-plugin-unused-imports: 1.1.5
+    eslint-plugin-unused-imports: 3.0.0
     express: 4.18.2
     find-up: 5.0.0
     helmet: 7.1.0
