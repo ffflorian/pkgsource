@@ -499,14 +499,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ffflorian/semantic-release-config@npm:0.7.1":
-  version: 0.7.1
-  resolution: "@ffflorian/semantic-release-config@npm:0.7.1"
+"@ffflorian/semantic-release-config@npm:0.7.2":
+  version: 0.7.2
+  resolution: "@ffflorian/semantic-release-config@npm:0.7.2"
   peerDependencies:
     "@semantic-release/changelog": ">= 3.0.0"
     "@semantic-release/git": ">= 7.0.0"
     semantic-release: ">= 15.13.0"
-  checksum: 5dbb17afefd6509eb7cba5434f7916cfdbabc2a84635c4f6ccb4f2993dd692778fb993088354dff7ba8b9f5da273b65530656ceb82737da86b31d358e0cd2455
+  checksum: 10115bff5b8ddde23d1accc64f3196fe8c7261164d29a07c15f369b7a0ccf3abb9f415019c4349c92f1f74f8f811d5bf1c1008d79c38f1d3a2e645371f989d7b
   languageName: node
   linkType: hard
 
@@ -7894,7 +7894,7 @@ __metadata:
     "@evilmartians/lefthook": 1.5.7
     "@ffflorian/eslint-config": 0.10.2
     "@ffflorian/prettier-config": 0.3.1
-    "@ffflorian/semantic-release-config": 0.7.1
+    "@ffflorian/semantic-release-config": 0.7.2
     "@semantic-release/changelog": 6.0.3
     "@semantic-release/git": 10.0.1
     "@types/express": 4.17.21
