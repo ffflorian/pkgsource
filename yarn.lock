@@ -3876,18 +3876,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-typescript-sort-keys@npm:3.1.0":
-  version: 3.1.0
-  resolution: "eslint-plugin-typescript-sort-keys@npm:3.1.0"
+"eslint-plugin-typescript-sort-keys@npm:3.2.0":
+  version: 3.2.0
+  resolution: "eslint-plugin-typescript-sort-keys@npm:3.2.0"
   dependencies:
     "@typescript-eslint/experimental-utils": ^5.0.0
     json-schema: ^0.4.0
     natural-compare-lite: ^1.4.0
   peerDependencies:
-    "@typescript-eslint/parser": ^6
+    "@typescript-eslint/parser": ^6 || ^7
     eslint: ^7 || ^8
     typescript: ^3 || ^4 || ^5
-  checksum: 89aacf64ed2bccc571925f9cc21b9a46d5d5affb69f86fca3c94d631ac6e591bb7f807defb44f7f7145c27a999987a265081a461c7069f880ef87570ab5c7471
+  checksum: 5c397446532ff0efd30195c8106bad21d8ccd4c94bb54bab47aa90f45cafc0602b881796f10be472a7925d7081af63545bd8f17ab03bd59636dc647b4971f08b
   languageName: node
   linkType: hard
 
@@ -8023,7 +8023,7 @@ __metadata:
     eslint-plugin-prettier: 5.1.3
     eslint-plugin-simple-import-sort: 12.0.0
     eslint-plugin-sort-keys-fix: 1.1.2
-    eslint-plugin-typescript-sort-keys: 3.1.0
+    eslint-plugin-typescript-sort-keys: 3.2.0
     eslint-plugin-unused-imports: 3.1.0
     express: 4.18.2
     find-up: 5.0.0
