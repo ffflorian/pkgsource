@@ -16,7 +16,7 @@
   },
   "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
-    "@babel/core": "7.24.3",
+    "@babel/core": "7.24.4",
     "@babel/eslint-parser": "7.24.1",
     "@evilmartians/lefthook": "1.6.7",
     "@ffflorian/eslint-config": "0.10.2",
