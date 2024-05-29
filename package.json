@@ -21,7 +21,7 @@
     "@evilmartians/lefthook": "1.6.12",
     "@ffflorian/eslint-config": "0.10.2",
     "@ffflorian/prettier-config": "0.3.2",
-    "@ffflorian/semantic-release-config": "0.7.2",
+    "@ffflorian/semantic-release-config": "0.7.3",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@types/express": "4.17.21",
