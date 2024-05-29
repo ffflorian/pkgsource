@@ -519,12 +519,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ffflorian/prettier-config@npm:0.3.2":
-  version: 0.3.2
-  resolution: "@ffflorian/prettier-config@npm:0.3.2"
+"@ffflorian/prettier-config@npm:0.3.3":
+  version: 0.3.3
+  resolution: "@ffflorian/prettier-config@npm:0.3.3"
   peerDependencies:
     prettier: ">= 1.17.0"
-  checksum: 5765d3006032a528e056618e94290127f187a5ea2d52fe573dc22f377dc5b0b9a2a478dac6fa985d324d3e50a60256ef13990eb0a01e9d0f98860076f2894c11
+  checksum: c8d9bccd01c91edaae47ac428e5d5b928393d6a1dd1eaf25f23167a9d37294cbe12ec394675b482bec1157b2817623e2ecec518d69ee9b93084cf35dffda55c5
   languageName: node
   linkType: hard
 
@@ -8133,7 +8133,7 @@ __metadata:
     "@babel/eslint-parser": 7.24.6
     "@evilmartians/lefthook": 1.6.12
     "@ffflorian/eslint-config": 0.10.2
-    "@ffflorian/prettier-config": 0.3.2
+    "@ffflorian/prettier-config": 0.3.3
     "@ffflorian/semantic-release-config": 0.7.3
     "@semantic-release/changelog": 6.0.3
     "@semantic-release/git": 10.0.1
