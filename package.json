@@ -43,7 +43,7 @@
     "eslint-plugin-typescript-sort-keys": "3.2.0",
     "eslint-plugin-unused-imports": "3.2.0",
     "jasmine": "5.1.0",
-    "oxlint": "0.4.4",
+    "oxlint": "0.5.3",
     "prettier": "3.3.2",
     "rimraf": "5.0.7",
     "semantic-release": "24.0.0",
