@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: weekly
+      interval: monthly
     open-pull-requests-limit: 99
     assignees:
       - ffflorian
@@ -11,7 +11,7 @@ updates:
     ignore:
       - dependency-name: '@types/node'
         versions:
-          - '> 18.x'
+          - '> 20.x'
       - dependency-name: 'package-json'
         versions:
           - '>= 7.x'
@@ -21,7 +21,7 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: weekly
+      interval: monthly
     open-pull-requests-limit: 99
     assignees:
       - ffflorian
