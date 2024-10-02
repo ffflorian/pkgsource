@@ -4045,9 +4045,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:50.2.2":
-  version: 50.2.2
-  resolution: "eslint-plugin-jsdoc@npm:50.2.2"
+"eslint-plugin-jsdoc@npm:50.3.1":
+  version: 50.3.1
+  resolution: "eslint-plugin-jsdoc@npm:50.3.1"
   dependencies:
     "@es-joy/jsdoccomment": ~0.48.0
     are-docs-informative: ^0.0.2
@@ -4062,7 +4062,7 @@ __metadata:
     synckit: ^0.9.1
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 80530774da63a6679d886fed77b7b11158e167458953ac82195d56ecf8c980804015ca07c2df08888b4876e7b6fe3ddc3d0dc82b35182d997b1302d6403f7580
+  checksum: 0b51b0e29a580d8ee9be4a95366226c91806a66ef48edab8c04fb4e3fb94ae1cfe6e9909a58cb04815134d75a52af23a3bdd147716e002f3029824a980745d60
   languageName: node
   linkType: hard
 
@@ -8395,7 +8395,7 @@ __metadata:
     eslint-config-prettier: 9.1.0
     eslint-plugin-import: 2.30.0
     eslint-plugin-jasmine: 4.2.2
-    eslint-plugin-jsdoc: 50.2.2
+    eslint-plugin-jsdoc: 50.3.1
     eslint-plugin-no-unsanitized: 4.1.2
     eslint-plugin-prettier: 5.2.1
     eslint-plugin-simple-import-sort: 12.1.1
