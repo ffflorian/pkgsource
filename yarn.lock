@@ -6223,22 +6223,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-core@npm:~5.3.0":
-  version: 5.3.0
-  resolution: "jasmine-core@npm:5.3.0"
-  checksum: 5dbb8c026b683d01872b793902b684ff9f8f097c94062666e13f466fa5a7b4a409670973868e5b9f5bbd47bf2e69bfbe037cc4c31f7cea0b78d45eb2a0b997fd
+"jasmine-core@npm:~5.4.0":
+  version: 5.4.0
+  resolution: "jasmine-core@npm:5.4.0"
+  checksum: 513bcae7b3659e46ea43f9187dd8a6b2a99db79af630e82e7918870b945ec1ba8aa4c53280be88ef2a516abe15181d53f19ede8b490196d4d81313359034840a
   languageName: node
   linkType: hard
 
-"jasmine@npm:5.3.0":
-  version: 5.3.0
-  resolution: "jasmine@npm:5.3.0"
+"jasmine@npm:5.4.0":
+  version: 5.4.0
+  resolution: "jasmine@npm:5.4.0"
   dependencies:
     glob: ^10.2.2
-    jasmine-core: ~5.3.0
+    jasmine-core: ~5.4.0
   bin:
     jasmine: bin/jasmine.js
-  checksum: 19eb261668a0961ffbdb5bc44d97ef403c84f790581c39731bdaf2efedd0c8a047588a6e8eeab689092f1f40ff97ca2f9d836a34eb8852aea26dc8d89c465b68
+  checksum: d4a05e888b41c22b812b46fa06245dfa8a21529e402469a0954b48dd58a1d064f55123a047f8f040b20a49bc949509594e4d3af080e3d332318745f95323ebc2
   languageName: node
   linkType: hard
 
@@ -8455,7 +8455,7 @@ __metadata:
     find-up: 5.0.0
     helmet: 8.0.0
     http-status-codes: 2.3.0
-    jasmine: 5.3.0
+    jasmine: 5.4.0
     logdown: 3.3.1
     nocache: 4.0.0
     oxlint: 0.10.3
