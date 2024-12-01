@@ -1740,10 +1740,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jasmine@npm:5.1.4":
-  version: 5.1.4
-  resolution: "@types/jasmine@npm:5.1.4"
-  checksum: 1b2048d988077aee747a72fab31f4e0820f928c25e886ab91aa5a1ee2d4277655c22f81feed5d7b3b15cc61542878568a24b2381457eb21dfc84250c693f980a
+"@types/jasmine@npm:5.1.5":
+  version: 5.1.5
+  resolution: "@types/jasmine@npm:5.1.5"
+  checksum: 7c3e30fb6de5501c99666928f93b2d9c532ef73e09051434a185e61f032148f49bed218ccf405e72dfc1b3d213cbd28732050bb4bf3ccdf0577fa1febdb56d13
   languageName: node
   linkType: hard
 
@@ -8313,7 +8313,7 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@swc/core": 1.9.3
     "@types/express": 4.17.21
-    "@types/jasmine": 5.1.4
+    "@types/jasmine": 5.1.5
     "@types/node": ~20
     "@types/swagger-ui-express": 4.1.7
     "@types/validate-npm-package-name": 4.0.2
