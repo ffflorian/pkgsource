@@ -18,6 +18,9 @@ updates:
       - dependency-name: 'find-up'
         versions:
           - '>= 6.x'
+      - dependency-name: '@types/express'
+        versions:
+          - '> 4.x'
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
