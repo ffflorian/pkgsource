@@ -427,12 +427,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@evilmartians/lefthook@npm:1.8.5":
-  version: 1.8.5
-  resolution: "@evilmartians/lefthook@npm:1.8.5"
+"@evilmartians/lefthook@npm:1.10.1":
+  version: 1.10.1
+  resolution: "@evilmartians/lefthook@npm:1.10.1"
   bin:
     lefthook: bin/index.js
-  checksum: f9ff005105dd778f89ea18058c46186fb5a9aa46a47c5e24a7d63fe863d4437d134a5f4cd36bf8100fd2ddc6b54ff8715d2e5e6f8e503d7ef21e55c3f2f22be0
+  checksum: 6d64b323bc760f6fe04e9325f616632a4a67bf3b0860a0da576ea7f72d0eb93060c8178324a0a61a68c5a6cc9b03248d8dbacb46f55bf753fe0c4d6cce5c76b8
   conditions: (os=darwin | os=linux | os=win32) & (cpu=x64 | cpu=arm64 | cpu=ia32)
   languageName: node
   linkType: hard
@@ -8310,7 +8310,7 @@ __metadata:
   dependencies:
     "@babel/core": 7.26.0
     "@babel/eslint-parser": 7.25.9
-    "@evilmartians/lefthook": 1.8.5
+    "@evilmartians/lefthook": 1.10.1
     "@ffflorian/eslint-config": 0.10.3
     "@ffflorian/prettier-config": 0.3.3
     "@ffflorian/semantic-release-config": 0.7.3
