@@ -1899,13 +1899,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/swagger-ui-express@npm:4.1.7":
-  version: 4.1.7
-  resolution: "@types/swagger-ui-express@npm:4.1.7"
+"@types/swagger-ui-express@npm:4.1.8":
+  version: 4.1.8
+  resolution: "@types/swagger-ui-express@npm:4.1.8"
   dependencies:
     "@types/express": "*"
     "@types/serve-static": "*"
-  checksum: c9b285018e0ac60cd1adba32ff4f03e97f74abd5d7dbce06029e3a99e0c226bdd48eae22b15dc9782f318e43669a5edef4d72200b3a359fb9651b6b4ce1623b0
+  checksum: bf4d84fb21c11e820238685cdc102f8d5e82d4382df9450a358bf80f70f5f0699c87645a291c52beee1eba5c0ee594e03714b236f1a0737272941a8708218f8f
   languageName: node
   linkType: hard
 
@@ -8378,7 +8378,7 @@ __metadata:
     "@types/express": 4.17.21
     "@types/jasmine": 5.1.5
     "@types/node": ~20
-    "@types/swagger-ui-express": 4.1.7
+    "@types/swagger-ui-express": 4.1.8
     "@types/validate-npm-package-name": 4.0.2
     "@typescript-eslint/eslint-plugin": 8.22.0
     "@typescript-eslint/parser": 8.22.0
