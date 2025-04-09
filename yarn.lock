@@ -1971,19 +1971,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:8.25.0":
-  version: 8.25.0
-  resolution: "@typescript-eslint/parser@npm:8.25.0"
+"@typescript-eslint/parser@npm:8.29.1":
+  version: 8.29.1
+  resolution: "@typescript-eslint/parser@npm:8.29.1"
   dependencies:
-    "@typescript-eslint/scope-manager": 8.25.0
-    "@typescript-eslint/types": 8.25.0
-    "@typescript-eslint/typescript-estree": 8.25.0
-    "@typescript-eslint/visitor-keys": 8.25.0
+    "@typescript-eslint/scope-manager": 8.29.1
+    "@typescript-eslint/types": 8.29.1
+    "@typescript-eslint/typescript-estree": 8.29.1
+    "@typescript-eslint/visitor-keys": 8.29.1
     debug: ^4.3.4
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
-    typescript: ">=4.8.4 <5.8.0"
-  checksum: 5de468b96be0a3ba9c265590dc7d4da6b77fd0cd45e16cbf4d54ee5e46883d5a10ad58a43dcbe768909f04dcbcc431af5e577c41dd653abb89cae64064cc880e
+    typescript: ">=4.8.4 <5.9.0"
+  checksum: 0d0f3288b7d2c61c99e30caf1f2fcb85f750eb7aadbbf94ba95bb11ed9abd2e60f52c6433d24b8afa447cfc34ff2af2ef7dde106f51a87df741737b9d4849ecc
   languageName: node
   linkType: hard
 
@@ -1994,16 +1994,6 @@ __metadata:
     "@typescript-eslint/types": 5.2.0
     "@typescript-eslint/visitor-keys": 5.2.0
   checksum: aebd87d82c2adcbe24e7bca25888950527653106f02d498f2a06e84092e77d3b837059ef401dee69ce7c14b0a9e3da12945fb1d2e58e2415de71d17a4a55ef2a
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/scope-manager@npm:8.25.0":
-  version: 8.25.0
-  resolution: "@typescript-eslint/scope-manager@npm:8.25.0"
-  dependencies:
-    "@typescript-eslint/types": 8.25.0
-    "@typescript-eslint/visitor-keys": 8.25.0
-  checksum: 07782325450b5ab23a9ca3ccc3f681f7db738d9282ede17255e8d10217fe1375f2ee6c4c320d9a03a5477ef1fc0431358e69347bc7133e68f4f14a909ffb4328
   languageName: node
   linkType: hard
 
@@ -2039,13 +2029,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:8.25.0":
-  version: 8.25.0
-  resolution: "@typescript-eslint/types@npm:8.25.0"
-  checksum: 958395fb209609beda4a57b9d52138a6f5a1941f2d39aed616e9aadad2fd453fafd5b117fe0ebf1db37aded8e21be5469634452ae7b70212f978db1799d907bf
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/types@npm:8.29.1":
   version: 8.29.1
   resolution: "@typescript-eslint/types@npm:8.29.1"
@@ -2068,24 +2051,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 9b5a7406cbf7ab964b762153b8d5c66c21809c423822c114825d3d40f936cb9c7a78a95c1feb5139c27917254d811afe8c9995e8961314e03486892f04b28142
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/typescript-estree@npm:8.25.0":
-  version: 8.25.0
-  resolution: "@typescript-eslint/typescript-estree@npm:8.25.0"
-  dependencies:
-    "@typescript-eslint/types": 8.25.0
-    "@typescript-eslint/visitor-keys": 8.25.0
-    debug: ^4.3.4
-    fast-glob: ^3.3.2
-    is-glob: ^4.0.3
-    minimatch: ^9.0.4
-    semver: ^7.6.0
-    ts-api-utils: ^2.0.1
-  peerDependencies:
-    typescript: ">=4.8.4 <5.8.0"
-  checksum: b103847df242dc9de3b046dd4aa33840732e17964388969110e13627f7e20fdc10801eb4718a4efd0ead470c411fdf96df791e43d2d28cf617ae416905897129
   languageName: node
   linkType: hard
 
@@ -2129,16 +2094,6 @@ __metadata:
     "@typescript-eslint/types": 5.2.0
     eslint-visitor-keys: ^3.0.0
   checksum: 1afcfeaf01430d6e22e9ebfcb07c14aa586b6d9ccc968b634e54bf009efe5d6258cfb0680e97fa42ef94d4aecf10f36ce9d347289d0fe6dd2a48166a373c3f6e
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/visitor-keys@npm:8.25.0":
-  version: 8.25.0
-  resolution: "@typescript-eslint/visitor-keys@npm:8.25.0"
-  dependencies:
-    "@typescript-eslint/types": 8.25.0
-    eslint-visitor-keys: ^4.2.0
-  checksum: e9570dd2ff84d10994af8906720e4e19e6a5c180b88b933c1b21b7ce1752a083dd5e513f9aa0d0dc6a17160eced893e55e7d3b2a3a2ae47d930e3f012fa23ef9
   languageName: node
   linkType: hard
 
@@ -8444,7 +8399,7 @@ __metadata:
     "@types/swagger-ui-express": 4.1.8
     "@types/validate-npm-package-name": 4.0.2
     "@typescript-eslint/eslint-plugin": 8.29.1
-    "@typescript-eslint/parser": 8.25.0
+    "@typescript-eslint/parser": 8.29.1
     babel-eslint: 10.1.0
     cross-env: 7.0.3
     date-fns: 4.1.0
