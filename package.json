@@ -3,7 +3,7 @@
   "dependencies": {
     "cross-env": "7.0.3",
     "date-fns": "4.1.0",
-    "express": "4.21.2",
+    "express": "5.1.0",
     "find-up": "5.0.0",
     "helmet": "8.1.0",
     "http-status-codes": "2.3.0",
@@ -25,7 +25,7 @@
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@swc/core": "1.11.13",
-    "@types/express": "4.17.21",
+    "@types/express": "5.0.1",
     "@types/jasmine": "5.1.7",
     "@types/node": "~20",
     "@types/swagger-ui-express": "4.1.8",
