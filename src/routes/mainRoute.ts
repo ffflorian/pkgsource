@@ -27,31 +27,34 @@ export function mainRoute(): Router {
         const redirectUrl = `${unpkgBase}/pkgsource@latest/`;
         if ('raw' in req.query && req.query.raw !== 'false') {
           logger.info(`Returning raw unpkg info for main page: "${redirectUrl}" ...`);
-          return res.json({
+          res.json({
             code: HTTP_STATUS.OK,
             url: redirectUrl,
           });
+          return;
         }
         logger.info(`Redirecting main page to unpkg: "${redirectUrl}" ...`);
-        return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+        res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+        return;
       }
 
       if ('raw' in req.query && req.query.raw !== 'false') {
         logger.info(`Returning raw info for main page: "${repositoryUrl}" ...`);
-        return res.json({
+        res.json({
           code: HTTP_STATUS.OK,
           url: repositoryUrl,
         });
+        return;
       }
 
       logger.info(`Redirecting main page to "${repositoryUrl}" ...`);
-      return res.redirect(repositoryUrl);
+      res.redirect(repositoryUrl);
     })
     .get('/robots.txt', (_, res) => {
-      return res.contentType('text/plain').send('User-agent: *\nDisallow: /');
+      res.contentType('text/plain').send('User-agent: *\nDisallow: /');
     })
     .get('/favicon.ico', (_, res) => {
-      return res.status(HTTP_STATUS.NOT_FOUND).send({
+      res.status(HTTP_STATUS.NOT_FOUND).send({
         code: HTTP_STATUS.NOT_FOUND,
         message: 'Not found',
       });
