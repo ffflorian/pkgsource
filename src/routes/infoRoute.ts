@@ -32,7 +32,7 @@ if (!commitPath) {
 }
 
 export function infoRoute(): Router {
-  return router.get<void, InfoRouteResponseBody>('/_info/?', (_request, res) => {
+  return router.get<void, InfoRouteResponseBody>('/_info{/}', (_request, res) => {
     res.json({
       code: HTTP_STATUS.OK,
       ...(commit && {commit}),

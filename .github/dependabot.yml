@@ -12,9 +12,6 @@ updates:
       - dependency-name: '@types/node'
         versions:
           - '> 20.x'
-      - dependency-name: 'package-json'
-        versions:
-          - '>= 7.x'
       - dependency-name: 'find-up'
         versions:
           - '>= 6.x'

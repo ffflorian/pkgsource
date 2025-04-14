@@ -29,7 +29,7 @@ export function internalErrorRoute(): ErrorRequestHandler<void, InternalErrorRou
 }
 
 export function notFoundRoute(): Router {
-  return router.get<void, NotFoundRouteResponseBody>('*', (_request, response) => {
+  return router.get<void, NotFoundRouteResponseBody>('*splat', (_request, response) => {
     response.status(HTTP_STATUS.NOT_FOUND).json({
       code: HTTP_STATUS.NOT_FOUND,
       message: 'Not found',
