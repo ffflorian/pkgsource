@@ -1,10 +1,10 @@
 import express from 'express';
-import findUp from 'find-up';
+import {findUpSync} from 'find-up';
 import swaggerUi from 'swagger-ui-express';
 
 import {ServerConfig} from '../config';
 
-const swaggerJsonPath = findUp.sync('swagger.json', {allowSymlinks: false, cwd: __dirname});
+const swaggerJsonPath = findUpSync('swagger.json', {allowSymlinks: false, cwd: __dirname});
 if (!swaggerJsonPath) {
   throw new Error('Could not find file `swagger.json`');
 }
