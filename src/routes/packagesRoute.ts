@@ -35,21 +35,23 @@ export function packagesRoute(): Router {
         const redirectUrl = `${unpkgBase}/${packageName}@${version}/`;
 
         if (!validateUrl(redirectUrl)) {
-          return response
+          response
             .status(HTTP_STATUS.BAD_REQUEST)
             .json({code: HTTP_STATUS.BAD_REQUEST, message: `Invalid URL: ${redirectUrl}`});
+          return;
         }
 
         if (queryParameterExists(request, 'raw')) {
           logger.info(`Returning raw unpkg info for "${packageName}": "${redirectUrl}" ...`);
-          return response.json({
+          response.json({
             code: HTTP_STATUS.OK,
             url: redirectUrl,
           });
+          return;
         }
 
         logger.info(`Redirecting package "${packageName}" to unpkg: "${redirectUrl}" ...`);
-        return response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+        response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
       }
 
       const parseResult = await getPackageUrl(packageName, version);
@@ -60,10 +62,11 @@ export function packagesRoute(): Router {
 
           if (queryParameterExists(request, 'raw')) {
             logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
-            return response.json({
+            response.json({
               code: HTTP_STATUS.OK,
               url: redirectSite,
             });
+            return;
           }
 
           logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
@@ -103,7 +106,7 @@ export function packagesRoute(): Router {
         }
       }
 
-      return response.status(errorCode).json({code: errorCode, message: errorMessage});
+      response.status(errorCode).json({code: errorCode, message: errorMessage});
     }
   );
 }

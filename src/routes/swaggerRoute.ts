@@ -17,5 +17,5 @@ export function initSwaggerRoute(app: express.Application, config: ServerConfig)
 
   const CSS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css';
 
-  app.use('/_swagger-ui/?', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCssUrl: CSS_URL, swaggerOptions}));
+  app.use('/_swagger-ui{/}', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCssUrl: CSS_URL, swaggerOptions}));
 }

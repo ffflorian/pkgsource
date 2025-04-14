@@ -1,4 +1,4 @@
-import packageJson from 'package-json';
+import * as packageJson from 'package-json';
 import validatePackageName from 'validate-npm-package-name';
 
 import {getLogger, validateUrl} from './utils';
@@ -45,7 +45,7 @@ function cleanUrl(url: string): string | null {
 }
 
 export async function getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
-  let packageInfo: packageJson.FullMetadata;
+    let packageInfo: packageJson.FullVersion & Pick<packageJson.FullMetadata, 'time'>;
   let foundUrl: string | null = null;
   let parsedRepository: string | null = null;
 
@@ -57,7 +57,7 @@ export async function getPackageUrl(rawPackageName: string, version: string = 'l
   }
 
   try {
-    packageInfo = await packageJson(rawPackageName, {fullMetadata: true, version});
+    packageInfo = await packageJson.default(rawPackageName, {fullMetadata: true, version});
   } catch (error) {
     if (error instanceof packageJson.VersionNotFoundError) {
       logger.info(`Version "${version}" not found for package "${rawPackageName}".`);
