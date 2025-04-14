@@ -45,7 +45,7 @@ function cleanUrl(url: string): string | null {
 }
 
 export async function getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
-  let packageInfo: packageJson.FullMetadata;
+    let packageInfo: packageJson.FullVersion & Pick<packageJson.FullMetadata, 'time'>;
   let foundUrl: string | null = null;
   let parsedRepository: string | null = null;
 
