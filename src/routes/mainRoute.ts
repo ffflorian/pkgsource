@@ -1,8 +1,8 @@
 import {Router} from 'express';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
-import {getLogger} from '../utils';
-import {unpkgBase} from './packagesRoute';
+import {getLogger} from '../utils.js';
+import {unpkgBase} from './packagesRoute.js';
 
 interface MainRouteResponseBody {
   code: HTTP_STATUS;

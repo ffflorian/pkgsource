@@ -43,7 +43,7 @@
     "eslint-plugin-typescript-sort-keys": "3.3.0",
     "eslint-plugin-unused-imports": "4.1.4",
     "jasmine": "5.6.0",
-    "oxlint": "0.15.12",
+    "oxlint": "0.16.6",
     "prettier": "3.5.3",
     "rimraf": "6.0.1",
     "semantic-release": "24.2.3",
@@ -51,7 +51,7 @@
     "typescript": "5.8.3"
   },
   "engines": {
-    "node": ">= 14.10"
+    "node": ">= 20"
   },
   "files": [
     "dist",
@@ -83,14 +83,15 @@
     "fix:ts:spec": "yarn lint:ts:spec --fix",
     "lint": "yarn lint:ts && yarn lint:ts:spec && yarn lint:other",
     "lint:other": "yarn prettier --list-different",
-    "lint:ts": "oxlint --ignore-path .gitignore rc/",
+    "lint:ts": "oxlint --ignore-path .gitignore src/",
     "lint:ts:spec": "oxlint --ignore-path .gitignore --config .eslintrc.spec.json spec/",
     "postversion": "VERSION=$(jq '.version' package.json) && jq \".info.version |= ${VERSION}\" swagger.json > swagger.tmp && mv swagger.tmp swagger.json",
     "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
     "start": "pm2 start",
-    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" node -r ts-node/register src/index.ts",
+    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" node --loader ts-node/esm src/index.ts",
     "test": "ts-node -P tsconfig.jasmine.json node_modules/.bin/jasmine"
   },
+  "type": "module",
   "version": "1.8.1"
 }

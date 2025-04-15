@@ -1,9 +1,9 @@
 import {Router} from 'express';
-import {URL} from 'url';
+import {URL} from 'node:url';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
-import {getPackageUrl, ParseStatus} from '../RepositoryParser';
-import {getLogger, queryParameterExists, validateUrl} from '../utils';
+import {getPackageUrl, ParseStatus} from '../RepositoryParser.js';
+import {getLogger, queryParameterExists, validateUrl} from '../utils.js';
 
 interface PackagesRouteResponseBody {
   code: HTTP_STATUS;

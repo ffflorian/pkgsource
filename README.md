@@ -32,8 +32,8 @@ docker run -p 4000:4000 ffflorian/pkgsource
 
 Prerequisites:
 
-- [Node.js](https://nodejs.org) >= 10.9
-- [yarn](https://classic.yarnpkg.com) < 2
+- [Node.js](https://nodejs.org) >= 20
+- [yarn](https://yarnpkg.com) >= 3.5.0
 
 ### Start the server in development mode
 

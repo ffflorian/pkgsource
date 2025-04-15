@@ -1,6 +1,6 @@
-import {config} from './config';
-import {Server} from './Server';
-import {getLogger} from './utils';
+import {config} from './config.js';
+import {Server} from './Server.js';
+import {getLogger} from './utils.js';
 
 const logger = getLogger('index');
 
