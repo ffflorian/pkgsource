@@ -84,7 +84,7 @@
     "lint": "yarn lint:ts && yarn lint:ts:spec && yarn lint:other",
     "lint:other": "yarn prettier --list-different",
     "lint:ts": "oxlint --ignore-path .gitignore src/",
-    "lint:ts:spec": "oxlint --ignore-path .gitignore --config .eslintrc.spec.json spec/",
+    "lint:ts:spec": "oxlint --ignore-path .gitignore spec/",
     "postversion": "VERSION=$(jq '.version' package.json) && jq \".info.version |= ${VERSION}\" swagger.json > swagger.tmp && mv swagger.tmp swagger.json",
     "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
