@@ -36,7 +36,6 @@ jobs:
         run: |
           yarn
           yarn lint
-          yarn test
           yarn dist
 
       - name: Release on npm

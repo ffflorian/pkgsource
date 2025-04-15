@@ -1799,13 +1799,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jasmine@npm:5.1.7":
-  version: 5.1.7
-  resolution: "@types/jasmine@npm:5.1.7"
-  checksum: 6ef77af667f10997d391488221ce3aaf2c95e7951b383d2259b81ed23babfd259d05485bec7a8f634e05ecc5740cb4153a2959617f806622ea5de5d15610e4d4
-  languageName: node
-  linkType: hard
-
 "@types/json-schema@npm:^7.0.9":
   version: 7.0.9
   resolution: "@types/json-schema@npm:7.0.9"
@@ -6164,25 +6157,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-core@npm:~5.6.0":
-  version: 5.6.0
-  resolution: "jasmine-core@npm:5.6.0"
-  checksum: 787d51e7b8fa38f0a36034161a3ba5a029a370263e4eb335619413629be364139e158d393e409e5c4ed87720dc6d0183aa3372bb27ec4b955459b6725daa7e2b
-  languageName: node
-  linkType: hard
-
-"jasmine@npm:5.6.0":
-  version: 5.6.0
-  resolution: "jasmine@npm:5.6.0"
-  dependencies:
-    glob: ^10.2.2
-    jasmine-core: ~5.6.0
-  bin:
-    jasmine: bin/jasmine.js
-  checksum: 6a26b762bf114fb1924fde1c736d5e535295dcfb08e5d9fc9867951f86f7ba1d28194ce3d189129bc488f991d29e00b6b161bd0936622c3e658e839e0915f18a
-  languageName: node
-  linkType: hard
-
 "java-properties@npm:^1.0.2":
   version: 1.0.2
   resolution: "java-properties@npm:1.0.2"
@@ -8265,7 +8239,6 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@swc/core": 1.11.21
     "@types/express": 5.0.1
-    "@types/jasmine": 5.1.7
     "@types/node": ~22
     "@types/swagger-ui-express": 4.1.8
     "@types/validate-npm-package-name": 4.0.2
@@ -8287,7 +8260,6 @@ __metadata:
     find-up: 7.0.0
     helmet: 8.1.0
     http-status-codes: 2.3.0
-    jasmine: 5.6.0
     logdown: 3.3.1
     nocache: 4.0.0
     oxlint: 0.16.6
