@@ -1,6 +1,7 @@
 import {Router} from 'express';
 import {URL} from 'node:url';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
+import packageJson from 'package-json';
 
 import {getPackageUrl, ParseStatus} from '../RepositoryParser.js';
 import {getLogger, queryParameterExists, validateUrl} from '../utils.js';
@@ -8,6 +9,7 @@ import {getLogger, queryParameterExists, validateUrl} from '../utils.js';
 interface PackagesRouteResponseBody {
   code: HTTP_STATUS;
   message?: string;
+  packageInfo?: packageJson.FullMetadata;
   url?: string;
 }
 
@@ -55,6 +57,7 @@ export function packagesRoute(): Router {
       }
 
       const parseResult = await getPackageUrl(packageName, version);
+      const packageInfo = parseResult.packageInfo;
 
       switch (parseResult.status) {
         case ParseStatus.SUCCESS: {
@@ -64,6 +67,7 @@ export function packagesRoute(): Router {
             logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
             response.json({
               code: HTTP_STATUS.OK,
+              packageInfo: packageInfo,
               url: redirectSite,
             });
             return;
@@ -82,8 +86,8 @@ export function packagesRoute(): Router {
         case ParseStatus.INVALID_URL:
         case ParseStatus.NO_URL_FOUND: {
           errorCode = HTTP_STATUS.NOT_FOUND;
-          errorMessage = `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`;
-          break;
+          errorMessage = `No source URL found.`;
+          return response.status(errorCode).json({code: errorCode, message: errorMessage, packageInfo});
         }
 
         case ParseStatus.PACKAGE_NOT_FOUND: {
