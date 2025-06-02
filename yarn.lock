@@ -1107,10 +1107,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pkgr/core@npm:^0.2.1":
-  version: 0.2.2
-  resolution: "@pkgr/core@npm:0.2.2"
-  checksum: 7eea03fb7b650f18cbe49e72844de81402476c6f62090ecaba414db14863bee4bcf596cfef334dc882901e5abcb2c82dab7e64010690a8eb7cf01755db357e49
+"@pkgr/core@npm:^0.2.4":
+  version: 0.2.5
+  resolution: "@pkgr/core@npm:0.2.5"
+  checksum: 9df63a2b98c26532ca7c7b468c31e1826b3f340e22e3f7929f93e4082c172b8811dcf655db1e7301bde7ada211d81818a682bb33fdcf173dce4b3fc223022436
   languageName: node
   linkType: hard
 
@@ -4016,12 +4016,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:5.2.6":
-  version: 5.2.6
-  resolution: "eslint-plugin-prettier@npm:5.2.6"
+"eslint-plugin-prettier@npm:5.4.1":
+  version: 5.4.1
+  resolution: "eslint-plugin-prettier@npm:5.4.1"
   dependencies:
     prettier-linter-helpers: ^1.0.0
-    synckit: ^0.11.0
+    synckit: ^0.11.7
   peerDependencies:
     "@types/eslint": ">=8.0.0"
     eslint: ">=8.0.0"
@@ -4032,7 +4032,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 2626c123916c4afe88d423bac9c3644d30af8beac4963b77bf447f42ba75ab592076716dfa9d43333bfde0ac482d8f8b6a49699403d128aee5effd609ca54bec
+  checksum: ddbfc60e478dd78602b1f1594db539bfc686161eba4531e4c59580c9cf5746919878beabfe31b559d783ad3ed753af158bfa16bd35bd05382c7d2d86c894c81b
   languageName: node
   linkType: hard
 
@@ -8188,7 +8188,7 @@ __metadata:
     eslint-plugin-jasmine: 4.2.2
     eslint-plugin-jsdoc: 50.6.11
     eslint-plugin-no-unsanitized: 4.1.2
-    eslint-plugin-prettier: 5.2.6
+    eslint-plugin-prettier: 5.4.1
     eslint-plugin-simple-import-sort: 12.1.1
     eslint-plugin-sort-keys-fix: 1.1.2
     eslint-plugin-typescript-sort-keys: 3.3.0
@@ -9733,13 +9733,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synckit@npm:^0.11.0":
-  version: 0.11.3
-  resolution: "synckit@npm:0.11.3"
+"synckit@npm:^0.11.7":
+  version: 0.11.8
+  resolution: "synckit@npm:0.11.8"
   dependencies:
-    "@pkgr/core": ^0.2.1
-    tslib: ^2.8.1
-  checksum: dc50dce4d2a1be0e47e7effca9f86e676e32143f318ab3906324a702e732a07f17b028dfdb0cbeb501c5573be3fd14c6be976930c8fe0af7927ae998037d3a4f
+    "@pkgr/core": ^0.2.4
+  checksum: dd7193736e0b5eb209192e280649b98b539537bf23bef20c8a2b24cd12ccde47bcf4e77773ff9cb66c35960d2cb41e28c05e0b19124488abbfb6423258b56275
   languageName: node
   linkType: hard
 
@@ -9959,13 +9958,6 @@ __metadata:
   version: 2.0.1
   resolution: "tslib@npm:2.0.1"
   checksum: 507f32fc24a614c5097d414b622373b6cbb99e305413517e7fd49bef1e63570c0dd15b417ae68152088c3496218e82a5d8c7cd6b48c7a32dcee1a3f7191fff74
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.8.1":
-  version: 2.8.1
-  resolution: "tslib@npm:2.8.1"
-  checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
   languageName: node
   linkType: hard
 
