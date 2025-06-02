@@ -28,7 +28,7 @@
     "@types/node": "~22",
     "@types/swagger-ui-express": "4.1.8",
     "@types/validate-npm-package-name": "4.0.2",
-    "@typescript-eslint/eslint-plugin": "8.32.0",
+    "@typescript-eslint/eslint-plugin": "8.33.0",
     "@typescript-eslint/parser": "8.31.1",
     "babel-eslint": "10.1.0",
     "eslint-config-prettier": "10.1.5",
