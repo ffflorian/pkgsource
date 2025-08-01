@@ -12,6 +12,9 @@ updates:
       - dependency-name: '@types/node'
         versions:
           - '> 24.x'
+      - dependency-name: eslint
+        versions:
+          - '> 8.x'
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
