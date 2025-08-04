@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24.x
+          node-version: 22.x # Vercel currently supports max Node.js 22
           cache: yarn
 
       - name: Build, lint and test
