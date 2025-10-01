@@ -3,7 +3,7 @@
   "dependencies": {
     "date-fns": "4.1.0",
     "express": "5.1.0",
-    "find-up": "7.0.0",
+    "find-up": "8.0.0",
     "helmet": "8.1.0",
     "http-status-codes": "2.3.0",
     "logdown": "3.3.1",
