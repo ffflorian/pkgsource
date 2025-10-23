@@ -20,8 +20,5 @@
     "strictFunctionTypes": true,
     "target": "ES6"
   },
-  "exclude": ["dist", "node_modules", "spec"],
-  "ts-node": {
-    "swc": true
-  }
+  "exclude": ["dist", "node_modules", "spec"]
 }

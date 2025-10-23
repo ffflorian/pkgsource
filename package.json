@@ -23,7 +23,6 @@
     "@ffflorian/semantic-release-config": "0.7.3",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@swc/core": "1.13.5",
     "@types/express": "5.0.3",
     "@types/node": "~22",
     "@types/swagger-ui-express": "4.1.8",
@@ -46,7 +45,7 @@
     "prettier": "3.6.2",
     "rimraf": "6.0.1",
     "semantic-release": "24.2.9",
-    "ts-node": "10.9.2",
+    "tsx": "4.20.6",
     "typescript": "5.9.3"
   },
   "engines": {
@@ -86,7 +85,7 @@
     "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
     "start": "pm2 start",
-    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" node --loader ts-node/esm src/index.ts"
+    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts"
   },
   "type": "module",
   "version": "1.8.1"
