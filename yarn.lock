@@ -9185,7 +9185,7 @@ __metadata:
     swagger-ui-express: "npm:5.0.1"
     tsx: "npm:4.21.0"
     typescript: "npm:5.9.3"
-    validate-npm-package-name: "npm:7.0.0"
+    validate-npm-package-name: "npm:7.0.1"
   languageName: unknown
   linkType: soft
 
@@ -11564,10 +11564,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validate-npm-package-name@npm:7.0.0":
-  version: 7.0.0
-  resolution: "validate-npm-package-name@npm:7.0.0"
-  checksum: 10c0/b725d816fd9503772e4e01a5a3a3791f9faf05d4c5ca12c11a0e0a62c048f5c555af7e407f327a720c22842dc285d07fca43cf67345ee10acfd821e94b380251
+"validate-npm-package-name@npm:7.0.1":
+  version: 7.0.1
+  resolution: "validate-npm-package-name@npm:7.0.1"
+  checksum: 10c0/3bc127215be834d7850910af8a7bb1ae0db7d7a500ab40b2c4191520be23028979cffbe8a8ff36885838bcf26874bd4572d13116074383698cce701bdc63c976
   languageName: node
   linkType: hard
 
