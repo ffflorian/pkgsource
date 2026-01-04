@@ -11,7 +11,7 @@
     "package-json": "10.0.1",
     "pm2": "6.0.14",
     "swagger-ui-express": "5.0.1",
-    "validate-npm-package-name": "7.0.0"
+    "validate-npm-package-name": "7.0.1"
   },
   "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
