@@ -18,7 +18,7 @@
     "@babel/core": "7.28.5",
     "@babel/eslint-parser": "7.28.5",
     "@evilmartians/lefthook": "2.0.13",
-    "@ffflorian/eslint-config": "0.10.3",
+    "@ffflorian/eslint-config": "0.12.4",
     "@ffflorian/prettier-config": "0.3.3",
     "@ffflorian/semantic-release-config": "0.7.3",
     "@semantic-release/changelog": "6.0.3",
