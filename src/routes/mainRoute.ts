@@ -4,15 +4,15 @@ import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import {getLogger} from '../utils.js';
 import {unpkgBase} from './packagesRoute.js';
 
+type MainRouteParamsDictionary = [string, string];
+
+type MainRouteQueryParameters = Record<'raw' | 'unpkg', string>;
+
 interface MainRouteResponseBody {
   code: HTTP_STATUS;
   message?: string;
   url?: string;
 }
-
-type MainRouteQueryParameters = Record<'unpkg' | 'raw', string>;
-
-type MainRouteParamsDictionary = [string, string];
 
 const logger = getLogger('routes/mainRoute');
 const router = Router();

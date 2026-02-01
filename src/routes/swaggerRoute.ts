@@ -1,6 +1,6 @@
 import express from 'express';
-import fs from 'node:fs';
 import {findUpSync} from 'find-up';
+import fs from 'node:fs';
 import swaggerUi from 'swagger-ui-express';
 
 import {ServerConfig} from '../config.js';

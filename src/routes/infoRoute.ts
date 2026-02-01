@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import {findUpSync} from 'find-up';
-import fs from 'node:fs';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
+import fs from 'node:fs';
 
 import {getLogger} from '../utils.js';
 

@@ -1,17 +1,18 @@
 import express, {Application} from 'express';
+import helmet from 'helmet';
 import nocache from 'nocache';
 import http from 'node:http';
-import helmet from 'helmet';
 
 import type {ServerConfig} from './config.js';
+
 import {
   healthCheckRoute,
+  infoRoute,
   initSwaggerRoute,
   internalErrorRoute,
   mainRoute,
   notFoundRoute,
   packagesRoute,
-  infoRoute,
 } from './routes/index.js';
 import {getLogger} from './utils.js';
 

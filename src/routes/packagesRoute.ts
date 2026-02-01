@@ -1,19 +1,19 @@
 import {Router} from 'express';
-import {URL} from 'node:url';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
+import {URL} from 'node:url';
 
 import {getPackageUrl, ParseStatus} from '../RepositoryParser.js';
 import {getLogger, queryParameterExists, validateUrl} from '../utils.js';
+
+type PackagesRouteParamsDictionary = [string, string];
+
+type PackagesRouteQueryParameters = Record<'raw' | 'unpkg', string>;
 
 interface PackagesRouteResponseBody {
   code: HTTP_STATUS;
   message?: string;
   url?: string;
 }
-
-type PackagesRouteQueryParameters = Record<'unpkg' | 'raw', string>;
-
-type PackagesRouteParamsDictionary = [string, string];
 
 const logger = getLogger('routes/packagesRoute');
 const router = Router();
@@ -57,6 +57,24 @@ export function packagesRoute(): Router {
       const parseResult = await getPackageUrl(packageName, version);
 
       switch (parseResult.status) {
+        case ParseStatus.INVALID_PACKAGE_NAME: {
+          errorCode = HTTP_STATUS.UNPROCESSABLE_ENTITY;
+          errorMessage = 'Invalid package name';
+          break;
+        }
+
+        case ParseStatus.INVALID_URL:
+        case ParseStatus.NO_URL_FOUND: {
+          errorCode = HTTP_STATUS.NOT_FOUND;
+          errorMessage = `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`;
+          break;
+        }
+        case ParseStatus.PACKAGE_NOT_FOUND: {
+          errorCode = HTTP_STATUS.NOT_FOUND;
+          errorMessage = 'Package not found';
+          break;
+        }
+
         case ParseStatus.SUCCESS: {
           const redirectSite = parseResult.url;
 
@@ -71,25 +89,6 @@ export function packagesRoute(): Router {
 
           logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
           return response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
-        }
-
-        case ParseStatus.INVALID_PACKAGE_NAME: {
-          errorCode = HTTP_STATUS.UNPROCESSABLE_ENTITY;
-          errorMessage = 'Invalid package name';
-          break;
-        }
-
-        case ParseStatus.INVALID_URL:
-        case ParseStatus.NO_URL_FOUND: {
-          errorCode = HTTP_STATUS.NOT_FOUND;
-          errorMessage = `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`;
-          break;
-        }
-
-        case ParseStatus.PACKAGE_NOT_FOUND: {
-          errorCode = HTTP_STATUS.NOT_FOUND;
-          errorMessage = 'Package not found';
-          break;
         }
 
         case ParseStatus.VERSION_NOT_FOUND: {

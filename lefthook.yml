@@ -2,11 +2,11 @@ pre-commit:
   parallel: false
   commands:
     prettier:
-      glob: '*.{json,md,yml}'
-      run: npx prettier --write {staged_files} && git add {staged_files}
+      glob: '*.{js,ts,css,csv,md,json,yml,yaml}'
+      run: npx --no-install prettier --write {staged_files} && git add {staged_files}
     oxlint:
-      glob: 'src/**/*.ts'
-      run: npx oxlint --fix {staged_files} && git add {staged_files}
-    oxlint_spec:
-      glob: 'spec/**/*.ts'
-      run: npx oxlint --config .eslintrc.spec.json --fix {staged_files} && git add {staged_files}
+      glob: '*.{js,ts}'
+      run: npx --no-install oxlint --ignore-path .gitignore --fix {staged_files} && git add {staged_files}
+    eslint:
+      glob: '*.{js,ts}'
+      run: npx --no-install eslint --fix {staged_files} && git add {staged_files}

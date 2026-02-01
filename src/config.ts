@@ -1,5 +1,5 @@
-import fs from 'node:fs';
 import {findUpSync} from 'find-up';
+import fs from 'node:fs';
 
 const packageJsonPath = findUpSync('package.json', {allowSymlinks: false});
 if (!packageJsonPath) {

@@ -26,28 +26,10 @@ export type ParseResult =
 
 const knownSSLHosts = ['bitbucket.org', 'github.com', 'gitlab.com', 'sourceforge.net'];
 
-function parseRepositoryEntry(repository: string | Record<string, string>): string | null {
-  return typeof repository === 'string' ? repository : repository.url || null;
-}
-
-function cleanUrl(url: string): string | null {
-  url = url.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
-  const parsedURL = validateUrl(url);
-  if (parsedURL) {
-    parsedURL.hash = '';
-    parsedURL.password = '';
-    parsedURL.protocol = knownSSLHosts.includes(parsedURL.hostname) ? 'https:' : 'http:';
-    parsedURL.search = '';
-    parsedURL.username = '';
-    return parsedURL.href;
-  }
-  return null;
-}
-
 export async function getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
-    let packageInfo: packageJson.FullVersion & Pick<packageJson.FullMetadata, 'time'>;
-  let foundUrl: string | null = null;
-  let parsedRepository: string | null = null;
+  let packageInfo: packageJson.FullVersion & Pick<packageJson.FullMetadata, 'time'>;
+  let foundUrl: null | string = null;
+  let parsedRepository: null | string = null;
 
   const validateResult = validatePackageName(rawPackageName);
 
@@ -105,4 +87,22 @@ export async function getPackageUrl(rawPackageName: string, version: string = 'l
     status: ParseStatus.SUCCESS,
     url: foundUrl,
   };
+}
+
+function cleanUrl(url: string): null | string {
+  url = url.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
+  const parsedURL = validateUrl(url);
+  if (parsedURL) {
+    parsedURL.hash = '';
+    parsedURL.password = '';
+    parsedURL.protocol = knownSSLHosts.includes(parsedURL.hostname) ? 'https:' : 'http:';
+    parsedURL.search = '';
+    parsedURL.username = '';
+    return parsedURL.href;
+  }
+  return null;
+}
+
+function parseRepositoryEntry(repository: Record<string, string> | string): null | string {
+  return typeof repository === 'string' ? repository : repository.url || null;
 }

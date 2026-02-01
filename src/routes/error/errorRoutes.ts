@@ -1,6 +1,6 @@
 import {ErrorRequestHandler, Router} from 'express';
-
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
+
 import {formatDate, getLogger} from '../../utils.js';
 
 interface InternalErrorRouteResponseBody {
