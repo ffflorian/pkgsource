@@ -8315,7 +8315,7 @@ __metadata:
     tsx: "npm:4.21.0"
     typescript: "npm:>= 5.9.3"
     typescript-eslint: "npm:>= 8.54.0"
-    validate-npm-package-name: "npm:7.0.1"
+    validate-npm-package-name: "npm:7.0.2"
   languageName: unknown
   linkType: soft
 
@@ -10669,10 +10669,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validate-npm-package-name@npm:7.0.1":
-  version: 7.0.1
-  resolution: "validate-npm-package-name@npm:7.0.1"
-  checksum: 10c0/3bc127215be834d7850910af8a7bb1ae0db7d7a500ab40b2c4191520be23028979cffbe8a8ff36885838bcf26874bd4572d13116074383698cce701bdc63c976
+"validate-npm-package-name@npm:7.0.2":
+  version: 7.0.2
+  resolution: "validate-npm-package-name@npm:7.0.2"
+  checksum: 10c0/adf32e943148e13e8df13d06b855493908e6ae7a847610e8543c6291cbf42f40e653249a5b2275e2e615e3224c574ade5a9064a9e2d1ab629386284ea99e8f39
   languageName: node
   linkType: hard
 
