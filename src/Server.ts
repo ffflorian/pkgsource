@@ -3,8 +3,7 @@ import helmet from 'helmet';
 import nocache from 'nocache';
 import http from 'node:http';
 
-import type {ServerConfig} from './config.js';
-
+import {config, ServerConfig} from './config.js';
 import {
   healthCheckRoute,
   infoRoute,
@@ -87,3 +86,6 @@ export class Server {
     }
   }
 }
+
+const app = new Server(config).app;
+export default app;

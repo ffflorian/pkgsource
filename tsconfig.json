@@ -13,10 +13,12 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "outDir": "dist",
+    "rootDir": "src",
     "sourceMap": false,
     "strict": true,
     "strictFunctionTypes": true,
     "target": "es6"
   },
-  "exclude": ["dist", "node_modules", "spec"]
+  "exclude": ["dist", "node_modules", "spec", "eslint.config.ts", "api"]
 }
