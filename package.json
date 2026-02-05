@@ -29,7 +29,7 @@
     "eslint": "9.39.2",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-oxlint": "1.42.0",
+    "eslint-plugin-oxlint": "1.43.0",
     "eslint-plugin-perfectionist": "5.5.0",
     "globals": "17.3.0",
     "jiti": "2.6.1",
