@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/ffflorian/pkgsource/compare/v1.8.1...v1.8.2) (2026-02-05)
+
+
+### Bug Fixes
+
+* Re-add rootDir and outDir in tsconfig ([d495069](https://github.com/ffflorian/pkgsource/commit/d49506952ad672ff929a81e6b9a19b68ca1a824d))
+
 ## [1.8.1](https://github.com/ffflorian/pkgsource/compare/v1.8.0...v1.8.1) (2023-04-11)
 
 

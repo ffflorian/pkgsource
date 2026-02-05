@@ -82,5 +82,5 @@
     "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts"
   },
   "type": "module",
-  "version": "1.8.1"
+  "version": "1.8.2"
 }
