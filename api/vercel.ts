@@ -1,5 +1,5 @@
-import {config} from '../src/config';
-import {Server} from '../src/Server';
+import {config} from '../src/config.js';
+import {Server} from '../src/Server.js';
 
 const app = new Server(config).app;
-export = app;
+export default app;

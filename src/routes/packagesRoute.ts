@@ -1,21 +1,20 @@
 import {Router} from 'express';
-import {URL} from 'url';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
-import packageJson from 'package-json';
+import {URL} from 'node:url';
 
-import {getPackageUrl, ParseStatus} from '../RepositoryParser';
-import {getLogger, queryParameterExists, validateUrl} from '../utils';
+import {getPackageUrl, ParseStatus} from '../RepositoryParser.js';
+import {getLogger, queryParameterExists, validateUrl} from '../utils.js';
+
+type PackagesRouteParamsDictionary = [string, string];
+
+type PackagesRouteQueryParameters = Record<'raw' | 'unpkg', string>;
 
 interface PackagesRouteResponseBody {
   code: HTTP_STATUS;
   message?: string;
-  packageInfo?: packageJson.FullMetadata;
+  packageInfo?: object;
   url?: string;
 }
-
-type PackagesRouteQueryParameters = Record<'unpkg' | 'raw', string>;
-
-type PackagesRouteParamsDictionary = [string, string];
 
 const logger = getLogger('routes/packagesRoute');
 const router = Router();
@@ -37,43 +36,29 @@ export function packagesRoute(): Router {
         const redirectUrl = `${unpkgBase}/${packageName}@${version}/`;
 
         if (!validateUrl(redirectUrl)) {
-          return response
+          response
             .status(HTTP_STATUS.BAD_REQUEST)
             .json({code: HTTP_STATUS.BAD_REQUEST, message: `Invalid URL: ${redirectUrl}`});
+          return;
         }
 
         if (queryParameterExists(request, 'raw')) {
           logger.info(`Returning raw unpkg info for "${packageName}": "${redirectUrl}" ...`);
-          return response.json({
+          response.json({
             code: HTTP_STATUS.OK,
             url: redirectUrl,
           });
+          return;
         }
 
         logger.info(`Redirecting package "${packageName}" to unpkg: "${redirectUrl}" ...`);
-        return response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+        response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
       }
 
       const parseResult = await getPackageUrl(packageName, version);
       const packageInfo = parseResult.packageInfo;
 
       switch (parseResult.status) {
-        case ParseStatus.SUCCESS: {
-          const redirectSite = parseResult.url;
-
-          if (queryParameterExists(request, 'raw')) {
-            logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
-            return response.json({
-              code: HTTP_STATUS.OK,
-              packageInfo: packageInfo,
-              url: redirectSite,
-            });
-          }
-
-          logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
-          return response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
-        }
-
         case ParseStatus.INVALID_PACKAGE_NAME: {
           errorCode = HTTP_STATUS.UNPROCESSABLE_ENTITY;
           errorMessage = 'Invalid package name';
@@ -92,6 +77,21 @@ export function packagesRoute(): Router {
           errorMessage = 'Package not found';
           break;
         }
+        case ParseStatus.SUCCESS: {
+          const redirectSite = parseResult.url;
+
+          if (queryParameterExists(request, 'raw')) {
+            logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
+            response.json({
+              code: HTTP_STATUS.OK,
+              url: redirectSite,
+            });
+            return;
+          }
+
+          logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
+          return response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
+        }
 
         case ParseStatus.VERSION_NOT_FOUND: {
           errorCode = HTTP_STATUS.NOT_FOUND;
@@ -107,7 +107,7 @@ export function packagesRoute(): Router {
         }
       }
 
-      return response.status(errorCode).json({code: errorCode, message: errorMessage});
+      response.status(errorCode).json({code: errorCode, message: errorMessage});
     }
   );
 }

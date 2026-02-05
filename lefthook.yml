@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: false
+  commands:
+    prettier:
+      glob: '*.{js,ts,css,csv,md,json,yml,yaml}'
+      run: npx --no-install prettier --write {staged_files} && git add {staged_files}
+    oxlint:
+      glob: '*.{js,ts}'
+      run: npx --no-install oxlint --ignore-path .gitignore --fix {staged_files} && git add {staged_files}
+    eslint:
+      glob: '*.{js,ts}'
+      run: npx --no-install eslint --fix {staged_files} && git add {staged_files}

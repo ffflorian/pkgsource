@@ -1,18 +1,18 @@
 import {Router} from 'express';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
-import {getLogger} from '../utils';
-import {unpkgBase} from './packagesRoute';
+import {getLogger} from '../utils.js';
+import {unpkgBase} from './packagesRoute.js';
+
+type MainRouteParamsDictionary = [string, string];
+
+type MainRouteQueryParameters = Record<'raw' | 'unpkg', string>;
 
 interface MainRouteResponseBody {
   code: HTTP_STATUS;
   message?: string;
   url?: string;
 }
-
-type MainRouteQueryParameters = Record<'unpkg' | 'raw', string>;
-
-type MainRouteParamsDictionary = [string, string];
 
 const logger = getLogger('routes/mainRoute');
 const router = Router();
@@ -27,31 +27,34 @@ export function mainRoute(): Router {
         const redirectUrl = `${unpkgBase}/pkgsource@latest/`;
         if ('raw' in req.query && req.query.raw !== 'false') {
           logger.info(`Returning raw unpkg info for main page: "${redirectUrl}" ...`);
-          return res.json({
+          res.json({
             code: HTTP_STATUS.OK,
             url: redirectUrl,
           });
+          return;
         }
         logger.info(`Redirecting main page to unpkg: "${redirectUrl}" ...`);
-        return res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+        res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+        return;
       }
 
       if ('raw' in req.query && req.query.raw !== 'false') {
         logger.info(`Returning raw info for main page: "${repositoryUrl}" ...`);
-        return res.json({
+        res.json({
           code: HTTP_STATUS.OK,
           url: repositoryUrl,
         });
+        return;
       }
 
       logger.info(`Redirecting main page to "${repositoryUrl}" ...`);
-      return res.redirect(repositoryUrl);
+      res.redirect(repositoryUrl);
     })
     .get('/robots.txt', (_, res) => {
-      return res.contentType('text/plain').send('User-agent: *\nDisallow: /');
+      res.contentType('text/plain').send('User-agent: *\nDisallow: /');
     })
     .get('/favicon.ico', (_, res) => {
-      return res.status(HTTP_STATUS.NOT_FOUND).send({
+      res.status(HTTP_STATUS.NOT_FOUND).send({
         code: HTTP_STATUS.NOT_FOUND,
         message: 'Not found',
       });

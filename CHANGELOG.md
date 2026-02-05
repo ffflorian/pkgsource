@@ -1,3 +1,24 @@
+## [1.8.2](https://github.com/ffflorian/pkgsource/compare/v1.8.1...v1.8.2) (2026-02-05)
+
+
+### Bug Fixes
+
+* Re-add rootDir and outDir in tsconfig ([d495069](https://github.com/ffflorian/pkgsource/commit/d49506952ad672ff929a81e6b9a19b68ca1a824d))
+
+## [1.8.1](https://github.com/ffflorian/pkgsource/compare/v1.8.0...v1.8.1) (2023-04-11)
+
+
+### Bug Fixes
+
+* Swagger UI CSS URL ([#1053](https://github.com/ffflorian/pkgsource/issues/1053)) ([08ec16e](https://github.com/ffflorian/pkgsource/commit/08ec16e9048f7524d1e81c6de86c8e005725104c))
+
+# [1.8.0](https://github.com/ffflorian/pkgsource/compare/v1.7.0...v1.8.0) (2023-04-10)
+
+
+### Features
+
+* Don't publish from flattened directory ([75c55ae](https://github.com/ffflorian/pkgsource/commit/75c55ae4e9286dd0e216cb2de8b06c19c4f5c9c6))
+
 # [1.7.0](https://github.com/ffflorian/pkgsource/compare/v1.6.6...v1.7.0) (2021-09-05)
 
 

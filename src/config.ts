@@ -1,12 +1,12 @@
-import path from 'path';
-import findUp from 'find-up';
+import {findUpSync} from 'find-up';
+import fs from 'node:fs';
 
-const packageJsonPath = findUp.sync('package.json', {allowSymlinks: false});
+const packageJsonPath = findUpSync('package.json', {allowSymlinks: false});
 if (!packageJsonPath) {
   throw new Error('Could not find file `package.json`');
 }
 
-const {version}: {version: string} = require(packageJsonPath);
+const {version}: {version: string} = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
 const defaultPort = 4000;
 
 export interface ServerConfig {
@@ -24,7 +24,7 @@ const config: ServerConfig = {
   CACHE_DURATION_SECONDS: 300, // 5 minutes
   COMPRESS_LEVEL: 6,
   COMPRESS_MIN_SIZE: 500,
-  DIST_DIR: path.resolve(__dirname),
+  DIST_DIR: '.',
   ENVIRONMENT: process.env.ENVIRONMENT || 'prod',
   PORT_HTTP: Number(process.env.PORT || defaultPort),
   VERSION: version,

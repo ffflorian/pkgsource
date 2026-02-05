@@ -71,7 +71,7 @@
       "url": "https://github.com/ffflorian/pkgsource/blob/main/LICENSE"
     },
     "title": "pkgsource",
-    "version": "1.4.5"
+    "version": "1.8.0"
   },
   "openapi": "3.0.0",
   "paths": {
