@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/vercel.ts": {
+    "src/Server.ts": {
       "includeFiles": "{swagger,package}.json"
     }
   },
@@ -9,7 +9,7 @@
   },
   "routes": [
     {
-      "dest": "api/vercel.ts",
+      "dest": "src/Server.ts",
       "methods": ["GET"],
       "src": "/(.*)"
     }
