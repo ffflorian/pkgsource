@@ -12,6 +12,7 @@ type PackagesRouteQueryParameters = Record<'raw' | 'unpkg', string>;
 interface PackagesRouteResponseBody {
   code: HTTP_STATUS;
   message?: string;
+  packageInfo?: object;
   url?: string;
 }
 
@@ -55,6 +56,7 @@ export function packagesRoute(): Router {
       }
 
       const parseResult = await getPackageUrl(packageName, version);
+      const packageInfo = parseResult.packageInfo;
 
       switch (parseResult.status) {
         case ParseStatus.INVALID_PACKAGE_NAME: {
@@ -66,15 +68,15 @@ export function packagesRoute(): Router {
         case ParseStatus.INVALID_URL:
         case ParseStatus.NO_URL_FOUND: {
           errorCode = HTTP_STATUS.NOT_FOUND;
-          errorMessage = `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`;
-          break;
+          errorMessage = `No source URL found.`;
+          return response.status(errorCode).json({code: errorCode, message: errorMessage, packageInfo});
         }
+
         case ParseStatus.PACKAGE_NOT_FOUND: {
           errorCode = HTTP_STATUS.NOT_FOUND;
           errorMessage = 'Package not found';
           break;
         }
-
         case ParseStatus.SUCCESS: {
           const redirectSite = parseResult.url;
 

@@ -15,14 +15,15 @@ export enum ParseStatus {
   VERSION_NOT_FOUND = 'VERSION_NOT_FOUND',
 }
 
-export type ParseResult =
+export type ParseResult = {packageInfo?: packageJson.FullMetadata} & (
   | {
       status: Exclude<ParseStatus, ParseStatus.SUCCESS>;
     }
   | {
       status: ParseStatus.SUCCESS;
       url: string;
-    };
+    }
+);
 
 const knownSSLHosts = ['bitbucket.org', 'github.com', 'gitlab.com', 'sourceforge.net'];
 
@@ -73,17 +74,18 @@ export async function getPackageUrl(rawPackageName: string, version: string = 'l
 
   if (!foundUrl) {
     logger.info(`No source URL found in package "${rawPackageName}".`);
-    return {status: ParseStatus.NO_URL_FOUND};
+    return {packageInfo, status: ParseStatus.NO_URL_FOUND};
   }
 
   foundUrl = cleanUrl(foundUrl);
 
   if (!foundUrl) {
     logger.info(`Invalid URL "${foundUrl}" for package "${rawPackageName}".`);
-    return {status: ParseStatus.INVALID_URL};
+    return {packageInfo, status: ParseStatus.INVALID_URL};
   }
 
   return {
+    packageInfo,
     status: ParseStatus.SUCCESS,
     url: foundUrl,
   };
