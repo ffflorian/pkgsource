@@ -55,7 +55,7 @@
   "license": "GPL-3.0",
   "main": "dist/index.js",
   "name": "pkgsource",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.13.0",
   "prettier": "@ffflorian/prettier-config",
   "release": {
     "extends": "@ffflorian/semantic-release-config"
