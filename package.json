@@ -17,7 +17,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@evilmartians/lefthook": "2.1.1",
-    "@ffflorian/eslint-config": "0.13.3",
+    "@ffflorian/eslint-config": "0.13.5",
     "@ffflorian/prettier-config": "0.6.3",
     "@ffflorian/semantic-release-config": "0.10.3",
     "@semantic-release/changelog": "6.0.3",
