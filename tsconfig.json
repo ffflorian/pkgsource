@@ -18,7 +18,8 @@
     "sourceMap": false,
     "strict": true,
     "strictFunctionTypes": true,
-    "target": "es6"
+    "target": "es6",
+    "types": ["node"]
   },
   "exclude": ["dist", "node_modules", "spec", "eslint.config.ts"]
 }
