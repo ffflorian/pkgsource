@@ -16,7 +16,7 @@
   "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@evilmartians/lefthook": "2.1.1",
+    "@evilmartians/lefthook": "2.1.4",
     "@ffflorian/eslint-config": "0.13.5",
     "@ffflorian/prettier-config": "0.6.7",
     "@ffflorian/semantic-release-config": "0.10.3",
