@@ -10,4 +10,4 @@ yarn
 yarn dist
 
 yarn start
-npx --no-install pm2 logs
+npx --no pm2 logs
