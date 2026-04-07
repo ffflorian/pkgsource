@@ -10,4 +10,3 @@ yarn
 yarn dist
 
 yarn start
-npx --no pm2 logs

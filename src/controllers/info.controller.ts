@@ -1,9 +1,9 @@
-import {Router} from 'express';
+import {Controller, Get} from '@nestjs/common';
 import {findUpSync} from 'find-up';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import fs from 'node:fs';
 
-import {getLogger} from '../utils.js';
+import {getLogger} from '../utils';
 
 interface InfoRouteResponseBody {
   code: HTTP_STATUS;
@@ -11,11 +11,10 @@ interface InfoRouteResponseBody {
   version?: string;
 }
 
-const logger = getLogger('routes/infoRoute');
+const logger = getLogger('controllers/InfoController');
 
-const router = Router();
-let version: string;
-let commit: string;
+let version: string | undefined;
+let commit: string | undefined;
 
 const packageJsonPath = findUpSync('package.json', {allowSymlinks: false, cwd: '.'});
 if (!packageJsonPath) {
@@ -31,12 +30,14 @@ if (!commitPath) {
   commit = fs.readFileSync(commitPath, 'utf-8');
 }
 
-export function infoRoute(): Router {
-  return router.get<void, InfoRouteResponseBody>('/_info{/}', (_request, res) => {
-    res.json({
+@Controller()
+export class InfoController {
+  @Get('_info')
+  info(): InfoRouteResponseBody {
+    return {
       code: HTTP_STATUS.OK,
       ...(commit && {commit}),
       ...(version && {version}),
-    });
-  });
+    };
+  }
 }

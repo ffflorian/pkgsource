@@ -1,89 +1,59 @@
-import express, {Application} from 'express';
+import {NestFactory} from '@nestjs/core';
+import {NestExpressApplication} from '@nestjs/platform-express';
+import {SwaggerModule} from '@nestjs/swagger';
+import {findUpSync} from 'find-up';
 import helmet from 'helmet';
-import nocache from 'nocache';
-import http from 'node:http';
+import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
+import fs from 'node:fs';
 
-import type {ServerConfig} from './config.js';
-
-import {
-  healthCheckRoute,
-  infoRoute,
-  initSwaggerRoute,
-  internalErrorRoute,
-  mainRoute,
-  notFoundRoute,
-  packagesRoute,
-} from './routes/index.js';
-import {getLogger} from './utils.js';
+import {AppModule} from './app.module';
+import {ServerConfig} from './config';
+import {AllExceptionsFilter} from './filters/all-exceptions.filter';
+import {getLogger} from './utils';
 
 const logger = getLogger('Server');
 
-export class Server {
-  public readonly app: Application;
-  private server?: http.Server;
-
-  constructor(private readonly config: ServerConfig) {
-    this.app = express();
-    this.init();
-  }
-
-  init(): void {
-    // The order is important here, please don't sort!
-    this.initSecurityHeaders();
-    this.app.use(healthCheckRoute());
-    this.app.use(infoRoute());
-    this.app.use(mainRoute());
-    initSwaggerRoute(this.app, this.config);
-    this.app.use(packagesRoute());
-    this.app.use(notFoundRoute());
-    this.app.use(internalErrorRoute());
-  }
-
-  initCaching(): void {
-    if (this.config.DEVELOPMENT) {
-      this.app.use(nocache());
-    } else {
-      this.app.use((_, res, next) => {
-        const milliSeconds = 1000;
-        res.header('Cache-Control', `public, max-age=${this.config.CACHE_DURATION_SECONDS}`);
-        res.header('Expires', new Date(Date.now() + this.config.CACHE_DURATION_SECONDS * milliSeconds).toUTCString());
-        next();
-      });
-    }
-  }
-
-  initSecurityHeaders(): void {
-    this.app.disable('x-powered-by');
-    this.app.use(
-      helmet({
-        frameguard: {action: 'deny'},
-      })
-    );
-    this.app.use(helmet.noSniff());
-    this.app.use(helmet.xssFilter());
-  }
-
-  start(): Promise<number> {
-    return new Promise((resolve, reject) => {
-      if (this.server) {
-        reject(new Error('Server is already running.'));
-      } else if (this.config.PORT_HTTP) {
-        this.server = this.app.listen(this.config.PORT_HTTP, () => {
-          logger.info(`Server is running on port ${this.config.PORT_HTTP}.`);
-          resolve(this.config.PORT_HTTP);
-        });
-      } else {
-        reject(new Error('Server port not specified.'));
-      }
-    });
-  }
-
-  async stop(): Promise<void> {
-    if (this.server) {
-      this.server.close();
-      this.server = undefined;
-    } else {
-      throw new Error('Server is not running.');
-    }
-  }
+const swaggerJsonPath = findUpSync('swagger.json', {allowSymlinks: false, cwd: '.'});
+if (!swaggerJsonPath) {
+  throw new Error('Could not find file `swagger.json`');
 }
+const swaggerDocument = JSON.parse(fs.readFileSync(swaggerJsonPath, 'utf-8'));
+
+export async function createApp(config: ServerConfig): Promise<NestExpressApplication> {
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {logger: false});
+
+  app.disable('x-powered-by');
+  app.use(
+    helmet({
+      frameguard: {action: 'deny'},
+    })
+  );
+  app.use(helmet.noSniff());
+  app.use(helmet.xssFilter());
+
+  app.useGlobalFilters(new AllExceptionsFilter());
+
+  const swaggerOptions = {
+    host: `localhost:${config.PORT_HTTP}`,
+  };
+  SwaggerModule.setup('_swagger-ui', app, swaggerDocument, {swaggerOptions});
+
+  app.setGlobalPrefix('', {
+    exclude: ['_health', '_info', '_swagger-ui', '/'],
+  });
+
+  return app;
+}
+
+export async function startServer(config: ServerConfig): Promise<void> {
+  if (!config.PORT_HTTP) {
+    throw new Error('Server port not specified.');
+  }
+
+  const app = await createApp(config);
+  await app.listen(config.PORT_HTTP);
+  logger.info(`Server is running on port ${config.PORT_HTTP}.`);
+}
+
+export {HTTP_STATUS};
+

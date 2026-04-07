@@ -2,11 +2,14 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "declaration": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ESNext"],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "noEmitOnError": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -18,7 +21,7 @@
     "sourceMap": false,
     "strict": true,
     "strictFunctionTypes": true,
-    "target": "es6",
+    "target": "es2017",
     "types": ["node"]
   },
   "exclude": ["dist", "node_modules", "spec", "eslint.config.ts"]
