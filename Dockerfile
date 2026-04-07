@@ -1,13 +1,21 @@
-FROM node:16-slim
+FROM node:24-alpine
 
-RUN apt-get update \
-    && apt-get -y install git procps \
-    && rm -rf /var/lib/apt/lists/*
+# Set working directory
+WORKDIR /app
 
-ADD bin /etc/scripts
+RUN apk add --no-cache curl
 
-ENV PORT=4000
+# Copy needed files
+COPY . ./
 
-EXPOSE ${PORT}
+# Install dependencies
+RUN yarn install --immutable
 
-CMD [ "/etc/scripts/start.sh" ]
+# Build the backend (if needed)
+RUN yarn build
+
+# Expose the port
+EXPOSE 3000
+
+# Start the application
+CMD ["yarn", "start"]
