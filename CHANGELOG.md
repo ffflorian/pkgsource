@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/ffflorian/pkgsource/compare/v1.9.0...v1.10.0) (2026-04-07)
+
+
+### Features
+
+* Add logging to exception filter ([#1773](https://github.com/ffflorian/pkgsource/issues/1773)) ([8694f30](https://github.com/ffflorian/pkgsource/commit/8694f3007bc1250d5321fad32a268105254421fe))
+
 # [1.9.0](https://github.com/ffflorian/pkgsource/compare/v1.8.2...v1.9.0) (2026-04-07)
 
 
