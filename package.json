@@ -83,5 +83,5 @@
     "start": "node dist/src/index.js",
     "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts"
   },
-  "version": "1.8.2"
+  "version": "1.9.0"
 }
