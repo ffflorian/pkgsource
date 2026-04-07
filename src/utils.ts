@@ -1,6 +1,3 @@
-import type {Request} from 'express';
-import type {ParamsDictionary} from 'express-serve-static-core';
-
 import * as dateFns from 'date-fns';
 import logdown from 'logdown';
 import {URL} from 'node:url';
@@ -24,13 +21,6 @@ export function getLogger(name: string) {
   };
 }
 
-export function queryParameterExists<ReqQuery extends ParamsDictionary, Parameter extends keyof ReqQuery>(
-  request: Request<any, any, any, ReqQuery>,
-  parameter: Parameter
-): boolean {
-  return parameter in request.query && request.query[parameter] !== 'false';
-}
-
 export function validateUrl(url: string): null | URL {
   try {
     return new URL(url);
@@ -39,3 +29,4 @@ export function validateUrl(url: string): null | URL {
     return null;
   }
 }
+
