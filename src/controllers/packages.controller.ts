@@ -130,6 +130,10 @@ export class PackagesController {
     @Query() query: Record<string, string>,
     @Res() res: Response
   ): Promise<void> {
+    if (!scope.trim().startsWith('@')) {
+      res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Not found'});
+      return;
+    }
     const {name: pkgPart, version} = parsePackageAndVersion(rawPackageName.trim());
     const fullName = `${scope.trim()}/${pkgPart}`;
     await handlePackageRequest(fullName, version, query, res);
