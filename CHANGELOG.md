@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/ffflorian/pkgsource/compare/v1.10.0...v1.11.0) (2026-04-13)
+
+
+### Features
+
+* Remove vercel config and use SOURCE_COMMIT from Coolify ([21006ff](https://github.com/ffflorian/pkgsource/commit/21006ff23e51a84ddf0f6eb24e63bc4032631d30))
+
 # [1.10.0](https://github.com/ffflorian/pkgsource/compare/v1.9.0...v1.10.0) (2026-04-07)
 
 
