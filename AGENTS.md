@@ -8,7 +8,6 @@ pkgsource redirects npm package names to their source repository. It is a NestJS
 - **Entry point:** `src/index.ts` → `src/Server.ts` (`createApp` / `startServer`)
 - **Controllers:** `src/controllers/` (health, info, main, packages)
 - **Exception filter:** `src/filters/all-exceptions.filter.ts`
-- **Vercel handler:** `api/vercel.ts` (Promise-based lazy init)
 
 ## API
 

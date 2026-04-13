@@ -14,7 +14,6 @@ interface InfoRouteResponseBody {
 const logger = getLogger('controllers/InfoController');
 
 let version: string | undefined;
-let commit: string | undefined;
 
 const packageJsonPath = findUpSync('package.json', {allowSymlinks: false, cwd: '.'});
 if (!packageJsonPath) {
@@ -23,20 +22,13 @@ if (!packageJsonPath) {
   version = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8')).version;
 }
 
-const commitPath = findUpSync('commit', {allowSymlinks: false, cwd: '.'});
-if (!commitPath) {
-  logger.warn('Could not find file `commit`. Commit will not be shown in the `_info` endpoint');
-} else {
-  commit = fs.readFileSync(commitPath, 'utf-8');
-}
-
 @Controller()
 export class InfoController {
   @Get('_info')
   info(): InfoRouteResponseBody {
     return {
       code: HTTP_STATUS.OK,
-      ...(commit && {commit}),
+      commit: process.env.SOURCE_COMMIT || 'main',
       ...(version && {version}),
     };
   }
