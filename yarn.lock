@@ -642,9 +642,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:11.1.18":
-  version: 11.1.18
-  resolution: "@nestjs/common@npm:11.1.18"
+"@nestjs/common@npm:11.1.19":
+  version: 11.1.19
+  resolution: "@nestjs/common@npm:11.1.19"
   dependencies:
     file-type: "npm:21.3.4"
     iterare: "npm:1.2.1"
@@ -661,7 +661,7 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 10c0/d074a1c44099d91b6456212f0a1a62352897e2b9195735eea4e683534d30a305810ec9e9cd0912e77cc20401a16d449283aa8d9302531776ba2f91eeae8b8327
+  checksum: 10c0/bdafd188982212f9e623e15882613e56335c31d8ece247405f2ea97be32d1e64d3fbe6b013f91082a52c2bce85a36d61dce3e6f9c59ebebc6f54a5b579b5ddb0
   languageName: node
   linkType: hard
 
@@ -8147,7 +8147,7 @@ __metadata:
     "@ffflorian/eslint-config": "npm:0.14.2"
     "@ffflorian/prettier-config": "npm:0.8.2"
     "@ffflorian/semantic-release-config": "npm:0.12.4"
-    "@nestjs/common": "npm:11.1.18"
+    "@nestjs/common": "npm:11.1.19"
     "@nestjs/core": "npm:11.1.19"
     "@nestjs/platform-express": "npm:11.1.18"
     "@nestjs/swagger": "npm:11.2.7"
