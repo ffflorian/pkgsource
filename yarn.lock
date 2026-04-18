@@ -665,9 +665,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:11.1.18":
-  version: 11.1.18
-  resolution: "@nestjs/core@npm:11.1.18"
+"@nestjs/core@npm:11.1.19":
+  version: 11.1.19
+  resolution: "@nestjs/core@npm:11.1.19"
   dependencies:
     "@nuxt/opencollective": "npm:0.4.1"
     fast-safe-stringify: "npm:2.1.1"
@@ -689,7 +689,7 @@ __metadata:
       optional: true
     "@nestjs/websockets":
       optional: true
-  checksum: 10c0/324d7006b6a564cba7c7939a99928270d4e2f3c31172c596297ba97a150857458c431eae78ed5ef1c697aa754cf4179444be44184931183ed3063416cca1d381
+  checksum: 10c0/5abf4e6f071e11b0af61b7e0253d17eebc626b7fa3265eb9a0a8bbeeaaea2ebe1681c1bc3fc06c6928363402907702f712c066e49789dfd2a234cd6772b02c7b
   languageName: node
   linkType: hard
 
@@ -8056,7 +8056,7 @@ __metadata:
     "@ffflorian/prettier-config": "npm:0.8.2"
     "@ffflorian/semantic-release-config": "npm:0.12.4"
     "@nestjs/common": "npm:11.1.18"
-    "@nestjs/core": "npm:11.1.18"
+    "@nestjs/core": "npm:11.1.19"
     "@nestjs/platform-express": "npm:11.1.18"
     "@nestjs/swagger": "npm:11.2.6"
     "@semantic-release/changelog": "npm:6.0.3"
