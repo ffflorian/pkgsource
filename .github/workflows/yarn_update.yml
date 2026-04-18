@@ -1,8 +1,5 @@
 name: Check for yarn updates
 
-permissions:
-  contents: write
-  pull-requests: write
 
 on:
   schedule:
@@ -17,6 +14,8 @@ on:
 jobs:
   yarn-update-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Update yarn
         uses: ffflorian/actions/yarn-update@4e565c78750bb5f2cc44c9b954f89292a5df6b1b
