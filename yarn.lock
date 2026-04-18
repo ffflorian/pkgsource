@@ -710,9 +710,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:11.1.18":
-  version: 11.1.18
-  resolution: "@nestjs/platform-express@npm:11.1.18"
+"@nestjs/platform-express@npm:11.1.19":
+  version: 11.1.19
+  resolution: "@nestjs/platform-express@npm:11.1.19"
   dependencies:
     cors: "npm:2.8.6"
     express: "npm:5.2.1"
@@ -722,7 +722,7 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^11.0.0
     "@nestjs/core": ^11.0.0
-  checksum: 10c0/b4c395fc890515ec16d179eb9288ae59a9a4e892e64f6dd99aaacc0dd99d0ec1d2e24c92373f805e4958c5293daf5a23cadf38a563ac6525afc134e3d9a76f5c
+  checksum: 10c0/7d3b36c52b82d137e90e20e80aa0eef4057696a76b4b751b91253dc0879e109ef2a98955698a64d7cc570623467b75757e8e6d0210144a15e69e422a13581e01
   languageName: node
   linkType: hard
 
@@ -8149,7 +8149,7 @@ __metadata:
     "@ffflorian/semantic-release-config": "npm:0.12.4"
     "@nestjs/common": "npm:11.1.18"
     "@nestjs/core": "npm:11.1.19"
-    "@nestjs/platform-express": "npm:11.1.18"
+    "@nestjs/platform-express": "npm:11.1.19"
     "@nestjs/swagger": "npm:11.2.7"
     "@semantic-release/changelog": "npm:6.0.3"
     "@semantic-release/git": "npm:10.0.1"
