@@ -11,6 +11,8 @@ updates:
       - dependency-name: node
         versions:
           - '>= 25, < 26'
+    cooldown:
+      default-days: 5
   - package-ecosystem: npm
     directory: '/'
     schedule:
@@ -34,3 +36,7 @@ updates:
     open-pull-requests-limit: 99
     assignees:
       - ffflorian
+    cooldown:
+      default-days: 5
+      exclude:
+        - 'ffflorian/*'
