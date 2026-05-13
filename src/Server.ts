@@ -29,7 +29,7 @@ export async function createApp(config: ServerConfig): Promise<NestExpressApplic
     .setTitle('pkgsource')
     .setDescription('Find the source of an npm package in an instant.')
     .setVersion(config.VERSION)
-    .setContact('', 'https://github.com/ffflorian', '')
+    .setContact('Florian Imdahl', 'https://github.com/ffflorian', '')
     .setLicense('GPL-3.0', 'https://github.com/ffflorian/pkgsource/blob/main/LICENSE')
     .addTag('API')
     .addTag('Server Info')
