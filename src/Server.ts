@@ -13,6 +13,7 @@ import {getLogger} from './utils';
 const logger = getLogger('Server');
 // In-memory store is process-local and resets on restart.
 const rateLimitStore = new Map<string, {count: number; resetAt: number}>();
+const rateLimitCleanupThreshold = 1_000;
 
 export async function createApp(config: ServerConfig): Promise<NestExpressApplication> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {logger: false});
@@ -74,7 +75,9 @@ function createRateLimitMiddleware(config: ServerConfig) {
 
   return (request: Request, response: Response, next: NextFunction) => {
     const now = Date.now();
-    cleanupExpiredRateLimitEntries(now);
+    if (rateLimitStore.size >= rateLimitCleanupThreshold) {
+      cleanupExpiredRateLimitEntries(now);
+    }
     const ipAddress = request.ip || request.socket.remoteAddress || 'unknown';
     const current = rateLimitStore.get(ipAddress);
 
