@@ -8,9 +8,13 @@
           },
           "message": {
             "type": "string"
+          },
+          "packageInfo": {
+            "additionalProperties": true,
+            "type": "object"
           }
         },
-        "required": ["code", "url"],
+        "required": ["code", "message"],
         "type": "object"
       },
       "RawQuery": {
@@ -215,14 +219,18 @@
                     {
                       "example": {
                         "code": 404,
-                        "url": "Package not found"
+                        "message": "No source URL found. Please visit https://www.npmjs.com/package/pkgsource.",
+                        "packageInfo": {
+                          "name": "pkgsource",
+                          "version": "1.8.0"
+                        }
                       }
                     }
                   ]
                 }
               }
             },
-            "description": "Version or package not found"
+            "description": "Version, package, or source URL not found"
           },
           "422": {
             "content": {
@@ -235,7 +243,7 @@
                     {
                       "example": {
                         "code": 422,
-                        "url": "Invalid package name"
+                        "message": "Invalid package name"
                       }
                     }
                   ]
@@ -255,7 +263,7 @@
                     {
                       "example": {
                         "code": 500,
-                        "url": "Internal server error"
+                        "message": "Internal server error"
                       }
                     }
                   ]
