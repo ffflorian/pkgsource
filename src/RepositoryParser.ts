@@ -1,7 +1,7 @@
 import * as packageJson from 'package-json';
 import validatePackageName from 'validate-npm-package-name';
 
-import {getLogger, validateUrl} from './utils.js';
+import {getLogger, validateUrl} from './utils';
 
 const logger = getLogger('RepositoryParser');
 
@@ -15,7 +15,7 @@ export enum ParseStatus {
   VERSION_NOT_FOUND = 'VERSION_NOT_FOUND',
 }
 
-export type ParseResult = {packageInfo?: packageJson.FullMetadata} & (
+export type ParseResult = {packageInfo?: packageJson.FullVersion & Pick<packageJson.FullMetadata, 'time'>} & (
   | {
       status: Exclude<ParseStatus, ParseStatus.SUCCESS>;
     }

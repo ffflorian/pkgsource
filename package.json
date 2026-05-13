@@ -1,44 +1,45 @@
 {
   "author": "Florian Imdahl <git@ffflorian.de>",
   "dependencies": {
+    "@nestjs/common": "11.1.19",
+    "@nestjs/core": "11.1.19",
+    "@nestjs/platform-express": "11.1.19",
+    "@nestjs/swagger": "11.4.1",
     "date-fns": "4.1.0",
-    "express": "5.2.1",
     "find-up": "8.0.0",
     "helmet": "8.1.0",
     "http-status-codes": "2.3.0",
     "logdown": "3.3.1",
-    "nocache": "4.0.0",
     "package-json": "10.0.1",
-    "pm2": "6.0.14",
-    "swagger-ui-express": "5.0.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
     "validate-npm-package-name": "7.0.2"
   },
   "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
-    "@eslint/js": "9.39.2",
-    "@evilmartians/lefthook": "2.1.0",
-    "@ffflorian/eslint-config": "0.13.3",
-    "@ffflorian/prettier-config": "0.6.3",
-    "@ffflorian/semantic-release-config": "0.10.3",
+    "@eslint/js": "10.0.1",
+    "@evilmartians/lefthook": "2.1.6",
+    "@ffflorian/eslint-config": "0.14.2",
+    "@ffflorian/prettier-config": "0.8.2",
+    "@ffflorian/semantic-release-config": "0.12.4",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@types/express": "5.0.6",
     "@types/node": "~24",
-    "@types/swagger-ui-express": "4.1.8",
     "@types/validate-npm-package-name": "4.0.2",
-    "eslint": "9.39.2",
+    "eslint": "10.2.1",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-oxlint": "1.43.0",
-    "eslint-plugin-perfectionist": "5.5.0",
-    "globals": "17.3.0",
+    "eslint-plugin-oxlint": "1.61.0",
+    "eslint-plugin-perfectionist": "5.9.0",
+    "globals": "17.5.0",
     "jiti": "2.6.1",
-    "oxlint": "1.43.0",
-    "prettier": "3.8.1",
+    "oxlint": "1.61.0",
+    "prettier": "3.8.3",
     "semantic-release": "25.0.3",
     "tsx": "4.21.0",
-    "typescript": "5.9.3",
-    "typescript-eslint": "8.54.0"
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.59.0"
   },
   "engines": {
     "node": ">= 20"
@@ -49,13 +50,14 @@
   ],
   "homepage": "https://pkgsource.ffflorian.dev",
   "keywords": [
-    "cli",
+    "nestjs",
+    "npm",
     "typescript"
   ],
   "license": "GPL-3.0",
   "main": "dist/index.js",
   "name": "pkgsource",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.14.1",
   "prettier": "@ffflorian/prettier-config",
   "release": {
     "extends": "@ffflorian/semantic-release-config"
@@ -78,9 +80,8 @@
     "postversion": "VERSION=$(jq '.version' package.json) && jq \".info.version |= ${VERSION}\" swagger.json > swagger.tmp && mv swagger.tmp swagger.json",
     "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
-    "start": "pm2 start",
+    "start": "node dist/src/index.js",
     "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts"
   },
-  "type": "module",
-  "version": "1.8.2"
+  "version": "1.11.0"
 }

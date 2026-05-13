@@ -22,18 +22,10 @@ Visit `pkgsource.ffflorian.dev/{packageName}?unpkg` in your web browser, e.g. [`
 
 ## Server usage
 
-### Docker
-
-```
-docker run -p 4000:4000 ffflorian/pkgsource
-```
-
-### Local
-
 Prerequisites:
 
 - [Node.js](https://nodejs.org) >= 20
-- [yarn](https://yarnpkg.com) >= 3.5.0
+- [yarn](https://yarnpkg.com) >= 4
 
 ### Start the server in development mode
 
