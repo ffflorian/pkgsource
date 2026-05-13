@@ -1,10 +1,8 @@
 import {NestFactory} from '@nestjs/core';
 import {NestExpressApplication} from '@nestjs/platform-express';
-import {SwaggerModule} from '@nestjs/swagger';
-import {findUpSync} from 'find-up';
+import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import helmet from 'helmet';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
-import fs from 'node:fs';
 
 import {AppModule} from './app.module';
 import {ServerConfig} from './config';
@@ -12,12 +10,6 @@ import {AllExceptionsFilter} from './filters/all-exceptions.filter';
 import {getLogger} from './utils';
 
 const logger = getLogger('Server');
-
-const swaggerJsonPath = findUpSync('swagger.json', {allowSymlinks: false, cwd: '.'});
-if (!swaggerJsonPath) {
-  throw new Error('Could not find file `swagger.json`');
-}
-const swaggerDocument = JSON.parse(fs.readFileSync(swaggerJsonPath, 'utf-8'));
 
 export async function createApp(config: ServerConfig): Promise<NestExpressApplication> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {logger: false});
@@ -33,6 +25,16 @@ export async function createApp(config: ServerConfig): Promise<NestExpressApplic
 
   app.useGlobalFilters(new AllExceptionsFilter());
 
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle('pkgsource')
+    .setDescription('Find the source of an npm package in an instant.')
+    .setVersion(config.VERSION)
+    .setContact('', 'https://github.com/ffflorian', '')
+    .setLicense('GPL-3.0', 'https://github.com/ffflorian/pkgsource/blob/main/LICENSE')
+    .addTag('API')
+    .addTag('Server Info')
+    .build();
+  const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
   const swaggerOptions = {
     host: `localhost:${config.PORT_HTTP}`,
   };

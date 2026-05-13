@@ -45,8 +45,7 @@
     "node": ">= 20"
   },
   "files": [
-    "dist",
-    "swagger.json"
+    "dist"
   ],
   "homepage": "https://pkgsource.ffflorian.dev",
   "keywords": [
@@ -77,7 +76,6 @@
     "lint:ts": "yarn lint:ts:oxlint && yarn lint:ts:eslint",
     "lint:ts:eslint": "eslint .",
     "lint:ts:oxlint": "oxlint --ignore-path .gitignore .",
-    "postversion": "VERSION=$(jq '.version' package.json) && jq \".info.version |= ${VERSION}\" swagger.json > swagger.tmp && mv swagger.tmp swagger.json",
     "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
     "start": "node dist/src/index.js",
