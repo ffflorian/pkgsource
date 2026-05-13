@@ -90,6 +90,7 @@ export async function getPackageUrl(rawPackageName: string, version: string = 'l
 }
 
 function cleanUrl(url: string): null | string {
+  // Normalize git-style URLs while keeping secure protocols.
   url = url.replace(/\.git$/, '').replace(/^git\+/, '').replace(/^git:\/\//, 'https://').replace(/^ssh:\/\//, 'https://');
   const parsedURL = validateUrl(url);
   if (parsedURL) {

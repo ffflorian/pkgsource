@@ -11,6 +11,7 @@ import {AllExceptionsFilter} from './filters/all-exceptions.filter';
 import {getLogger} from './utils';
 
 const logger = getLogger('Server');
+// In-memory store is process-local and resets on restart.
 const rateLimitStore = new Map<string, {count: number; resetAt: number}>();
 
 export async function createApp(config: ServerConfig): Promise<NestExpressApplication> {
@@ -60,11 +61,20 @@ export async function startServer(config: ServerConfig): Promise<void> {
   logger.info(`Server is running on port ${config.PORT_HTTP}.`);
 }
 
+function cleanupExpiredRateLimitEntries(now: number): void {
+  for (const [key, value] of rateLimitStore) {
+    if (now >= value.resetAt) {
+      rateLimitStore.delete(key);
+    }
+  }
+}
+
 function createRateLimitMiddleware(config: ServerConfig) {
   const windowMs = config.RATE_LIMIT_WINDOW_SECONDS * 1_000;
 
   return (request: Request, response: Response, next: NextFunction) => {
     const now = Date.now();
+    cleanupExpiredRateLimitEntries(now);
     const ipAddress = request.ip || request.socket.remoteAddress || 'unknown';
     const current = rateLimitStore.get(ipAddress);
 
