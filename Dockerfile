@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apk add --no-cache curl=8.17.0-r1
 
 # Copy needed files
-COPY . ./
+COPY --chown=node:node . ./
 
 # Install dependencies
 RUN yarn install --immutable
@@ -16,6 +16,8 @@ RUN yarn build
 
 # Expose the port
 EXPOSE 3000
+
+USER node
 
 # Start the application
 CMD ["yarn", "start"]

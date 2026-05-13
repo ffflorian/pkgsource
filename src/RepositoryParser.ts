@@ -90,12 +90,14 @@ export async function getPackageUrl(rawPackageName: string, version: string = 'l
 }
 
 function cleanUrl(url: string): null | string {
-  url = url.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
+  url = url.replace(/\.git$/, '').replace(/^git\+/, '').replace(/^git:\/\//, 'https://').replace(/^ssh:\/\//, 'https://');
   const parsedURL = validateUrl(url);
   if (parsedURL) {
     parsedURL.hash = '';
     parsedURL.password = '';
-    parsedURL.protocol = knownSSLHosts.includes(parsedURL.hostname) ? 'https:' : 'http:';
+    if (knownSSLHosts.includes(parsedURL.hostname)) {
+      parsedURL.protocol = 'https:';
+    }
     parsedURL.search = '';
     parsedURL.username = '';
     return parsedURL.href;

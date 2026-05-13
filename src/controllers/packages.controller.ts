@@ -3,6 +3,7 @@ import {ApiOperation, ApiParam, ApiQuery, ApiResponse, ApiTags} from '@nestjs/sw
 import {Response} from 'express';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import {URL} from 'node:url';
+import validatePackageName from 'validate-npm-package-name';
 
 import {getPackageUrl, ParseStatus} from '../RepositoryParser';
 import {RawError, RawResult} from '../swagger';
@@ -24,6 +25,14 @@ async function handlePackageRequest(
   response: Response
 ): Promise<void> {
   logger.info(`Got request for package "${packageName}" (version "${version}").`);
+
+  if (!validatePackageName(packageName).validForNewPackages) {
+    response.status(HTTP_STATUS.UNPROCESSABLE_ENTITY).json({
+      code: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+      message: 'Invalid package name',
+    } satisfies PackagesRouteResponseBody);
+    return;
+  }
 
   if (queryParamExists(query, 'unpkg')) {
     const redirectUrl = `${unpkgBase}/${packageName}@${version}/`;
