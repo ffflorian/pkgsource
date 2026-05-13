@@ -1,7 +1,9 @@
 import {Controller, Get, Query, Res} from '@nestjs/common';
+import {ApiOperation, ApiQuery, ApiResponse, ApiTags} from '@nestjs/swagger';
 import {Response} from 'express';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
+import {RawResult} from '../swagger';
 import {getLogger} from '../utils';
 import {unpkgBase} from './packages.controller';
 
@@ -14,6 +16,7 @@ interface MainRouteResponseBody {
 const logger = getLogger('controllers/MainController');
 const repositoryUrl = 'https://github.com/ffflorian/pkgsource';
 
+@ApiTags('API')
 @Controller()
 export class MainController {
   @Get('favicon.ico')
@@ -24,6 +27,11 @@ export class MainController {
     } satisfies MainRouteResponseBody);
   }
 
+  @ApiOperation({description: "Get the server's repository URL", operationId: 'getServerRepositoryUrl'})
+  @ApiQuery({description: 'Get the result as JSON', name: 'raw', required: false, type: Boolean})
+  @ApiQuery({description: 'Get a link to unpkg.com', name: 'unpkg', required: false, type: Boolean})
+  @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: RawResult})
+  @ApiResponse({description: 'Redirect to repository URL', status: HTTP_STATUS.MOVED_TEMPORARILY})
   @Get()
   main(
     @Query('raw') raw: string,

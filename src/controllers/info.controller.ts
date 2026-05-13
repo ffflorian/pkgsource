@@ -1,8 +1,10 @@
 import {Controller, Get} from '@nestjs/common';
+import {ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger';
 import {findUpSync} from 'find-up';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import fs from 'node:fs';
 
+import {InfoResult} from '../swagger';
 import {getLogger} from '../utils';
 
 interface InfoRouteResponseBody {
@@ -22,8 +24,11 @@ if (!packageJsonPath) {
   version = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8')).version;
 }
 
+@ApiTags('Server Info')
 @Controller()
 export class InfoController {
+  @ApiOperation({description: 'Get information about the server', operationId: 'getServerInformation'})
+  @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: InfoResult})
   @Get('_info')
   info(): InfoRouteResponseBody {
     return {

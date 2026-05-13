@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/ffflorian/pkgsource/compare/v1.11.0...v1.12.0) (2026-05-13)
+
+
+### Features
+
+* generate Swagger document on the fly, remove static swagger.json ([#1807](https://github.com/ffflorian/pkgsource/issues/1807)) ([74a0d5e](https://github.com/ffflorian/pkgsource/commit/74a0d5e9b52f6542f1bcd6c79d567b1f2c8ef3e7))
+
 # [1.11.0](https://github.com/ffflorian/pkgsource/compare/v1.10.0...v1.11.0) (2026-04-13)
 
 
