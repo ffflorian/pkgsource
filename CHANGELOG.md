@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/ffflorian/pkgsource/compare/v1.13.0...v1.13.1) (2026-05-16)
+
+
+### Bug Fixes
+
+* Use latest curl ([ec78062](https://github.com/ffflorian/pkgsource/commit/ec78062a01fb234c9ba676f99f74392232eb8647))
+
 # [1.13.0](https://github.com/ffflorian/pkgsource/compare/v1.12.0...v1.13.0) (2026-05-16)
 
 

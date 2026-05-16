@@ -83,5 +83,5 @@
     "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
     "test": "vitest run"
   },
-  "version": "1.13.0"
+  "version": "1.13.1"
 }
