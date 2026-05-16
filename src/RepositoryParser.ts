@@ -26,6 +26,27 @@ export type ParseResult =
 
 const knownSSLHosts = ['bitbucket.org', 'github.com', 'gitlab.com', 'sourceforge.net'];
 
+export function cleanUrl(url: string): null | string {
+  // Normalize git-style URLs while keeping secure protocols.
+  let normalizedUrl = url.replace(/\.git$/, '');
+  normalizedUrl = normalizedUrl.replace(/^git\+/, '');
+  normalizedUrl = normalizedUrl.replace(/^git:\/\//, 'https://');
+  normalizedUrl = normalizedUrl.replace(/^ssh:\/\//, 'https://');
+  const parsedURL = validateUrl(normalizedUrl);
+  if (parsedURL) {
+    parsedURL.hash = '';
+    parsedURL.password = '';
+    // Keep the original protocol except for known hosts where HTTPS is guaranteed.
+    if (knownSSLHosts.includes(parsedURL.hostname)) {
+      parsedURL.protocol = 'https:';
+    }
+    parsedURL.search = '';
+    parsedURL.username = '';
+    return parsedURL.href;
+  }
+  return null;
+}
+
 export async function getPackageUrl(rawPackageName: string, version: string = 'latest'): Promise<ParseResult> {
   let packageInfo: packageJson.FullVersion & Pick<packageJson.FullMetadata, 'time'>;
   let foundUrl: null | string = null;
@@ -87,20 +108,6 @@ export async function getPackageUrl(rawPackageName: string, version: string = 'l
     status: ParseStatus.SUCCESS,
     url: foundUrl,
   };
-}
-
-function cleanUrl(url: string): null | string {
-  url = url.replace(/\.git$/, '').replace(/^.*:\/\//, 'http://');
-  const parsedURL = validateUrl(url);
-  if (parsedURL) {
-    parsedURL.hash = '';
-    parsedURL.password = '';
-    parsedURL.protocol = knownSSLHosts.includes(parsedURL.hostname) ? 'https:' : 'http:';
-    parsedURL.search = '';
-    parsedURL.username = '';
-    return parsedURL.href;
-  }
-  return null;
 }
 
 function parseRepositoryEntry(repository: Record<string, string> | string): null | string {

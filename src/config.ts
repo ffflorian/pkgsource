@@ -17,6 +17,8 @@ export interface ServerConfig {
   DIST_DIR: string;
   ENVIRONMENT: string;
   PORT_HTTP: number;
+  RATE_LIMIT_MAX_REQUESTS: number;
+  RATE_LIMIT_WINDOW_SECONDS: number;
   VERSION: string;
 }
 
@@ -27,6 +29,8 @@ const config: ServerConfig = {
   DIST_DIR: '.',
   ENVIRONMENT: process.env.ENVIRONMENT || 'prod',
   PORT_HTTP: Number(process.env.PORT || defaultPort),
+  RATE_LIMIT_MAX_REQUESTS: Number(process.env.RATE_LIMIT_MAX_REQUESTS || 120),
+  RATE_LIMIT_WINDOW_SECONDS: Number(process.env.RATE_LIMIT_WINDOW_SECONDS || 60),
   VERSION: version,
 };
 
