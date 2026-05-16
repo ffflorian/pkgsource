@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/ffflorian/pkgsource/compare/v1.12.0...v1.13.0) (2026-05-16)
+
+
+### Features
+
+* Security improvements ([#1808](https://github.com/ffflorian/pkgsource/issues/1808)) ([dd9e92b](https://github.com/ffflorian/pkgsource/commit/dd9e92b2fce193a3a4bf1bf7eb96088ddd07800b))
+
 # [1.12.0](https://github.com/ffflorian/pkgsource/compare/v1.11.0...v1.12.0) (2026-05-13)
 
 
