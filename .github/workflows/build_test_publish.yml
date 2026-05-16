@@ -28,9 +28,10 @@ jobs:
         run: |
           yarn --immutable
 
-      - name: Lint and build
+      - name: Lint, test and build
         run: |
           yarn lint
+          yarn test
           yarn dist
 
       - name: Release on npm

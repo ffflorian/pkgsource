@@ -39,7 +39,8 @@
     "semantic-release": "25.0.3",
     "tsx": "4.21.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.59.0"
+    "typescript-eslint": "8.59.0",
+    "vitest": "4.1.6"
   },
   "engines": {
     "node": ">= 20"
@@ -79,7 +80,8 @@
     "prettier": "prettier \"*.{json,md,yml}\"",
     "release": "semantic-release",
     "start": "node dist/src/index.js",
-    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts"
+    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
+    "test": "vitest run"
   },
   "version": "1.12.0"
 }
