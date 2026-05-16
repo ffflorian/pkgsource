@@ -14,3 +14,11 @@ test('cleanUrl normalizes git:// repository URLs', () => {
 test('cleanUrl normalizes ssh:// repository URLs', () => {
   assert.equal(cleanUrl('ssh://gitlab.com/foo/bar.git'), 'https://gitlab.com/foo/bar');
 });
+
+test('cleanUrl preserves non-SSL host protocol when already provided', () => {
+  assert.equal(cleanUrl('http://example.com/foo/bar.git'), 'http://example.com/foo/bar');
+});
+
+test('cleanUrl returns null for invalid URLs', () => {
+  assert.equal(cleanUrl('not-a-valid-url'), null);
+});
