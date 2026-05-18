@@ -13,7 +13,7 @@ RUN npm install --global yarn@1.22.22
 # Install dependencies
 RUN yarn install --immutable
 
-# Build the backend (if needed)
+# Build the backend
 RUN yarn build
 
 # Expose the port
