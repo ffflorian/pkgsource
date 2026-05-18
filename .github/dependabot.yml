@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: docker
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
     open-pull-requests-limit: 99
     assignees:
       - ffflorian
@@ -16,7 +16,7 @@ updates:
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
     open-pull-requests-limit: 99
     assignees:
       - ffflorian
@@ -24,7 +24,7 @@ updates:
     ignore:
       - dependency-name: '@types/node'
         versions:
-          - '> 24.x'
+          - '> 24'
     cooldown:
       default-days: 5
       exclude:
@@ -32,7 +32,7 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
     open-pull-requests-limit: 99
     assignees:
       - ffflorian
