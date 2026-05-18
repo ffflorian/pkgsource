@@ -10,7 +10,7 @@ updates:
     ignore:
       - dependency-name: node
         versions:
-          - '>= 25, < 26'
+          - '> 26'
     cooldown:
       default-days: 5
   - package-ecosystem: npm
