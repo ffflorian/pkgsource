@@ -1,4 +1,4 @@
-FROM node:24-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f
+FROM node:26.1.0-alpine@sha256:e71ac5e964b9201072425d59d2e876359efa25dc96bb1768cb73295728d6e4ea
 
 # Set working directory
 WORKDIR /app
@@ -7,6 +7,8 @@ RUN apk add --no-cache curl
 
 # Copy needed files
 COPY --chown=node:node . ./
+
+RUN npm install --global yarn@1.22.22
 
 # Install dependencies
 RUN yarn install --immutable
