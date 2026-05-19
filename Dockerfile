@@ -1,5 +1,7 @@
 FROM node:26.1.0-alpine@sha256:e71ac5e964b9201072425d59d2e876359efa25dc96bb1768cb73295728d6e4ea
 
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false
+
 # Set working directory
 WORKDIR /app
 
