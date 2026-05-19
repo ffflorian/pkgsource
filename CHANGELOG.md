@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/ffflorian/pkgsource/compare/v1.13.1...v1.13.2) (2026-05-19)
+
+
+### Bug Fixes
+
+* Exclude some endpoints from Swagger UI ([f80dc6b](https://github.com/ffflorian/pkgsource/commit/f80dc6b4551beeca9f0d119a65cce836aafe9850))
+
 ## [1.13.1](https://github.com/ffflorian/pkgsource/compare/v1.13.0...v1.13.1) (2026-05-16)
 
 
