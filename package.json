@@ -1,10 +1,10 @@
 {
   "author": "Florian Imdahl <git@ffflorian.de>",
   "dependencies": {
-    "@nestjs/common": "11.1.20",
-    "@nestjs/core": "11.1.20",
-    "@nestjs/platform-express": "11.1.20",
-    "@nestjs/swagger": "11.4.2",
+    "@nestjs/common": "11.1.21",
+    "@nestjs/core": "11.1.21",
+    "@nestjs/platform-express": "11.1.21",
+    "@nestjs/swagger": "11.4.3",
     "date-fns": "4.1.0",
     "find-up": "8.0.0",
     "helmet": "8.1.0",
