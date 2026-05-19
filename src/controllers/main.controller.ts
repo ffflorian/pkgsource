@@ -1,5 +1,5 @@
 import {Controller, Get, Query, Res} from '@nestjs/common';
-import {ApiOperation, ApiQuery, ApiResponse, ApiTags} from '@nestjs/swagger';
+import {ApiExcludeEndpoint, ApiOperation, ApiQuery, ApiResponse, ApiTags} from '@nestjs/swagger';
 import {Response} from 'express';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
@@ -19,6 +19,7 @@ const repositoryUrl = 'https://github.com/ffflorian/pkgsource';
 @ApiTags('API')
 @Controller()
 export class MainController {
+  @ApiExcludeEndpoint()
   @Get('favicon.ico')
   favicon(@Res() res: Response): void {
     res.status(HTTP_STATUS.NOT_FOUND).json({
@@ -33,11 +34,7 @@ export class MainController {
   @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: RawResult})
   @ApiResponse({description: 'Redirect to repository URL', status: HTTP_STATUS.MOVED_TEMPORARILY})
   @Get()
-  main(
-    @Query('raw') raw: string,
-    @Query('unpkg') unpkg: string,
-    @Res() res: Response
-  ): void {
+  main(@Query('raw') raw: string, @Query('unpkg') unpkg: string, @Res() res: Response): void {
     logger.info('Got request for main page');
 
     if (unpkg !== undefined && unpkg !== 'false') {
@@ -68,6 +65,7 @@ export class MainController {
     res.redirect(repositoryUrl);
   }
 
+  @ApiExcludeEndpoint()
   @Get('robots.txt')
   robots(@Res() res: Response): void {
     res.contentType('text/plain').send('User-agent: *\nDisallow: /');
