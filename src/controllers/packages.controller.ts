@@ -6,12 +6,13 @@ import {URL} from 'node:url';
 import validatePackageName from 'validate-npm-package-name';
 
 import {getPackageUrl, ParseStatus} from '../RepositoryParser';
-import {RawError, RawResult} from '../swagger';
+import {RawError, RawErrorWithPackageInfo, RawResult} from '../swagger';
 import {getLogger, validateUrl} from '../utils';
 
 interface PackagesRouteResponseBody {
   code: HTTP_STATUS;
   message?: string;
+  packageInfo?: object;
   url?: string;
 }
 
@@ -57,6 +58,7 @@ async function handlePackageRequest(
   }
 
   const parseResult = await getPackageUrl(packageName, version);
+  const packageInfo = parseResult.packageInfo;
 
   let errorCode: HTTP_STATUS;
   let errorMessage: string;
@@ -72,7 +74,10 @@ async function handlePackageRequest(
     case ParseStatus.NO_URL_FOUND: {
       errorCode = HTTP_STATUS.NOT_FOUND;
       errorMessage = `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`;
-      break;
+      response
+        .status(errorCode)
+        .json({code: errorCode, message: errorMessage, packageInfo} satisfies PackagesRouteResponseBody);
+      return;
     }
 
     case ParseStatus.PACKAGE_NOT_FOUND: {
@@ -131,7 +136,11 @@ export class PackagesController {
   @ApiQuery({description: 'Get a link to unpkg.com', name: 'unpkg', required: false, type: Boolean})
   @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: RawResult})
   @ApiResponse({description: 'Redirect to repository URL', status: HTTP_STATUS.MOVED_TEMPORARILY})
-  @ApiResponse({description: 'Version or package not found', status: HTTP_STATUS.NOT_FOUND, type: RawError})
+  @ApiResponse({
+    description: 'Version, package, or source URL not found',
+    status: HTTP_STATUS.NOT_FOUND,
+    type: RawErrorWithPackageInfo,
+  })
   @ApiResponse({description: 'Invalid package name', status: HTTP_STATUS.UNPROCESSABLE_ENTITY, type: RawError})
   @ApiResponse({description: 'Internal server error', status: HTTP_STATUS.INTERNAL_SERVER_ERROR, type: RawError})
   @Get(':packageName')
