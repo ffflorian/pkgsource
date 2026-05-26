@@ -18,7 +18,6 @@
   "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@evilmartians/lefthook": "2.1.8",
     "@ffflorian/eslint-config": "0.14.2",
     "@ffflorian/prettier-config": "0.8.2",
     "@ffflorian/semantic-release-config": "0.12.4",
@@ -34,6 +33,7 @@
     "eslint-plugin-perfectionist": "5.9.0",
     "globals": "17.6.0",
     "jiti": "2.7.0",
+    "lefthook": "2.1.8",
     "oxlint": "1.66.0",
     "prettier": "3.8.3",
     "semantic-release": "25.0.3",
