@@ -663,9 +663,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:11.1.21":
-  version: 11.1.21
-  resolution: "@nestjs/common@npm:11.1.21"
+"@nestjs/common@npm:11.1.22":
+  version: 11.1.22
+  resolution: "@nestjs/common@npm:11.1.22"
   dependencies:
     file-type: "npm:21.3.4"
     iterare: "npm:1.2.1"
@@ -682,13 +682,13 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 10c0/534c2b2f05f4825e4d9374423607d4e4dc42398e110145a4a5d493ed4e4cdf7d8eba0a95abd17c091280f8628db00195b835db92bbc5a309b90d37630fd85782
+  checksum: 10c0/97d135828eab50af88ea516a2a6b66530daeeedffdf58cddfaa0d8579fff6551dcadd11d8d9b262b06477512c9c71c201ad6c3216f561b56606abdafd1d341ba
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:11.1.21":
-  version: 11.1.21
-  resolution: "@nestjs/core@npm:11.1.21"
+"@nestjs/core@npm:11.1.22":
+  version: 11.1.22
+  resolution: "@nestjs/core@npm:11.1.22"
   dependencies:
     "@nuxt/opencollective": "npm:0.4.1"
     fast-safe-stringify: "npm:2.1.1"
@@ -710,7 +710,7 @@ __metadata:
       optional: true
     "@nestjs/websockets":
       optional: true
-  checksum: 10c0/eede587f133d3e813008e4656a84c4e598d24e28d9d1a9fc049285d3af4197e4221fd7aa62fcd5d0607e86b460b0217b619ec9b88f44ef11b27200cedd218086
+  checksum: 10c0/938c94bd5c4f9f5361129771d5c0928b5e509d4ddb6d973986e2672c00426c5c056704f17247c8acd36544cdb511a80ddfc1e50cd05a2cf79c4778b5f1810403
   languageName: node
   linkType: hard
 
@@ -731,9 +731,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:11.1.21":
-  version: 11.1.21
-  resolution: "@nestjs/platform-express@npm:11.1.21"
+"@nestjs/platform-express@npm:11.1.22":
+  version: 11.1.22
+  resolution: "@nestjs/platform-express@npm:11.1.22"
   dependencies:
     cors: "npm:2.8.6"
     express: "npm:5.2.1"
@@ -743,13 +743,13 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^11.0.0
     "@nestjs/core": ^11.0.0
-  checksum: 10c0/81c2eb9fc4b516da9f1ace7b053d9bd23c6b842ff28a7e7eb40b599224c550a376881fdeab0ca9ebe361b7ccfcec3294fd2fc6dc8b2c6cde65157201f528700a
+  checksum: 10c0/8ef06db1d75acc61c0f1c0aa3372173e772afb62cb3cc6639ef07a13fa73e41d54738f80e1151fd30984d055e7335b2a93ee164fe1051ebfc9312413e02e14cd
   languageName: node
   linkType: hard
 
-"@nestjs/swagger@npm:11.4.3":
-  version: 11.4.3
-  resolution: "@nestjs/swagger@npm:11.4.3"
+"@nestjs/swagger@npm:11.4.4":
+  version: 11.4.4
+  resolution: "@nestjs/swagger@npm:11.4.4"
   dependencies:
     "@microsoft/tsdoc": "npm:0.16.0"
     "@nestjs/mapped-types": "npm:2.1.1"
@@ -771,7 +771,7 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 10c0/c9c9e11150c81014b6bbafbb5c07866a0070f4a0ed62db29bab3f2d094f09182fc76385fceac9e72242e192670e0d559cca38a73be88962aeba25b08218cf43b
+  checksum: 10c0/b2b11982c27f02c4ca7d3e83d49daed7df0f7dc51f06b26a2b85206735356947182e8e4285bf4b166a358b99da36d071421a02a850d9a82daaf5809ccf6a7575
   languageName: node
   linkType: hard
 
@@ -8785,10 +8785,10 @@ __metadata:
     "@ffflorian/eslint-config": "npm:0.14.2"
     "@ffflorian/prettier-config": "npm:0.8.2"
     "@ffflorian/semantic-release-config": "npm:0.12.4"
-    "@nestjs/common": "npm:11.1.21"
-    "@nestjs/core": "npm:11.1.21"
-    "@nestjs/platform-express": "npm:11.1.21"
-    "@nestjs/swagger": "npm:11.4.3"
+    "@nestjs/common": "npm:11.1.22"
+    "@nestjs/core": "npm:11.1.22"
+    "@nestjs/platform-express": "npm:11.1.22"
+    "@nestjs/swagger": "npm:11.4.4"
     "@semantic-release/changelog": "npm:6.0.3"
     "@semantic-release/git": "npm:10.0.1"
     "@types/express": "npm:5.0.6"
