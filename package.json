@@ -5,7 +5,7 @@
     "@nestjs/core": "11.1.21",
     "@nestjs/platform-express": "11.1.21",
     "@nestjs/swagger": "11.4.3",
-    "date-fns": "4.1.0",
+    "date-fns": "4.2.1",
     "find-up": "8.0.0",
     "helmet": "8.1.0",
     "http-status-codes": "2.3.0",
@@ -18,7 +18,6 @@
   "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@evilmartians/lefthook": "2.1.6",
     "@ffflorian/eslint-config": "0.14.2",
     "@ffflorian/prettier-config": "0.8.2",
     "@ffflorian/semantic-release-config": "0.12.4",
@@ -30,17 +29,18 @@
     "eslint": "10.4.0",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-oxlint": "1.64.0",
+    "eslint-plugin-oxlint": "1.66.0",
     "eslint-plugin-perfectionist": "5.9.0",
     "globals": "17.6.0",
     "jiti": "2.7.0",
-    "oxlint": "1.64.0",
+    "lefthook": "2.1.8",
+    "oxlint": "1.66.0",
     "prettier": "3.8.3",
     "semantic-release": "25.0.3",
-    "tsx": "4.22.0",
+    "tsx": "4.22.3",
     "typescript": "6.0.3",
     "typescript-eslint": "8.59.3",
-    "vitest": "4.1.6"
+    "vitest": "4.1.7"
   },
   "engines": {
     "node": ">= 20"

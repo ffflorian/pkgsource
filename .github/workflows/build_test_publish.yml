@@ -79,7 +79,7 @@ jobs:
             type=sha
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f
+        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf
         with:
           context: .
           push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -94,7 +94,7 @@ jobs:
     permissions: {}
     steps:
       - name: Deploy
-        uses: ffflorian/actions/coolify-deploy@ab77083a817e863fbd74dd2cbab57a6d27a22e28
+        uses: ffflorian/actions/coolify-deploy@a274bcee58df56cd1dba2f476d3ee8ccd353c538
         with:
           domain: ${{ secrets.COOLIFY_DOMAIN }}
           token: ${{ secrets.COOLIFY_TOKEN }}
