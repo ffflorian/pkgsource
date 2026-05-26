@@ -5,7 +5,7 @@
     "@nestjs/core": "11.1.21",
     "@nestjs/platform-express": "11.1.21",
     "@nestjs/swagger": "11.4.3",
-    "date-fns": "4.1.0",
+    "date-fns": "4.2.1",
     "find-up": "8.0.0",
     "helmet": "8.1.0",
     "http-status-codes": "2.3.0",
