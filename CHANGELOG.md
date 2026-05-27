@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/ffflorian/pkgsource/compare/v1.14.0...v1.14.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* Copy needed files in multi-stage image ([4bbe21e](https://github.com/ffflorian/pkgsource/commit/4bbe21e9a2db242314c42ccaf5fd6f79dd0bcc1f))
+
 # [1.14.0](https://github.com/ffflorian/pkgsource/compare/v1.13.2...v1.14.0) (2026-05-27)
 
 
