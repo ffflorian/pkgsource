@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/ffflorian/pkgsource/compare/v1.13.2...v1.14.0) (2026-05-27)
+
+
+### Features
+
+* Create multi-stage Docker build image ([efeb588](https://github.com/ffflorian/pkgsource/commit/efeb5883b9bb88e12026eae695fe1f8eab8f24ee))
+
 ## [1.13.2](https://github.com/ffflorian/pkgsource/compare/v1.13.1...v1.13.2) (2026-05-19)
 
 
