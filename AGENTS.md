@@ -1,6 +1,13 @@
 ## Project Overview
 
-pkgsource redirects npm package names to their source repository. It is a NestJS application served on Vercel.
+pkgsource redirects npm package names to their source repository. It is a NestJS application that is shipped as a Docker image and deployed via Coolify.
+
+## Runtime & Deployment
+
+- **Runtime:** Node.js 26 + Yarn 4
+- **Container:** Multi-stage Docker build (`Dockerfile`)
+- **Distribution:** GitHub Container Registry image (no npm package release)
+- **Deploy target:** Coolify (`lint_test_publish.yml` deploy job)
 
 ## Architecture
 
@@ -8,6 +15,9 @@ pkgsource redirects npm package names to their source repository. It is a NestJS
 - **Entry point:** `src/index.ts` → `src/Server.ts` (`createApp` / `startServer`)
 - **Controllers:** `src/controllers/` (health, info, main, packages)
 - **Exception filter:** `src/filters/all-exceptions.filter.ts`
+- **Security middleware:** `helmet` + in-memory request rate limiting in `src/Server.ts`
+- **Tests:** Vitest tests in `test/`
+- **Swagger:** Generated at runtime and served at `/_swagger-ui`
 
 ## API
 
@@ -20,18 +30,28 @@ pkgsource redirects npm package names to their source repository. It is a NestJS
 | `GET /:scope/:pkg` | Redirects to the source repo for a scoped package (`@scope/pkg`) |
 | `GET /robots.txt`  | Returns `User-agent: *\nDisallow: /`                             |
 | `GET /favicon.ico` | Returns 404                                                      |
+| `GET /_swagger-ui` | Swagger UI                                                       |
 
-Query parameters supported on package routes: `?raw` (return JSON instead of redirect), `?unpkg` (redirect to unpkg.com instead).
+Query parameters supported on package routes: `?raw` (return JSON instead of redirect), `?unpkg` (redirect to unpkg.com instead). Versioned requests are supported via `name@version` and scoped forms like `@scope/name@version`.
 
 ## Commands
 
 ```bash
 yarn build          # compile TypeScript → dist/
-yarn start          # node dist/src/index.js
-yarn start:dev      # tsx src/index.ts (with NODE_DEBUG)
+yarn dist           # clean + build + write commit hash file
+yarn start          # run app from source with tsx
+yarn start:dev      # start + NODE_DEBUG
+yarn start:prod     # node dist/src/index.js
 yarn lint           # oxlint + eslint
+yarn test           # run Vitest test suite
 yarn fix            # auto-fix lint issues + prettier
 ```
+
+## CI/CD
+
+- `lint_test_publish.yml` runs TypeScript lint/test/build and Dockerfile linting on pushes and PRs.
+- On `main`, the publish job creates releases and publishes Docker images.
+- Deploy is triggered from the same workflow after a new release, or manually via workflow dispatch.
 
 ## Approach
 
