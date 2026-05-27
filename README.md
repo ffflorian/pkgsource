@@ -1,4 +1,4 @@
-# pkgsource [![Build Status](https://github.com/ffflorian/pkgsource/workflows/Build/badge.svg)](https://github.com/ffflorian/pkgsource/actions/)
+# pkgsource [![Lint, test, and publish](https://github.com/ffflorian/pkgsource/actions/workflows/lint_test_publish.yml/badge.svg)](https://github.com/ffflorian/pkgsource/actions/workflows/lint_test_publish.yml)
 
 Find (almost) every npm package's repository in an instant.
 
