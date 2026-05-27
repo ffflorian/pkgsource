@@ -32,8 +32,7 @@ pkgsource redirects npm package names to their source repository. It is a NestJS
 | `GET /favicon.ico` | Returns 404                                                      |
 | `GET /_swagger-ui` | Swagger UI                                                       |
 
-Query parameters supported on package routes: `?raw` (return JSON instead of redirect), `?unpkg` (redirect to unpkg.com instead).
-Versioned requests are supported via `name@version` and scoped forms like `@scope/name@version`.
+Query parameters supported on package routes: `?raw` (return JSON instead of redirect), `?unpkg` (redirect to unpkg.com instead). Versioned requests are supported via `name@version` and scoped forms like `@scope/name@version`.
 
 ## Commands
 
