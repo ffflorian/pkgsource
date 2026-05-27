@@ -32,6 +32,7 @@ jobs:
       - name: Lint
         run: |
           yarn lint
+          yarn test
           yarn build
 
   lint_dockerfile:

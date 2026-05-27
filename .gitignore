@@ -2,6 +2,7 @@
 /dist/
 /logs
 /commit
+/coverage
 .vscode
 *.log
 

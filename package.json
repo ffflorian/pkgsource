@@ -23,6 +23,7 @@
     "@types/express": "5.0.6",
     "@types/node": "~25",
     "@types/validate-npm-package-name": "4.0.2",
+    "@vitest/coverage-v8": "4.1.7",
     "eslint": "10.4.0",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
@@ -74,7 +75,8 @@
     "prettier": "prettier \"*.{json,md,yml}\"",
     "start": "node dist/src/index.js",
     "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "version": "1.13.2"
 }
