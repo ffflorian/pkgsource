@@ -20,9 +20,6 @@
     "@eslint/js": "10.0.1",
     "@ffflorian/eslint-config": "0.14.2",
     "@ffflorian/prettier-config": "0.8.2",
-    "@ffflorian/semantic-release-config": "0.12.4",
-    "@semantic-release/changelog": "6.0.3",
-    "@semantic-release/git": "10.0.1",
     "@types/express": "5.0.6",
     "@types/node": "~25",
     "@types/validate-npm-package-name": "4.0.2",
@@ -36,7 +33,6 @@
     "lefthook": "2.1.8",
     "oxlint": "1.66.0",
     "prettier": "3.8.3",
-    "semantic-release": "25.0.3",
     "tsx": "4.22.3",
     "typescript": "6.0.3",
     "typescript-eslint": "8.59.4",
@@ -59,9 +55,6 @@
   "name": "pkgsource",
   "packageManager": "yarn@4.14.1",
   "prettier": "@ffflorian/prettier-config",
-  "release": {
-    "extends": "@ffflorian/semantic-release-config"
-  },
   "repository": "https://github.com/ffflorian/pkgsource.git",
   "scripts": {
     "build": "tsc",
@@ -78,7 +71,6 @@
     "lint:ts:eslint": "eslint .",
     "lint:ts:oxlint": "oxlint --ignore-path .gitignore .",
     "prettier": "prettier \"*.{json,md,yml}\"",
-    "release": "semantic-release",
     "start": "node dist/src/index.js",
     "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
     "test": "vitest run"
