@@ -73,7 +73,8 @@
     "lint:ts:eslint": "eslint .",
     "lint:ts:oxlint": "oxlint --ignore-path .gitignore .",
     "prettier": "prettier \"*.{json,md,yml}\"",
-    "start": "node dist/src/index.js",
+    "start:prod": "node dist/src/index.js",
+    "start": "tsx src/index.ts",
     "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
