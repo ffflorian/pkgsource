@@ -7,7 +7,7 @@
     "@nestjs/swagger": "11.4.4",
     "date-fns": "4.2.1",
     "find-up": "8.0.0",
-    "helmet": "8.1.0",
+    "helmet": "8.2.0",
     "http-status-codes": "2.3.0",
     "logdown": "3.3.1",
     "package-json": "10.0.1",
