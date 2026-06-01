@@ -25,6 +25,10 @@ updates:
       nestjs:
         patterns:
           - '@nestjs*'
+      oxlint:
+        patterns:
+          - 'oxlint'
+          - 'eslint-plugin-oxlint'
     ignore:
       - dependency-name: '@types/node'
         versions:
