@@ -31,7 +31,7 @@
     "eslint-plugin-perfectionist": "5.9.0",
     "globals": "17.6.0",
     "jiti": "2.7.0",
-    "lefthook": "2.1.8",
+    "lefthook": "2.1.9",
     "oxlint": "1.67.0",
     "prettier": "3.8.3",
     "tsx": "4.22.3",
