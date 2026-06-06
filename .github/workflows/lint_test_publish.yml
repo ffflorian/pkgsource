@@ -63,6 +63,7 @@ jobs:
       - name: Build Docker image
         uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf
         with:
+          build-args: SOURCE_COMMIT=${{ github.sha }}
           context: .
           push: false
 
@@ -88,6 +89,7 @@ jobs:
         id: publish_release
         uses: ffflorian/actions/docker-image-release@395dd69a8fe27cbaaf9ee09ebfaeefaf92dfdda5
         with:
+          build_args: SOURCE_COMMIT=${{ github.sha }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           git_author: 'ffflorian'
           git_email: 'git@ffflorian.de'
