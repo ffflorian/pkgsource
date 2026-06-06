@@ -93,6 +93,9 @@ jobs:
           git_author: 'ffflorian'
           git_email: 'git@ffflorian.de'
 
+  # Deploy is part of this workflow because GitHub does not fire release events
+  # when a release is created by a workflow using GITHUB_TOKEN, so a separate
+  # deploy.yml listening on release:published would never be triggered.
   deploy:
     name: Deploy latest image
     needs: publish
