@@ -20,7 +20,7 @@ export class InfoController {
     return {
       code: HTTP_STATUS.OK,
       commit: process.env.COMMIT || 'unknown',
-      version: process.env.VERSION,
+      version: process.env.VERSION || 'unknown',
     };
   }
 }
