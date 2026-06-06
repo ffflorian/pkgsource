@@ -1,11 +1,11 @@
 import {Controller, Get} from '@nestjs/common';
 import {ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger';
-import {findUpSync} from 'find-up';
+import {findUp} from 'find-up';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
-import fs from 'node:fs';
+import {promises as fs} from 'node:fs';
 
-import {InfoResult} from '../swagger';
-import {getLogger} from '../utils';
+import {InfoResult} from '../swagger.js';
+import {getLogger} from '../utils.js';
 
 interface InfoRouteResponseBody {
   code: HTTP_STATUS;
@@ -17,11 +17,11 @@ const logger = getLogger('controllers/InfoController');
 
 let version: string | undefined;
 
-const packageJsonPath = findUpSync('package.json', {allowSymlinks: false, cwd: '.'});
+const packageJsonPath = await findUp('package.json', {allowSymlinks: false, cwd: '.', type: 'file'});
 if (!packageJsonPath) {
   logger.warn('Could not find file `package.json`. Version will not be shown in the `_info` endpoint');
 } else {
-  version = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8')).version;
+  version = JSON.parse(await fs.readFile(packageJsonPath, 'utf-8')).version;
 }
 
 @ApiTags('Server Info')

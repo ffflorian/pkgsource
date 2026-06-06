@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 
-import {config} from './config';
-import {startServer} from './Server';
-import {getLogger} from './utils';
+import {config} from './config.js';
+import {startServer} from './Server.js';
+import {getLogger} from './utils.js';
 
 const logger = getLogger('index');
 
@@ -17,4 +17,3 @@ process.on('uncaughtException', error => {
 process.on('unhandledRejection', (reason, promise) => {
   console.error('Unhandled rejection at:', promise, 'reason:', reason);
 });
-

@@ -1,7 +1,7 @@
 import {ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus} from '@nestjs/common';
 import {Response} from 'express';
 
-import {getLogger} from '../utils';
+import {getLogger} from '../utils.js';
 
 const logger = getLogger('AllExceptionsFilter');
 

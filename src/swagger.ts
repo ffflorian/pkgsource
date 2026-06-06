@@ -1,28 +1,28 @@
 import {ApiProperty, ApiPropertyOptional} from '@nestjs/swagger';
 
 export class InfoResult {
-  @ApiProperty()
+  @ApiProperty({type: Number})
   code!: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({type: String})
   commit?: string;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({type: String})
   version?: string;
 }
 
 export class RawError {
-  @ApiProperty()
+  @ApiProperty({type: Number})
   code!: number;
 
-  @ApiProperty()
+  @ApiProperty({type: String})
   message!: string;
 }
 
 export class RawResult {
-  @ApiProperty()
+  @ApiProperty({type: Number})
   code!: number;
 
-  @ApiProperty()
+  @ApiProperty({type: String})
   url!: string;
 }
