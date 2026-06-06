@@ -91,3 +91,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           git_author: 'ffflorian'
           git_email: 'git@ffflorian.de'
+
+  deploy:
+    name: Deploy latest image
+    needs: [publish]
+    runs-on: ubuntu-latest
+    permissions: {}
+    if: needs.publish.outputs.new_release_published == 'true'
+    steps:
+      - name: Deploy
+        uses: ffflorian/actions/coolify-deploy@86a6f4fba506628f07585dcd4010e05f2396c25a
+        with:
+          domain: ${{ secrets.COOLIFY_DOMAIN }}
+          token: ${{ secrets.COOLIFY_TOKEN }}
+          uuid: ${{ secrets.COOLIFY_UUID }}
