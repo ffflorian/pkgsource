@@ -20,7 +20,7 @@ export class InfoController {
   info(): InfoRouteResponseBody {
     return {
       code: HTTP_STATUS.OK,
-      commit: process.env.SOURCE_COMMIT || 'main',
+      commit: config.COMMIT,
       version: config.VERSION,
     };
   }

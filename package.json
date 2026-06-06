@@ -6,7 +6,6 @@
     "@nestjs/platform-express": "11.1.24",
     "@nestjs/swagger": "11.4.4",
     "date-fns": "4.3.0",
-    "find-up": "8.0.0",
     "helmet": "8.2.0",
     "http-status-codes": "2.3.0",
     "logdown": "3.3.1",
@@ -60,10 +59,9 @@
   "repository": "https://github.com/ffflorian/pkgsource.git",
   "scripts": {
     "build": "tsc",
-    "build:commit": "git rev-parse HEAD > commit",
     "clean": "rm -rf dist",
     "dev": "yarn start:dev",
-    "dist": "yarn clean && yarn build && yarn build:commit",
+    "dist": "yarn clean && yarn build",
     "fix": "yarn fix:ts && yarn fix:other",
     "fix:other": "yarn prettier --write",
     "fix:ts": "yarn lint:ts:oxlint --fix && yarn lint:ts:eslint --fix",
@@ -75,7 +73,7 @@
     "prettier": "prettier \"*.{json,md,yml}\"",
     "start:prod": "node dist/index.js",
     "start": "tsx src/index.ts",
-    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
+    "start:dev": "NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
