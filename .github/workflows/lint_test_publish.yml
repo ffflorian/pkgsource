@@ -95,7 +95,7 @@ jobs:
 
   deploy:
     name: Deploy latest image
-    needs: [publish]
+    needs: publish
     runs-on: ubuntu-latest
     permissions: {}
     if: |
