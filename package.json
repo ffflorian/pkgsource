@@ -60,10 +60,9 @@
   "repository": "https://github.com/ffflorian/pkgsource.git",
   "scripts": {
     "build": "tsc",
-    "build:commit": "git rev-parse HEAD > commit",
     "clean": "rm -rf dist",
     "dev": "yarn start:dev",
-    "dist": "yarn clean && yarn build && yarn build:commit",
+    "dist": "yarn clean && yarn build",
     "fix": "yarn fix:ts && yarn fix:other",
     "fix:other": "yarn prettier --write",
     "fix:ts": "yarn lint:ts:oxlint --fix && yarn lint:ts:eslint --fix",
@@ -75,7 +74,7 @@
     "prettier": "prettier \"*.{json,md,yml}\"",
     "start:prod": "node dist/index.js",
     "start": "tsx src/index.ts",
-    "start:dev": "yarn build:commit && NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
+    "start:dev": "NODE_DEBUG=\"pkgsource/*\" tsx src/index.ts",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
