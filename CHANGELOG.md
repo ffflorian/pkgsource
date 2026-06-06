@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/ffflorian/pkgsource/compare/v1.14.1...v1.14.2) (2026-06-06)
+
+
+### Bug Fixes
+
+* De-duplicate version loading ([#1861](https://github.com/ffflorian/pkgsource/issues/1861)) ([90e2c44](https://github.com/ffflorian/pkgsource/commit/90e2c447a08b574f1a92b833268b51e6a39d4806))
+
 ## [1.14.1](https://github.com/ffflorian/pkgsource/compare/v1.14.0...v1.14.1) (2026-05-27)
 
 
