@@ -49,7 +49,6 @@ jobs:
 
   build_dockerfile:
     name: Build Docker image
-    needs: lint_dockerfile
     permissions:
       contents: read
     runs-on: ubuntu-latest
@@ -70,6 +69,7 @@ jobs:
   publish:
     name: Publish Release and Docker image
     needs:
+      - lint_dockerfile
       - build_dockerfile
       - lint_test_typescript
     permissions:
