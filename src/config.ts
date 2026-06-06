@@ -2,6 +2,7 @@ const defaultPort = 4000;
 
 export interface ServerConfig {
   CACHE_DURATION_SECONDS: number;
+  COMMIT: string;
   COMPRESS_LEVEL: number;
   COMPRESS_MIN_SIZE: number;
   DEVELOPMENT?: boolean;
