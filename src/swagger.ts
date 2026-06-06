@@ -6,6 +6,9 @@ export class InfoResult {
 
   @ApiPropertyOptional({type: String})
   commit?: string;
+
+  @ApiPropertyOptional({type: String})
+  version?: string;
 }
 
 export class RawError {
