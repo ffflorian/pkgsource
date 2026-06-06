@@ -3,9 +3,9 @@ import {ApiExcludeEndpoint, ApiOperation, ApiQuery, ApiResponse, ApiTags} from '
 import {Response} from 'express';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
-import {RawResult} from '../swagger';
-import {getLogger} from '../utils';
-import {unpkgBase} from './packages.controller';
+import {RawResult} from '../swagger.js';
+import {getLogger} from '../utils.js';
+import {unpkgBase} from './packages.controller.js';
 
 interface MainRouteResponseBody {
   code: HTTP_STATUS;

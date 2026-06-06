@@ -1,7 +1,7 @@
 import {HttpException, HttpStatus} from '@nestjs/common';
 import {describe, expect, it, vi} from 'vitest';
 
-import {AllExceptionsFilter} from '../src/filters/all-exceptions.filter';
+import {AllExceptionsFilter} from '../src/filters/all-exceptions.filter.js';
 
 function createHost(response: {json: ReturnType<typeof vi.fn>; status: ReturnType<typeof vi.fn>}) {
   return {

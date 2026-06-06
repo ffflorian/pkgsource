@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest';
 
-import {formatDate, getLogger, validateUrl} from '../src/utils';
+import {formatDate, getLogger, validateUrl} from '../src/utils.js';
 
 describe('utils', () => {
   it('formats date in expected yyyy-MM-dd HH:mm:ss shape', () => {

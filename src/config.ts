@@ -1,12 +1,12 @@
-import {findUpSync} from 'find-up';
-import fs from 'node:fs';
+import {findUp} from 'find-up';
+import {promises as fs} from 'node:fs';
 
-const packageJsonPath = findUpSync('package.json', {allowSymlinks: false});
+const packageJsonPath = await findUp('package.json', {allowSymlinks: false, type: 'file'});
 if (!packageJsonPath) {
   throw new Error('Could not find file `package.json`');
 }
 
-const {version}: {version: string} = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+const {version}: {version: string} = JSON.parse(await fs.readFile(packageJsonPath, 'utf-8'));
 const defaultPort = 4000;
 
 export interface ServerConfig {
