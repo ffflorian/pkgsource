@@ -15,6 +15,7 @@ export interface ServerConfig {
 
 const config: ServerConfig = {
   CACHE_DURATION_SECONDS: 300, // 5 minutes
+  COMMIT: process.env.COMMIT || 'unknown',
   COMPRESS_LEVEL: 6,
   COMPRESS_MIN_SIZE: 500,
   DIST_DIR: '.',
