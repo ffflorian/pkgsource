@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/ffflorian/pkgsource/compare/v1.14.2...v1.14.3) (2026-06-06)
+
+
+### Bug Fixes
+
+* show real build commit and version ([#1862](https://github.com/ffflorian/pkgsource/issues/1862)) ([756af41](https://github.com/ffflorian/pkgsource/commit/756af419eaa7c266f291100f2e6bf211d2b7f5e6))
+
 ## [1.14.2](https://github.com/ffflorian/pkgsource/compare/v1.14.1...v1.14.2) (2026-06-06)
 
 
