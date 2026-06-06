@@ -7,6 +7,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   lint_test_typescript:
@@ -97,7 +98,9 @@ jobs:
     needs: [publish]
     runs-on: ubuntu-latest
     permissions: {}
-    if: needs.publish.outputs.new_release_published == 'true'
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (needs.publish.outputs.new_release_published == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main')
     steps:
       - name: Deploy
         uses: ffflorian/actions/coolify-deploy@86a6f4fba506628f07585dcd4010e05f2396c25a
