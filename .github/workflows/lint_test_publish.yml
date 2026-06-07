@@ -87,7 +87,7 @@ jobs:
 
       - name: Publish Release and Docker image
         id: publish_release
-        uses: ffflorian/actions/docker-image-release@bac55801ce13998bfa3e797f210c418e509a519e
+        uses: ffflorian/actions/docker-image-release@ab061ffdaad5753c96129a0784cc23e9f1b18350
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           git_author: 'ffflorian'
@@ -100,14 +100,16 @@ jobs:
     name: Deploy latest image
     needs: publish
     runs-on: ubuntu-latest
-    permissions: {}
+    permissions:
+      deployments: write
     if: |
       github.event_name == 'workflow_dispatch' ||
       (needs.publish.outputs.new_release_published == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main')
     steps:
       - name: Deploy
-        uses: ffflorian/actions/coolify-deploy@86a6f4fba506628f07585dcd4010e05f2396c25a
+        uses: ffflorian/actions/coolify-deploy@ab061ffdaad5753c96129a0784cc23e9f1b18350
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           domain: ${{ secrets.COOLIFY_DOMAIN }}
           token: ${{ secrets.COOLIFY_TOKEN }}
           uuid: ${{ secrets.COOLIFY_UUID }}
