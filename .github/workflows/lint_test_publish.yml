@@ -50,6 +50,7 @@ jobs:
 
   build_dockerfile:
     name: Build Docker image
+    needs: lint_test_typescript
     permissions:
       contents: read
     runs-on: ubuntu-latest
@@ -72,7 +73,6 @@ jobs:
     needs:
       - lint_dockerfile
       - build_dockerfile
-      - lint_test_typescript
     permissions:
       contents: write
       packages: write
