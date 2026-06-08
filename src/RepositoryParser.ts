@@ -25,6 +25,7 @@ export type ParseResult =
     };
 
 const knownSSLHosts = ['bitbucket.org', 'github.com', 'gitlab.com', 'sourceforge.net'];
+const allowedProtocols = new Set(['http:', 'https:']);
 
 export function cleanUrl(url: string): null | string {
   // Normalize git-style URLs while keeping secure protocols.
@@ -34,6 +35,9 @@ export function cleanUrl(url: string): null | string {
   normalizedUrl = normalizedUrl.replace(/^ssh:\/\//, 'https://');
   const parsedURL = validateUrl(normalizedUrl);
   if (parsedURL) {
+    if (!allowedProtocols.has(parsedURL.protocol)) {
+      return null;
+    }
     parsedURL.hash = '';
     parsedURL.password = '';
     // Keep the original protocol except for known hosts where HTTPS is guaranteed.

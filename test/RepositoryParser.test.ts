@@ -41,6 +41,18 @@ describe('cleanUrl', () => {
   it('returns null for invalid URLs', () => {
     expect(cleanUrl('not-a-valid-url')).toBeNull();
   });
+
+  it('rejects javascript: URLs', () => {
+    expect(cleanUrl('javascript:alert(1)')).toBeNull();
+  });
+
+  it('rejects ftp: URLs', () => {
+    expect(cleanUrl('ftp://example.com/file')).toBeNull();
+  });
+
+  it('rejects data: URLs', () => {
+    expect(cleanUrl('data:text/html,<script>alert(1)</script>')).toBeNull();
+  });
 });
 
 describe('getPackageUrl', () => {
