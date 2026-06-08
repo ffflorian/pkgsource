@@ -2,10 +2,10 @@ import 'reflect-metadata';
 import {NestExpressApplication} from '@nestjs/platform-express';
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 
-import {ServerConfig} from '../src/config';
-import {ParseStatus} from '../src/RepositoryParser';
-import * as repositoryParser from '../src/RepositoryParser';
-import {createApp} from '../src/Server';
+import {ServerConfig} from '../src/config.js';
+import {ParseStatus} from '../src/RepositoryParser.js';
+import * as repositoryParser from '../src/RepositoryParser.js';
+import {createApp} from '../src/Server.js';
 
 const defaultConfig: ServerConfig = {
   CACHE_DURATION_SECONDS: 300,

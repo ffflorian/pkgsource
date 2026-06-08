@@ -63,7 +63,7 @@ pkgsource redirects npm package names to their source repository. It is a NestJS
 
 ## Architecture
 
-- **Framework:** NestJS (CommonJS) with `@nestjs/platform-express`
+- **Framework:** NestJS (ESM) with `@nestjs/platform-express`
 - **Entry point:** `src/index.ts` → `src/Server.ts` (`createApp` / `startServer`)
 - **Controllers:** `src/controllers/` (health, info, main, packages)
 - **Exception filter:** `src/filters/all-exceptions.filter.ts`

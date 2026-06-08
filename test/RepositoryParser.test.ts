@@ -15,7 +15,7 @@ vi.mock('package-json', () => ({
   VersionNotFoundError: mockedErrors.VersionNotFoundError,
 }));
 
-import {cleanUrl, getPackageUrl, ParseStatus} from '../src/RepositoryParser';
+import {cleanUrl, getPackageUrl, ParseStatus} from '../src/RepositoryParser.js';
 
 describe('cleanUrl', () => {
   it('normalizes git+ repository URLs', () => {

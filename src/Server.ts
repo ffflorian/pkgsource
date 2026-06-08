@@ -5,10 +5,10 @@ import {NextFunction, Request, Response} from 'express';
 import helmet from 'helmet';
 import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
-import {AppModule} from './app.module';
-import {ServerConfig} from './config';
-import {AllExceptionsFilter} from './filters/all-exceptions.filter';
-import {getLogger} from './utils';
+import {AppModule} from './app.module.js';
+import {ServerConfig} from './config.js';
+import {AllExceptionsFilter} from './filters/all-exceptions.filter.js';
+import {getLogger} from './utils.js';
 
 const logger = getLogger('Server');
 // In-memory store is process-local and resets on restart.

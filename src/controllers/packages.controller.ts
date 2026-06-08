@@ -5,9 +5,9 @@ import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import {URL} from 'node:url';
 import validatePackageName from 'validate-npm-package-name';
 
-import {getPackageUrl, ParseStatus} from '../RepositoryParser';
-import {RawError, RawResult} from '../swagger';
-import {getLogger, validateUrl} from '../utils';
+import {getPackageUrl, ParseStatus} from '../RepositoryParser.js';
+import {RawError, RawResult} from '../swagger.js';
+import {getLogger, validateUrl} from '../utils.js';
 
 interface PackagesRouteResponseBody {
   code: HTTP_STATUS;

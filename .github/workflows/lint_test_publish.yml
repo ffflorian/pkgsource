@@ -11,14 +11,14 @@ on:
 
 jobs:
   lint_test_typescript:
-    name: Lint and test TypeScript
+    name: Lint, test and build TypeScript
     permissions:
       contents: read
     runs-on: ubuntu-latest
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
 
       - name: Set up Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
 
-      - name: Lint
+      - name: Lint, test and build
         run: |
           yarn lint
           yarn test
@@ -43,16 +43,36 @@ jobs:
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
 
       - name: Lint Dockerfile
         uses: hadolint/hadolint-action@2332a7b74a6de0dda2e2221d575162eba76ba5e5
+
+  build_dockerfile:
+    name: Build Docker image
+    needs: lint_test_typescript
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5
+
+      - name: Build Docker image
+        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf
+        with:
+          context: .
+          push: false
 
   publish:
     name: Publish Release and Docker image
     needs:
       - lint_dockerfile
-      - lint_test_typescript
+      - build_dockerfile
     permissions:
       contents: write
       packages: write
@@ -63,28 +83,36 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
 
       - name: Publish Release and Docker image
         id: publish_release
-        uses: ffflorian/actions/docker-image-release@395dd69a8fe27cbaaf9ee09ebfaeefaf92dfdda5
+        uses: ffflorian/actions/docker-image-release@5f907fd45b50a93ebebe772a75afbe6025f9fa1d
         with:
+          DOCKER_TOKEN: ${{ secrets.DOCKER_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           git_author: 'ffflorian'
           git_email: 'git@ffflorian.de'
 
+  # Deploy is part of this workflow because GitHub does not fire release events
+  # when a release is created by a workflow using GITHUB_TOKEN, so a separate
+  # deploy.yml listening on release:published would never be triggered.
   deploy:
     name: Deploy latest image
-    runs-on: ubuntu-latest
     needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: write
     if: |
-      github.event_name == 'workflow_dispatch' ||
-      (needs.publish.outputs.new_release_published == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main')
-    permissions: {}
+      always() && (
+        github.event_name == 'workflow_dispatch' ||
+        (needs.publish.result == 'success' && needs.publish.outputs.new_release_published == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main')
+      )
     steps:
       - name: Deploy
-        uses: ffflorian/actions/coolify-deploy@395dd69a8fe27cbaaf9ee09ebfaeefaf92dfdda5
+        uses: ffflorian/actions/coolify-deploy@5f907fd45b50a93ebebe772a75afbe6025f9fa1d
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           domain: ${{ secrets.COOLIFY_DOMAIN }}
           token: ${{ secrets.COOLIFY_TOKEN }}
           uuid: ${{ secrets.COOLIFY_UUID }}

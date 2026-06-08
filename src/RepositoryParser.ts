@@ -1,7 +1,7 @@
 import * as packageJson from 'package-json';
 import validatePackageName from 'validate-npm-package-name';
 
-import {getLogger, validateUrl} from './utils';
+import {getLogger, validateUrl} from './utils.js';
 
 const logger = getLogger('RepositoryParser');
 
