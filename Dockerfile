@@ -37,10 +37,10 @@ WORKDIR /app
 RUN apk add --no-cache yarn && chown node:node /app
 
 # Copy built application from builder
-COPY --from=builder --chown node:node /app/dist ./dist
-COPY --from=builder --chown node:node /app/node_modules ./node_modules
-COPY --from=builder --chown node:node /app/.yarn ./.yarn
-COPY --from=builder --chown node:node /app/package.json /app/yarn.lock /app/.yarnrc.yml ./
+COPY --from=builder --chown=node:node /app/dist ./dist
+COPY --from=builder --chown=node:node /app/node_modules ./node_modules
+COPY --from=builder --chown=node:node /app/.yarn ./.yarn
+COPY --from=builder --chown=node:node /app/package.json /app/yarn.lock /app/.yarnrc.yml ./
 
 RUN yarn install --immutable && yarn cache clean
 
