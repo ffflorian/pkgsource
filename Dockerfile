@@ -6,7 +6,7 @@ ENV NPM_CONFIG_UPDATE_NOTIFIER=false
 WORKDIR /app
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache yarn
+RUN apk add --no-cache curl yarn
 
 # Copy only essential files for dependency installation
 COPY package.json yarn.lock* .yarnrc.yml* ./
