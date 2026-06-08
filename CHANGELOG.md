@@ -1,3 +1,10 @@
+## [1.14.4](https://github.com/ffflorian/pkgsource/compare/v1.14.3...v1.14.4) (2026-06-08)
+
+
+### Bug Fixes
+
+* security hardening - non-root container, protocol whitelist, trust proxy ([#1870](https://github.com/ffflorian/pkgsource/issues/1870)) ([b92bcee](https://github.com/ffflorian/pkgsource/commit/b92bceec6f1090bb594d1275a188c3b8e84e16f8))
+
 ## [1.14.3](https://github.com/ffflorian/pkgsource/compare/v1.14.2...v1.14.3) (2026-06-06)
 
 
