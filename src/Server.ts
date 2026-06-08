@@ -19,13 +19,12 @@ export async function createApp(config: ServerConfig): Promise<NestExpressApplic
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {logger: false});
 
   app.disable('x-powered-by');
+  app.set('trust proxy', 1);
   app.use(
     helmet({
       frameguard: {action: 'deny'},
     })
   );
-  app.use(helmet.noSniff());
-  app.use(helmet.xssFilter());
   app.use(createRateLimitMiddleware(config));
 
   app.useGlobalFilters(new AllExceptionsFilter());

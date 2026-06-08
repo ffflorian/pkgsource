@@ -28,14 +28,16 @@ ENV NPM_CONFIG_UPDATE_NOTIFIER=false
 WORKDIR /app
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache curl yarn
+RUN apk add --no-cache yarn && chown node:node /app
 
 # Copy built application from builder
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/yarn.lock ./yarn.lock
-COPY --from=builder /app/.yarnrc.yml ./.yarnrc.yml
-COPY --from=builder /app/.yarn ./.yarn
+COPY --from=builder --chown=node:node /app/dist ./dist
+COPY --from=builder --chown=node:node /app/package.json ./package.json
+COPY --from=builder --chown=node:node /app/yarn.lock ./yarn.lock
+COPY --from=builder --chown=node:node /app/.yarnrc.yml ./.yarnrc.yml
+COPY --from=builder --chown=node:node /app/.yarn ./.yarn
+
+USER node
 
 RUN yarn install --immutable && yarn cache clean
 
