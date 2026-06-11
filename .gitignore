@@ -5,6 +5,7 @@
 /coverage
 .vscode
 *.log
+/.claude
 
 .pnp.*
 .yarn/*
