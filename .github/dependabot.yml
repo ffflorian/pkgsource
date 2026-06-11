@@ -1,50 +1,59 @@
-version: 2
 updates:
-  - package-ecosystem: docker
-    directory: '/'
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 99
-    assignees:
+  - assignees:
       - ffflorian
+    commit-message:
+      prefix: fix(deps)
+    cooldown:
+      default-days: 5
+      exclude:
+        - node
+    directory: /
     ignore:
       - dependency-name: node
         versions:
           - '> 26'
-    cooldown:
-      default-days: 5
-  - package-ecosystem: npm
-    directory: '/'
+    open-pull-requests-limit: 99
+    package-ecosystem: docker
     schedule:
       interval: weekly
-    open-pull-requests-limit: 99
-    assignees:
+  - assignees:
       - ffflorian
-    versioning-strategy: increase
+    commit-message:
+      prefix: fix(deps)
+      prefix-development: chore(deps-dev)
+    cooldown:
+      default-days: 5
+      exclude:
+        - '@ffflorian/*'
+    directory: /
     groups:
       nestjs:
         patterns:
           - '@nestjs*'
       oxlint:
         patterns:
-          - 'oxlint'
-          - 'eslint-plugin-oxlint'
+          - oxlint
+          - eslint-plugin-oxlint
     ignore:
       - dependency-name: '@types/node'
         versions:
           - '> 26'
-    cooldown:
-      default-days: 5
-      exclude:
-        - '@ffflorian/*'
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+    open-pull-requests-limit: 99
+    package-ecosystem: npm
     schedule:
       interval: weekly
-    open-pull-requests-limit: 99
-    assignees:
+    versioning-strategy: increase
+  - assignees:
       - ffflorian
+    commit-message:
+      prefix: ci(deps)
     cooldown:
       default-days: 5
       exclude:
-        - 'ffflorian/*'
+        - ffflorian/*
+    directory: /
+    open-pull-requests-limit: 99
+    package-ecosystem: github-actions
+    schedule:
+      interval: weekly
+version: 2
