@@ -1,3 +1,10 @@
+## [1.14.5](https://github.com/ffflorian/pkgsource/compare/v1.14.4...v1.14.5) (2026-06-13)
+
+
+### Bug Fixes
+
+* **deps:** bump esbuild from 0.28.0 to 0.28.1 ([#1881](https://github.com/ffflorian/pkgsource/issues/1881)) ([f09a144](https://github.com/ffflorian/pkgsource/commit/f09a14416446f27cb63e2955a2c9b3fdc2af2d0d))
+
 ## [1.14.4](https://github.com/ffflorian/pkgsource/compare/v1.14.3...v1.14.4) (2026-06-08)
 
 
