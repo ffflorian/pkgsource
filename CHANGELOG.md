@@ -1,3 +1,12 @@
+## [1.14.6](https://github.com/ffflorian/pkgsource/compare/v1.14.5...v1.14.6) (2026-06-16)
+
+
+### Bug Fixes
+
+* **deps:** bump tar from 7.5.11 to 7.5.16 ([#1887](https://github.com/ffflorian/pkgsource/issues/1887)) [ci skip] ([d4c8466](https://github.com/ffflorian/pkgsource/commit/d4c8466951129a3628f944ca589947652696811e))
+* **deps:** bump the nestjs group across 1 directory with 3 updates ([#1883](https://github.com/ffflorian/pkgsource/issues/1883)) ([918869a](https://github.com/ffflorian/pkgsource/commit/918869a4a9d9261d2cf6256ecba2f75b7d60dcb6))
+* **deps:** bump vite from 8.0.13 to 8.0.16 ([#1888](https://github.com/ffflorian/pkgsource/issues/1888)) [ci skip] ([8d9d8ca](https://github.com/ffflorian/pkgsource/commit/8d9d8cacebb69cef009125e3f09b192d0bec68b6))
+
 ## [1.14.5](https://github.com/ffflorian/pkgsource/compare/v1.14.4...v1.14.5) (2026-06-13)
 
 
