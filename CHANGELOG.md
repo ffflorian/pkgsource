@@ -1,3 +1,12 @@
+## [1.14.7](https://github.com/ffflorian/pkgsource/compare/v1.14.6...v1.14.7) (2026-06-18)
+
+
+### Bug Fixes
+
+* **deps:** block only next major in Dependabot ignore rules ([#1889](https://github.com/ffflorian/pkgsource/issues/1889)) ([ea7c520](https://github.com/ffflorian/pkgsource/commit/ea7c520ed1f59dbfedacf7b97abcecb8afe6c6b2))
+* **deps:** Bump nestjs to 11.1.27 [ci skip] ([110b052](https://github.com/ffflorian/pkgsource/commit/110b052ca117c7dfd6bf63e05777d497037be3d8))
+* **deps:** bump node from 26.2.0-alpine to 26.3.1-alpine ([#1891](https://github.com/ffflorian/pkgsource/issues/1891)) ([37c8413](https://github.com/ffflorian/pkgsource/commit/37c8413f05a6917e6f4cce5786ec7c7ddb35d6e5))
+
 ## [1.14.6](https://github.com/ffflorian/pkgsource/compare/v1.14.5...v1.14.6) (2026-06-16)
 
 
