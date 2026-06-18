@@ -1,5 +1,5 @@
 # Build
-FROM node:26.2.0-alpine@sha256:7c6af15abe4e3de859690e7db171d0d711bf37d27528eddfe625b2fe89e097f8 AS builder
+FROM node:26.3.1-alpine@sha256:c6f010471b5bc0d10e673ae3c94c48cd11f7608579344c6b32e52ff98c62a980 AS builder
 
 ENV NPM_CONFIG_UPDATE_NOTIFIER=false
 
@@ -21,7 +21,7 @@ COPY src/ src/
 RUN yarn build
 
 # Run
-FROM node:26.2.0-alpine@sha256:7c6af15abe4e3de859690e7db171d0d711bf37d27528eddfe625b2fe89e097f8
+FROM node:26.3.1-alpine@sha256:c6f010471b5bc0d10e673ae3c94c48cd11f7608579344c6b32e52ff98c62a980
 
 ARG COMMIT
 ARG VERSION
