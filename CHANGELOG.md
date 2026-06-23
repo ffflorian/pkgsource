@@ -1,3 +1,10 @@
+## [1.14.8](https://github.com/ffflorian/pkgsource/compare/v1.14.7...v1.14.8) (2026-06-23)
+
+
+### Bug Fixes
+
+* **deps:** bump node from `c6f0104` to `a2dc166` ([#1895](https://github.com/ffflorian/pkgsource/issues/1895)) ([428789e](https://github.com/ffflorian/pkgsource/commit/428789e64833c4462e3785fa7683f45190de339f))
+
 ## [1.14.7](https://github.com/ffflorian/pkgsource/compare/v1.14.6...v1.14.7) (2026-06-18)
 
 
