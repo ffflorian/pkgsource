@@ -1,3 +1,10 @@
+## [1.14.9](https://github.com/ffflorian/pkgsource/compare/v1.14.8...v1.14.9) (2026-06-26)
+
+
+### Bug Fixes
+
+* **deps:** bump node from 26.3.1-alpine to 26.4.0-alpine ([#1900](https://github.com/ffflorian/pkgsource/issues/1900)) ([eb191be](https://github.com/ffflorian/pkgsource/commit/eb191be983cfcfc69b698fc52b0488f8a9874869))
+
 ## [1.14.8](https://github.com/ffflorian/pkgsource/compare/v1.14.7...v1.14.8) (2026-06-23)
 
 
