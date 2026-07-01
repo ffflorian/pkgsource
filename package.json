@@ -54,7 +54,7 @@
   "license": "GPL-3.0",
   "main": "dist/index.js",
   "name": "pkgsource",
-  "packageManager": "yarn@4.16.0",
+  "packageManager": "yarn@4.17.0",
   "prettier": "@ffflorian/prettier-config",
   "repository": "https://github.com/ffflorian/pkgsource.git",
   "scripts": {
