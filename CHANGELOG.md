@@ -1,3 +1,10 @@
+## [1.14.10](https://github.com/ffflorian/pkgsource/compare/v1.14.9...v1.14.10) (2026-07-06)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([a0eb634](https://github.com/ffflorian/pkgsource/commit/a0eb634d7d2bf4320e8618246f23b7cabe87f5c0))
+
 ## [1.14.9](https://github.com/ffflorian/pkgsource/compare/v1.14.8...v1.14.9) (2026-06-26)
 
 
