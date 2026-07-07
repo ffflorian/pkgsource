@@ -17,7 +17,7 @@
   "description": "Find the source of an npm package in an instant.",
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@ffflorian/eslint-config": "1.0.1",
+    "@ffflorian/eslint-config": "1.0.2",
     "@ffflorian/prettier-config": "1.0.0",
     "@types/express": "5.0.6",
     "@types/node": "~26",
