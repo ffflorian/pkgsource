@@ -18,6 +18,45 @@ interface PackagesRouteResponseBody {
 const logger = getLogger('controllers/PackagesController');
 export const unpkgBase = new URL('https://unpkg.com/browse');
 
+@ApiTags('API')
+@Controller()
+export class PackagesController {
+  @ApiOperation({description: "Get the package's repository URL", operationId: 'getPackageRepositoryUrl'})
+  @ApiParam({name: 'packageName', required: true, type: String})
+  @ApiQuery({description: 'Get the result as JSON', name: 'raw', required: false, type: Boolean})
+  @ApiQuery({description: 'Get a link to unpkg.com', name: 'unpkg', required: false, type: Boolean})
+  @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: RawResult})
+  @ApiResponse({description: 'Redirect to repository URL', status: HTTP_STATUS.MOVED_TEMPORARILY})
+  @ApiResponse({description: 'Version or package not found', status: HTTP_STATUS.NOT_FOUND, type: RawError})
+  @ApiResponse({description: 'Invalid package name', status: HTTP_STATUS.UNPROCESSABLE_ENTITY, type: RawError})
+  @ApiResponse({description: 'Internal server error', status: HTTP_STATUS.INTERNAL_SERVER_ERROR, type: RawError})
+  @Get(':packageName')
+  async getPackage(
+    @Param('packageName') rawPackageName: string,
+    @Query() query: Record<string, string>,
+    @Res() res: Response
+  ): Promise<void> {
+    const {name, version} = parsePackageAndVersion(rawPackageName.trim());
+    await handlePackageRequest(name, version, query, res);
+  }
+
+  @Get(':scope/:packageName')
+  async getScopedPackage(
+    @Param('scope') scope: string,
+    @Param('packageName') rawPackageName: string,
+    @Query() query: Record<string, string>,
+    @Res() res: Response
+  ): Promise<void> {
+    if (!scope.trim().startsWith('@')) {
+      res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Not found'});
+      return;
+    }
+    const {name: pkgPart, version} = parsePackageAndVersion(rawPackageName.trim());
+    const fullName = `${scope.trim()}/${pkgPart}`;
+    await handlePackageRequest(fullName, version, query, res);
+  }
+}
+
 async function handlePackageRequest(
   packageName: string,
   version: string,
@@ -120,43 +159,4 @@ function parsePackageAndVersion(rawName: string): {name: string; version: string
 
 function queryParamExists(query: Record<string, string>, key: string): boolean {
   return key in query && query[key] !== 'false';
-}
-
-@ApiTags('API')
-@Controller()
-export class PackagesController {
-  @ApiOperation({description: "Get the package's repository URL", operationId: 'getPackageRepositoryUrl'})
-  @ApiParam({name: 'packageName', required: true, type: String})
-  @ApiQuery({description: 'Get the result as JSON', name: 'raw', required: false, type: Boolean})
-  @ApiQuery({description: 'Get a link to unpkg.com', name: 'unpkg', required: false, type: Boolean})
-  @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: RawResult})
-  @ApiResponse({description: 'Redirect to repository URL', status: HTTP_STATUS.MOVED_TEMPORARILY})
-  @ApiResponse({description: 'Version or package not found', status: HTTP_STATUS.NOT_FOUND, type: RawError})
-  @ApiResponse({description: 'Invalid package name', status: HTTP_STATUS.UNPROCESSABLE_ENTITY, type: RawError})
-  @ApiResponse({description: 'Internal server error', status: HTTP_STATUS.INTERNAL_SERVER_ERROR, type: RawError})
-  @Get(':packageName')
-  async getPackage(
-    @Param('packageName') rawPackageName: string,
-    @Query() query: Record<string, string>,
-    @Res() res: Response
-  ): Promise<void> {
-    const {name, version} = parsePackageAndVersion(rawPackageName.trim());
-    await handlePackageRequest(name, version, query, res);
-  }
-
-  @Get(':scope/:packageName')
-  async getScopedPackage(
-    @Param('scope') scope: string,
-    @Param('packageName') rawPackageName: string,
-    @Query() query: Record<string, string>,
-    @Res() res: Response
-  ): Promise<void> {
-    if (!scope.trim().startsWith('@')) {
-      res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Not found'});
-      return;
-    }
-    const {name: pkgPart, version} = parsePackageAndVersion(rawPackageName.trim());
-    const fullName = `${scope.trim()}/${pkgPart}`;
-    await handlePackageRequest(fullName, version, query, res);
-  }
 }
