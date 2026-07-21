@@ -1,3 +1,11 @@
+## [1.14.12](https://github.com/[secure]/pkgsource/compare/v1.14.11...v1.14.12) (2026-07-21)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 1.1.11 to 1.1.16 ([#1937](https://github.com/[secure]/pkgsource/issues/1937)) ([f51863a](https://github.com/[secure]/pkgsource/commit/f51863aa08d2455c3bbc6fd39b52209a08b4b54b))
+* **deps:** bump helmet from 8.2.0 to 8.3.0 ([#1933](https://github.com/[secure]/pkgsource/issues/1933)) [ci skip] ([89adf33](https://github.com/[secure]/pkgsource/commit/89adf33dfd85ed6db2c33b9926f26082b1d74435))
+
 ## [1.14.11](https://github.com/ffflorian/pkgsource/compare/v1.14.10...v1.14.11) (2026-07-14)
 
 
