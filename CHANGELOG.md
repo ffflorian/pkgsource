@@ -1,3 +1,13 @@
+## [1.14.13](https://github.com/[secure]/pkgsource/compare/v1.14.12...v1.14.13) (2026-07-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @nestjs/swagger in the nestjs group across 1 directory ([#1941](https://github.com/[secure]/pkgsource/issues/1941)) ([c7f5e8a](https://github.com/[secure]/pkgsource/commit/c7f5e8a90be426656643fb7e6510009a1123ee71))
+* **deps:** bump body-parser from 2.2.1 to 2.3.0 ([#1947](https://github.com/[secure]/pkgsource/issues/1947)) [ci skip] ([9b3668c](https://github.com/[secure]/pkgsource/commit/9b3668c49b5384c2ebb201a7fb3c5a2a2fc8bb41))
+* **deps:** bump postcss from 8.5.15 to 8.5.23 ([#1948](https://github.com/[secure]/pkgsource/issues/1948)) [ci skip] ([8ba232a](https://github.com/[secure]/pkgsource/commit/8ba232a9d07502e18f6e35d92346a948d4f02fb9))
+* **deps:** bump tar from 7.5.16 to 7.5.22 ([#1946](https://github.com/[secure]/pkgsource/issues/1946)) [ci skip] ([a7b520e](https://github.com/[secure]/pkgsource/commit/a7b520e2240b44f68a3048138fbbdf89f55f47d2))
+
 ## [1.14.12](https://github.com/[secure]/pkgsource/compare/v1.14.11...v1.14.12) (2026-07-21)
 
 
