@@ -1,3 +1,11 @@
+## [1.14.14](https://github.com/[secure]/pkgsource/compare/v1.14.13...v1.14.14) (2026-08-01)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 1.1.16 to 1.1.18 ([#1950](https://github.com/[secure]/pkgsource/issues/1950)) ([86d3d1f](https://github.com/[secure]/pkgsource/commit/86d3d1fe90d6db5e42e9bc83e2061025e0af359f))
+* **deps:** bump js-yaml from 4.3.0 to 4.3.1 ([#1951](https://github.com/[secure]/pkgsource/issues/1951)) [ci skip] ([d725ae0](https://github.com/[secure]/pkgsource/commit/d725ae085e0cb16ef7a6c6c98c020fddca6ed46a))
+
 ## [1.14.13](https://github.com/[secure]/pkgsource/compare/v1.14.12...v1.14.13) (2026-07-28)
 
 
