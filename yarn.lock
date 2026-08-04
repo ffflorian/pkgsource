@@ -3677,6 +3677,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globals@npm:17.8.0":
+  version: 17.8.0
+  resolution: "globals@npm:17.8.0"
+  checksum: 10c0/e31b36cef3befd446487674dc6ca7b8f8e62a3b76aadd975dbf80ffa732366b3ac58df8941999eb6b1406d97480103711db85d2a49c955da47ff5ec688bee9b5
+  languageName: node
+  linkType: hard
+
 "globals@npm:^14.0.0":
   version: 14.0.0
   resolution: "globals@npm:14.0.0"
@@ -5664,7 +5671,7 @@ __metadata:
     eslint-plugin-import: "npm:2.32.0"
     eslint-plugin-oxlint: "npm:1.75.0"
     eslint-plugin-perfectionist: "npm:5.10.0"
-    globals: "npm:17.7.0"
+    globals: "npm:17.8.0"
     helmet: "npm:8.3.0"
     http-status-codes: "npm:2.3.0"
     jiti: "npm:2.7.0"
