@@ -1,3 +1,11 @@
+## [1.14.15](https://github.com/[secure]/pkgsource/compare/v1.14.14...v1.14.15) (2026-08-05)
+
+
+### Bug Fixes
+
+* **deps:** bump ip-address from 10.2.0 to 10.4.0 ([#1952](https://github.com/[secure]/pkgsource/issues/1952)) [ci skip] ([d596d25](https://github.com/[secure]/pkgsource/commit/d596d25a2f919228c42317d0579dc6d08f3e2b6a))
+* **deps:** bump node from 26.5.0-alpine to 26.5.1-alpine ([#1956](https://github.com/[secure]/pkgsource/issues/1956)) ([27e2e3b](https://github.com/[secure]/pkgsource/commit/27e2e3b7bd3154db70ae3800f2dcb90144ef3114))
+
 ## [1.14.14](https://github.com/[secure]/pkgsource/compare/v1.14.13...v1.14.14) (2026-08-01)
 
 
