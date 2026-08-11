@@ -27,7 +27,7 @@
     "eslint-import-resolver-typescript": "4.4.5",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-oxlint": "1.76.0",
-    "eslint-plugin-perfectionist": "5.10.0",
+    "eslint-plugin-perfectionist": "5.10.1",
     "globals": "17.8.0",
     "jiti": "2.7.0",
     "lefthook": "2.1.10",
