@@ -1,3 +1,10 @@
+## [1.14.17](https://github.com/[secure]/pkgsource/compare/v1.14.16...v1.14.17) (2026-08-18)
+
+
+### Bug Fixes
+
+* **deps:** bump the nestjs group with 3 updates ([#1971](https://github.com/[secure]/pkgsource/issues/1971)) ([da6bef0](https://github.com/[secure]/pkgsource/commit/da6bef0a60dc8bcb4f4cd59cf7f2072f8fa49072))
+
 ## [1.14.16](https://github.com/[secure]/pkgsource/compare/v1.14.15...v1.14.16) (2026-08-11)
 
 
