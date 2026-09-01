@@ -1,3 +1,11 @@
+## [1.14.19](https://github.com/[secure]/pkgsource/compare/v1.14.18...v1.14.19) (2026-09-01)
+
+
+### Bug Fixes
+
+* **deps:** bump node from 26.7.0-alpine to 26.8.1-alpine ([#1991](https://github.com/[secure]/pkgsource/issues/1991)) ([03b56f8](https://github.com/[secure]/pkgsource/commit/03b56f8e7e93a79d8807d100a9396d4655d21ad1))
+* **deps:** bump the nestjs group with 3 updates ([#1985](https://github.com/[secure]/pkgsource/issues/1985)) [ci skip] ([3d04486](https://github.com/[secure]/pkgsource/commit/3d044862836ed8f84dc9dc7cc743f19c6ec007d2))
+
 ## [1.14.18](https://github.com/[secure]/pkgsource/compare/v1.14.17...v1.14.18) (2026-08-25)
 
 
