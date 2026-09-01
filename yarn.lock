@@ -438,15 +438,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ffflorian/eslint-config@npm:1.1.4":
-  version: 1.1.4
-  resolution: "@ffflorian/eslint-config@npm:1.1.4"
+"@ffflorian/eslint-config@npm:1.1.5":
+  version: 1.1.5
+  resolution: "@ffflorian/eslint-config@npm:1.1.5"
   dependencies:
     "@eslint/js": "npm:10.0.1"
     eslint: "npm:9.39.5"
     eslint-import-resolver-typescript: "npm:4.4.5"
     eslint-plugin-import: "npm:2.32.0"
-    eslint-plugin-oxlint: "npm:1.78.0"
+    eslint-plugin-oxlint: "npm:1.79.0"
     eslint-plugin-perfectionist: "npm:5.10.1"
     globals: "npm:17.11.0"
     jiti: "npm:2.7.0"
@@ -454,7 +454,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.x || <10.x"
     typescript: ">=6.0.3"
-  checksum: 10c0/30183d3167800df3031bb4a43e688eea2e9be7db5df775269c8ab6b931c067f8d2a6e3b20137860e710222abbf74c9d65cd9e4fa48b46174a33dab11e0f1f644
+  checksum: 10c0/2988be0cd935b9b3f58113e9aefb4ded633b1005f6e7ebc64c9ce58083487d271c102cdaef5e1ea9e56213b0670b8030e71e35518c4bc31218d9a204d7769bd9
   languageName: node
   linkType: hard
 
@@ -2937,17 +2937,6 @@ __metadata:
   peerDependencies:
     eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8 || ^9
   checksum: 10c0/bfb1b8fc8800398e62ddfefbf3638d185286edfed26dfe00875cc2846d954491b4f5112457831588b757fa789384e1ae585f812614c4797f0499fa234fd4a48b
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-oxlint@npm:1.78.0":
-  version: 1.78.0
-  resolution: "eslint-plugin-oxlint@npm:1.78.0"
-  dependencies:
-    jsonc-parser: "npm:^3.3.1"
-  peerDependencies:
-    oxlint: ~1.78.0
-  checksum: 10c0/f0fc7853efaa6c4b99e870a222fe100b6a62740cd612b0f8a4bef63b8c36d474260b16039cf7b40c7afeee58291b987a6b9f1a30d305b917efc1ddb6f8c528b2
   languageName: node
   linkType: hard
 
@@ -5594,7 +5583,7 @@ __metadata:
   resolution: "pkgsource@workspace:."
   dependencies:
     "@eslint/js": "npm:10.0.1"
-    "@ffflorian/eslint-config": "npm:1.1.4"
+    "@ffflorian/eslint-config": "npm:1.1.5"
     "@ffflorian/prettier-config": "npm:1.0.1"
     "@nestjs/common": "npm:11.2.1"
     "@nestjs/core": "npm:11.2.1"
