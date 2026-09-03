@@ -1,3 +1,10 @@
+## [1.14.21](https://github.com/[secure]/pkgsource/compare/v1.14.20...v1.14.21) (2026-09-03)
+
+
+### Bug Fixes
+
+* **deps:** bump qs from 6.15.2 to 6.16.0 ([#1994](https://github.com/[secure]/pkgsource/issues/1994)) ([c56820b](https://github.com/[secure]/pkgsource/commit/c56820bd7b54c197a3123d6339ff2849802c1c2f))
+
 ## [1.14.20](https://github.com/[secure]/pkgsource/compare/v1.14.19...v1.14.20) (2026-09-01)
 
 
