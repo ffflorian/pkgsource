@@ -1427,7 +1427,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.69.0":
+"@typescript-eslint/utils@npm:8.69.0, @typescript-eslint/utils@npm:^8.68.0":
   version: 8.69.0
   resolution: "@typescript-eslint/utils@npm:8.69.0"
   dependencies:
@@ -3122,6 +3122,18 @@ __metadata:
   peerDependencies:
     eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
   checksum: 10c0/40a3d571085457a865753d8f29bad84139b5b7c539ec2cca0d7e55a641e18df6229a8cbf3a8dfb4753a4c175613f647db046878456d502913bc50083989fa1e2
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-perfectionist@npm:5.11.0":
+  version: 5.11.0
+  resolution: "eslint-plugin-perfectionist@npm:5.11.0"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^8.68.0"
+    natural-orderby: "npm:^5.0.0"
+  peerDependencies:
+    eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
+  checksum: 10c0/7899699bc2822c959119c584dfd79c0b980a7e0d5a89ba02f032bfaa0e32216d959025fe5aa69d7cd8ecb9010162c47788329eaf5a1fd8d5e41f89c131504cde
   languageName: node
   linkType: hard
 
@@ -5760,7 +5772,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:4.4.5"
     eslint-plugin-import: "npm:2.32.0"
     eslint-plugin-oxlint: "npm:1.81.0"
-    eslint-plugin-perfectionist: "npm:5.10.1"
+    eslint-plugin-perfectionist: "npm:5.11.0"
     globals: "npm:17.12.0"
     helmet: "npm:8.3.0"
     http-status-codes: "npm:2.3.0"
