@@ -1,3 +1,12 @@
+## [1.14.22](https://github.com/[secure]/pkgsource/compare/v1.14.21...v1.14.22) (2026-09-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @humanfs/node from 0.16.7 to 0.16.8 ([#2005](https://github.com/[secure]/pkgsource/issues/2005)) [ci skip] ([49532bf](https://github.com/[secure]/pkgsource/commit/49532bf553250cc9c0b498667314ab57981a08ae))
+* **deps:** bump @nestjs/swagger in the nestjs group ([#1995](https://github.com/[secure]/pkgsource/issues/1995)) [ci skip] ([f7f673c](https://github.com/[secure]/pkgsource/commit/f7f673c3017bc70042f95b24f09b843abf08612d))
+* **deps:** Bump brace-expansion to 5.0.9 ([1b89429](https://github.com/[secure]/pkgsource/commit/1b894298b096e6f134631d4de9a6b38abc029bee))
+
 ## [1.14.21](https://github.com/[secure]/pkgsource/compare/v1.14.20...v1.14.21) (2026-09-03)
 
 
