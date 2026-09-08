@@ -662,17 +662,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/swagger@npm:12.0.0":
-  version: 12.0.0
-  resolution: "@nestjs/swagger@npm:12.0.0"
+"@nestjs/swagger@npm:12.0.1":
+  version: 12.0.1
+  resolution: "@nestjs/swagger@npm:12.0.1"
   dependencies:
     "@microsoft/tsdoc": "npm:0.16.0"
     "@nestjs/mapped-types": "npm:12.0.0"
     "@standard-schema/spec": "npm:1.1.0"
     es-toolkit: "npm:1.51.0"
-    js-yaml: "npm:5.3.0"
+    js-yaml: "npm:5.4.1"
     path-to-regexp: "npm:8.4.2"
-    swagger-ui-dist: "npm:5.32.13"
+    swagger-ui-dist: "npm:5.32.14"
   peerDependencies:
     "@fastify/static": ^8.0.0 || ^9.0.0 || ^10.0.0
     "@nestjs/common": ^12.0.0
@@ -687,7 +687,7 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 10c0/7621fe906b4913820a5798af769bc119d96b29a880e46ef6cba30c997e8e14c7a1ede2f4d4f70c2ca7785e2b9869a9557619a80436e7636ee9b441143df52990
+  checksum: 10c0/f77e53c452af97e91eed574de0aefc11dda5ec2fb0b767a5b23fe92cb586458990e399244c03fc96875fc118112ae7937e6f2d391a55617a907de3ed83cb9482
   languageName: node
   linkType: hard
 
@@ -4793,14 +4793,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:5.3.0":
-  version: 5.3.0
-  resolution: "js-yaml@npm:5.3.0"
+"js-yaml@npm:5.4.1":
+  version: 5.4.1
+  resolution: "js-yaml@npm:5.4.1"
   dependencies:
     argparse: "npm:^2.0.1"
   bin:
     js-yaml: bin/js-yaml.mjs
-  checksum: 10c0/c67383a74026f3b550fe1131c6f0f56df11e227fc9b8b8c1c85154f106831a95a944f2dd4f505498d537790483aec7cd5e3d5e9913fe28fa2d131eeb894a0fd9
+  checksum: 10c0/efe9dfaf222809694d375ad5ecca825561d2432eb55bc0f628911c0dfa4dbce98a71dcbc3252f630208bbdf5f4e9ac363847e4a7f49845b577ae2548b8fcf147
   languageName: node
   linkType: hard
 
@@ -5871,7 +5871,7 @@ __metadata:
     "@nestjs/common": "npm:12.0.1"
     "@nestjs/core": "npm:12.0.1"
     "@nestjs/platform-express": "npm:12.0.1"
-    "@nestjs/swagger": "npm:12.0.0"
+    "@nestjs/swagger": "npm:12.0.1"
     "@types/express": "npm:5.0.6"
     "@types/node": "npm:~26"
     "@types/validate-npm-package-name": "npm:4.0.2"
@@ -6823,12 +6823,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui-dist@npm:5.32.13":
-  version: 5.32.13
-  resolution: "swagger-ui-dist@npm:5.32.13"
+"swagger-ui-dist@npm:5.32.14":
+  version: 5.32.14
+  resolution: "swagger-ui-dist@npm:5.32.14"
   dependencies:
     "@scarf/scarf": "npm:=1.4.0"
-  checksum: 10c0/749ace7eb1106608d16f9a63921e6241e0a0cb047011b03ce0aafabf80db9f6e7bf85402eaef5eee60ff5a09b3eb3fdb5e1f52fd8d12db6c0450e540742281d5
+  checksum: 10c0/1457c4ee9d4e18411c6561b1df96c547c5f71334afb0f8c32bc787af05746b0d1f301f95d7483f6092e71eb40f96ea96f14444ee7cc9dfebeab7835c44c4bd31
   languageName: node
   linkType: hard
 
