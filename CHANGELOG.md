@@ -1,3 +1,10 @@
+## [1.14.23](https://github.com/[secure]/pkgsource/compare/v1.14.22...v1.14.23) (2026-09-13)
+
+
+### Bug Fixes
+
+* **deps:** bump js-yaml from 4.3.1 to 4.3.2 ([#2006](https://github.com/[secure]/pkgsource/issues/2006)) ([ccf3ae1](https://github.com/[secure]/pkgsource/commit/ccf3ae158ea9a6bd38da86c727d3cd0a877248f1))
+
 ## [1.14.22](https://github.com/[secure]/pkgsource/compare/v1.14.21...v1.14.22) (2026-09-08)
 
 
