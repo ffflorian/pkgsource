@@ -14,6 +14,8 @@ export interface ServerConfig {
   VERSION: string;
 }
 
+const ONE_MINUTE_IN_SECONDS = 60;
+
 const config: ServerConfig = {
   CACHE_DURATION_SECONDS: 300, // 5 minutes
   COMMIT: process.env.COMMIT || 'unknown',
@@ -22,8 +24,8 @@ const config: ServerConfig = {
   DIST_DIR: '.',
   ENVIRONMENT: process.env.ENVIRONMENT || 'prod',
   PORT_HTTP: Number(process.env.PORT || defaultPort),
-  RATE_LIMIT_MAX_REQUESTS: Number(process.env.RATE_LIMIT_MAX_REQUESTS || 120),
-  RATE_LIMIT_WINDOW_SECONDS: Number(process.env.RATE_LIMIT_WINDOW_SECONDS || 60),
+  RATE_LIMIT_MAX_REQUESTS: Number(process.env.RATE_LIMIT_MAX_REQUESTS || ONE_MINUTE_IN_SECONDS * 2),
+  RATE_LIMIT_WINDOW_SECONDS: Number(process.env.RATE_LIMIT_WINDOW_SECONDS || ONE_MINUTE_IN_SECONDS),
   VERSION: process.env.VERSION || 'unknown',
 };
 
