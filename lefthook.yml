@@ -2,7 +2,7 @@ pre-commit:
   parallel: false
   commands:
     oxfmt:
-      glob: '*.{js,ts,css,csv,md,json,yml,yaml}'
+      glob: '*.{js,ts,css,csv,md,yml,yaml}'
       exclude:
         - 'CLAUDE.md'
         - '.claude'
