@@ -1,3 +1,10 @@
+## [1.14.25](https://github.com/[secure]/pkgsource/compare/v1.14.24...v1.14.25) (2026-09-15)
+
+
+### Bug Fixes
+
+* Bump the nestjs group to 12.0.3 ([c62b025](https://github.com/[secure]/pkgsource/commit/c62b0257e02c8812b92e10c12c76d32c24f51de4))
+
 ## [1.14.24](https://github.com/[secure]/pkgsource/compare/v1.14.23...v1.14.24) (2026-09-15)
 
 
