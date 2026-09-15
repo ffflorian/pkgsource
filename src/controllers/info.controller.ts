@@ -1,12 +1,11 @@
-import {Controller, Get} from '@nestjs/common';
+import {Controller, Get, HttpStatus} from '@nestjs/common';
 import {ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger';
-import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
 import {config} from '../config.js';
 import {InfoResult} from '../swagger.js';
 
 interface InfoRouteResponseBody {
-  code: HTTP_STATUS;
+  code: HttpStatus;
   commit?: string;
   version?: string;
 }
@@ -15,11 +14,11 @@ interface InfoRouteResponseBody {
 @Controller()
 export class InfoController {
   @ApiOperation({description: 'Get information about the server', operationId: 'getServerInformation'})
-  @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: InfoResult})
+  @ApiResponse({description: 'That worked', status: HttpStatus.OK, type: InfoResult})
   @Get('_info')
   info(): InfoRouteResponseBody {
     return {
-      code: HTTP_STATUS.OK,
+      code: HttpStatus.OK,
       commit: config.COMMIT,
       version: config.VERSION,
     };

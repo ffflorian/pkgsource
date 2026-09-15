@@ -1,11 +1,12 @@
 import 'reflect-metadata';
+import {HttpStatus} from '@nestjs/common';
 import {NestExpressApplication} from '@nestjs/platform-express';
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 
 import {ServerConfig} from '../src/config.js';
 import {ParseStatus} from '../src/RepositoryParser.js';
 import * as repositoryParser from '../src/RepositoryParser.js';
-import {createApp, HTTP_STATUS} from '../src/Server.js';
+import {createApp} from '../src/Server.js';
 
 const defaultConfig: ServerConfig = {
   CACHE_DURATION_SECONDS: 300,
@@ -56,22 +57,22 @@ describe('server routes', () => {
   it('serves health endpoint', async () => {
     const response = await fetch(`${baseUrl}/_health`);
 
-    expect(response.status).toBe(HTTP_STATUS.OK);
+    expect(response.status).toBe(HttpStatus.OK);
   });
 
   it('serves info endpoint', async () => {
     const response = await fetch(`${baseUrl}/_info`);
     const body = (await response.json()) as {code: number; commit: string; version?: string};
 
-    expect(response.status).toBe(HTTP_STATUS.OK);
-    expect(body.code).toBe(HTTP_STATUS.OK);
+    expect(response.status).toBe(HttpStatus.OK);
+    expect(body.code).toBe(HttpStatus.OK);
     expect(body.commit).toBeDefined();
   });
 
   it('redirects main route to repository', async () => {
     const response = await fetch(`${baseUrl}/`, {redirect: 'manual'});
 
-    expect(response.status).toBe(HTTP_STATUS.MOVED_TEMPORARILY);
+    expect(response.status).toBe(HttpStatus.FOUND);
     expect(response.headers.get('location')).toBe('https://github.com/ffflorian/pkgsource');
   });
 
@@ -79,9 +80,9 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/?raw=true`);
     const body = (await response.json()) as {code: number; url: string};
 
-    expect(response.status).toBe(HTTP_STATUS.OK);
+    expect(response.status).toBe(HttpStatus.OK);
     expect(body).toEqual({
-      code: HTTP_STATUS.OK,
+      code: HttpStatus.OK,
       url: 'https://github.com/ffflorian/pkgsource',
     });
   });
@@ -89,7 +90,7 @@ describe('server routes', () => {
   it('supports unpkg mode on main route', async () => {
     const response = await fetch(`${baseUrl}/?unpkg=true`, {redirect: 'manual'});
 
-    expect(response.status).toBe(HTTP_STATUS.MOVED_TEMPORARILY);
+    expect(response.status).toBe(HttpStatus.FOUND);
     expect(response.headers.get('location')).toBe('https://unpkg.com/browse/pkgsource@latest/');
   });
 
@@ -98,16 +99,16 @@ describe('server routes', () => {
     const favicon = await fetch(`${baseUrl}/favicon.ico`);
 
     expect(await robots.text()).toBe('User-agent: *\nDisallow: /');
-    expect(favicon.status).toBe(HTTP_STATUS.NOT_FOUND);
+    expect(favicon.status).toBe(HttpStatus.NOT_FOUND);
   });
 
   it('returns json not found via global exception filter', async () => {
     const response = await fetch(`${baseUrl}/not-a-scope/unknown-package`);
     const body = (await response.json()) as {code: number; message: string};
 
-    expect(response.status).toBe(HTTP_STATUS.NOT_FOUND);
+    expect(response.status).toBe(HttpStatus.NOT_FOUND);
     expect(body).toEqual({
-      code: HTTP_STATUS.NOT_FOUND,
+      code: HttpStatus.NOT_FOUND,
       message: 'Not found',
     });
   });
@@ -116,14 +117,14 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/!invalid`);
     const body = (await response.json()) as {code: number; message: string};
 
-    expect(response.status).toBe(HTTP_STATUS.UNPROCESSABLE_ENTITY);
+    expect(response.status).toBe(HttpStatus.UNPROCESSABLE_ENTITY);
     expect(body.message).toBe('Invalid package name');
   });
 
   it('supports unpkg mode for package endpoints', async () => {
     const response = await fetch(`${baseUrl}/lodash@4.17.21?unpkg=true`, {redirect: 'manual'});
 
-    expect(response.status).toBe(HTTP_STATUS.MOVED_TEMPORARILY);
+    expect(response.status).toBe(HttpStatus.FOUND);
     expect(response.headers.get('location')).toBe('https://unpkg.com/browse/lodash@4.17.21/');
   });
 
@@ -136,14 +137,14 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/lodash?raw=true`);
     const body = (await response.json()) as {code: number; url: string};
 
-    expect(response.status).toBe(HTTP_STATUS.OK);
+    expect(response.status).toBe(HttpStatus.OK);
     expect(body).toEqual({
-      code: HTTP_STATUS.OK,
+      code: HttpStatus.OK,
       url: 'https://github.com/lodash/lodash',
     });
   });
 
-  it('maps parser not found statuses to HTTP_STATUS.NOT_FOUND', async () => {
+  it('maps parser not found statuses to HttpStatus.NOT_FOUND', async () => {
     vi.spyOn(repositoryParser, 'getPackageUrl').mockResolvedValueOnce({
       status: ParseStatus.NO_URL_FOUND,
     });
@@ -151,11 +152,11 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/left-pad`);
     const body = (await response.json()) as {code: number; message: string};
 
-    expect(response.status).toBe(HTTP_STATUS.NOT_FOUND);
+    expect(response.status).toBe(HttpStatus.NOT_FOUND);
     expect(body.message).toContain('No source URL found');
   });
 
-  it('maps parser package not found status to HTTP_STATUS.NOT_FOUND', async () => {
+  it('maps parser package not found status to HttpStatus.NOT_FOUND', async () => {
     vi.spyOn(repositoryParser, 'getPackageUrl').mockResolvedValueOnce({
       status: ParseStatus.PACKAGE_NOT_FOUND,
     });
@@ -163,7 +164,7 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/definitely-missing-package`);
     const body = (await response.json()) as {code: number; message: string};
 
-    expect(response.status).toBe(HTTP_STATUS.NOT_FOUND);
+    expect(response.status).toBe(HttpStatus.NOT_FOUND);
     expect(body.message).toBe('Package not found');
   });
 
@@ -175,7 +176,7 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/lodash@0.0.0-does-not-exist`);
     const body = (await response.json()) as {code: number; message: string};
 
-    expect(response.status).toBe(HTTP_STATUS.NOT_FOUND);
+    expect(response.status).toBe(HttpStatus.NOT_FOUND);
     expect(body.message).toBe('Version not found');
   });
 
@@ -187,7 +188,7 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/problematic-package`);
     const body = (await response.json()) as {code: number; message: string};
 
-    expect(response.status).toBe(HTTP_STATUS.INTERNAL_SERVER_ERROR);
+    expect(response.status).toBe(HttpStatus.INTERNAL_SERVER_ERROR);
     expect(body.message).toBe('Internal server error');
   });
 
@@ -200,7 +201,7 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/%40scope/pkg@1.2.3?raw=true`);
     const body = (await response.json()) as {code: number; url: string};
 
-    expect(response.status).toBe(HTTP_STATUS.OK);
+    expect(response.status).toBe(HttpStatus.OK);
     expect(body.url).toBe('https://github.com/example/pkg');
     expect(getPackageUrlSpy).toHaveBeenCalledWith('@scope/pkg', '1.2.3');
   });
@@ -209,9 +210,9 @@ describe('server routes', () => {
     const response = await fetch(`${baseUrl}/scope/pkg`);
     const body = (await response.json()) as {code: number; message: string};
 
-    expect(response.status).toBe(HTTP_STATUS.NOT_FOUND);
+    expect(response.status).toBe(HttpStatus.NOT_FOUND);
     expect(body).toEqual({
-      code: HTTP_STATUS.NOT_FOUND,
+      code: HttpStatus.NOT_FOUND,
       message: 'Not found',
     });
   });
@@ -230,8 +231,8 @@ describe('rate limiting', () => {
 
     await started.app.close();
 
-    expect([HTTP_STATUS.OK, HTTP_STATUS.TOO_MANY_REQUESTS]).toContain(firstResponse.status);
-    expect(secondResponse.status).toBe(HTTP_STATUS.TOO_MANY_REQUESTS);
+    expect([HttpStatus.OK, HttpStatus.TOO_MANY_REQUESTS]).toContain(firstResponse.status);
+    expect(secondResponse.status).toBe(HttpStatus.TOO_MANY_REQUESTS);
     expect(body).toEqual({
       code: 429,
       message: 'Too many requests',

@@ -1,7 +1,6 @@
-import {Controller, Get, Param, Query, Res} from '@nestjs/common';
+import {Controller, Get, HttpStatus, Param, Query, Res} from '@nestjs/common';
 import {ApiOperation, ApiParam, ApiQuery, ApiResponse, ApiTags} from '@nestjs/swagger';
 import {Response} from 'express';
-import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 import {URL} from 'node:url';
 import validatePackageName from 'validate-npm-package-name';
 
@@ -10,7 +9,7 @@ import {RawError, RawResult} from '../swagger.js';
 import {getLogger, validateUrl} from '../utils.js';
 
 interface PackagesRouteResponseBody {
-  code: HTTP_STATUS;
+  code: HttpStatus;
   message?: string;
   url?: string;
 }
@@ -25,11 +24,11 @@ export class PackagesController {
   @ApiParam({name: 'packageName', required: true, type: String})
   @ApiQuery({description: 'Get the result as JSON', name: 'raw', required: false, type: Boolean})
   @ApiQuery({description: 'Get a link to unpkg.com', name: 'unpkg', required: false, type: Boolean})
-  @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: RawResult})
-  @ApiResponse({description: 'Redirect to repository URL', status: HTTP_STATUS.MOVED_TEMPORARILY})
-  @ApiResponse({description: 'Version or package not found', status: HTTP_STATUS.NOT_FOUND, type: RawError})
-  @ApiResponse({description: 'Invalid package name', status: HTTP_STATUS.UNPROCESSABLE_ENTITY, type: RawError})
-  @ApiResponse({description: 'Internal server error', status: HTTP_STATUS.INTERNAL_SERVER_ERROR, type: RawError})
+  @ApiResponse({description: 'That worked', status: HttpStatus.OK, type: RawResult})
+  @ApiResponse({description: 'Redirect to repository URL', status: HttpStatus.FOUND})
+  @ApiResponse({description: 'Version or package not found', status: HttpStatus.NOT_FOUND, type: RawError})
+  @ApiResponse({description: 'Invalid package name', status: HttpStatus.UNPROCESSABLE_ENTITY, type: RawError})
+  @ApiResponse({description: 'Internal server error', status: HttpStatus.INTERNAL_SERVER_ERROR, type: RawError})
   @Get(':packageName')
   async getPackage(
     @Param('packageName') rawPackageName: string,
@@ -48,7 +47,7 @@ export class PackagesController {
     @Res() res: Response
   ): Promise<void> {
     if (!scope.trim().startsWith('@')) {
-      res.status(HTTP_STATUS.NOT_FOUND).json({code: HTTP_STATUS.NOT_FOUND, message: 'Not found'});
+      res.status(HttpStatus.NOT_FOUND).json({code: HttpStatus.NOT_FOUND, message: 'Not found'});
       return;
     }
     const {name: pkgPart, version} = parsePackageAndVersion(rawPackageName.trim());
@@ -66,8 +65,8 @@ async function handlePackageRequest(
   logger.info(`Got request for package "${packageName}" (version "${version}").`);
 
   if (!validatePackageName(packageName).validForNewPackages) {
-    response.status(HTTP_STATUS.UNPROCESSABLE_ENTITY).json({
-      code: HTTP_STATUS.UNPROCESSABLE_ENTITY,
+    response.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
+      code: HttpStatus.UNPROCESSABLE_ENTITY,
       message: 'Invalid package name',
     } satisfies PackagesRouteResponseBody);
     return;
@@ -77,8 +76,8 @@ async function handlePackageRequest(
     const redirectUrl = `${unpkgBase}/${packageName}@${version}/`;
 
     if (!validateUrl(redirectUrl)) {
-      response.status(HTTP_STATUS.BAD_REQUEST).json({
-        code: HTTP_STATUS.BAD_REQUEST,
+      response.status(HttpStatus.BAD_REQUEST).json({
+        code: HttpStatus.BAD_REQUEST,
         message: `Invalid URL: ${redirectUrl}`,
       } satisfies PackagesRouteResponseBody);
       return;
@@ -86,36 +85,36 @@ async function handlePackageRequest(
 
     if (queryParamExists(query, 'raw')) {
       logger.info(`Returning raw unpkg info for "${packageName}": "${redirectUrl}" ...`);
-      response.json({code: HTTP_STATUS.OK, url: redirectUrl} satisfies PackagesRouteResponseBody);
+      response.json({code: HttpStatus.OK, url: redirectUrl} satisfies PackagesRouteResponseBody);
       return;
     }
 
     logger.info(`Redirecting package "${packageName}" to unpkg: "${redirectUrl}" ...`);
-    response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+    response.redirect(HttpStatus.FOUND, redirectUrl);
     return;
   }
 
   const parseResult = await getPackageUrl(packageName, version);
 
-  let errorCode: HTTP_STATUS;
+  let errorCode: HttpStatus;
   let errorMessage: string;
 
   switch (parseResult.status) {
     case ParseStatus.INVALID_PACKAGE_NAME: {
-      errorCode = HTTP_STATUS.UNPROCESSABLE_ENTITY;
+      errorCode = HttpStatus.UNPROCESSABLE_ENTITY;
       errorMessage = 'Invalid package name';
       break;
     }
 
     case ParseStatus.INVALID_URL:
     case ParseStatus.NO_URL_FOUND: {
-      errorCode = HTTP_STATUS.NOT_FOUND;
+      errorCode = HttpStatus.NOT_FOUND;
       errorMessage = `No source URL found. Please visit https://www.npmjs.com/package/${packageName}.`;
       break;
     }
 
     case ParseStatus.PACKAGE_NOT_FOUND: {
-      errorCode = HTTP_STATUS.NOT_FOUND;
+      errorCode = HttpStatus.NOT_FOUND;
       errorMessage = 'Package not found';
       break;
     }
@@ -124,23 +123,23 @@ async function handlePackageRequest(
       const redirectSite = parseResult.url;
       if (queryParamExists(query, 'raw')) {
         logger.info(`Returning raw info for "${packageName}": "${redirectSite}" ...`);
-        response.json({code: HTTP_STATUS.OK, url: redirectSite} satisfies PackagesRouteResponseBody);
+        response.json({code: HttpStatus.OK, url: redirectSite} satisfies PackagesRouteResponseBody);
         return;
       }
       logger.info(`Redirecting package "${packageName}" to "${redirectSite}" ...`);
-      response.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectSite);
+      response.redirect(HttpStatus.FOUND, redirectSite);
       return;
     }
 
     case ParseStatus.VERSION_NOT_FOUND: {
-      errorCode = HTTP_STATUS.NOT_FOUND;
+      errorCode = HttpStatus.NOT_FOUND;
       errorMessage = 'Version not found';
       break;
     }
 
     case ParseStatus.SERVER_ERROR:
     default: {
-      errorCode = HTTP_STATUS.INTERNAL_SERVER_ERROR;
+      errorCode = HttpStatus.INTERNAL_SERVER_ERROR;
       errorMessage = 'Internal server error';
       break;
     }

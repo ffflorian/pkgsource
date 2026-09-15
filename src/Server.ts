@@ -1,9 +1,9 @@
 import {NestFactory} from '@nestjs/core';
+import {HttpStatus} from '@nestjs/common';
 import {NestExpressApplication} from '@nestjs/platform-express';
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {NextFunction, Request, Response} from 'express';
 import helmet from 'helmet';
-import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
 import {AppModule} from './app.module.js';
 import {ServerConfig} from './config.js';
@@ -89,8 +89,8 @@ function createRateLimitMiddleware(config: ServerConfig) {
     if (current.count >= config.RATE_LIMIT_MAX_REQUESTS) {
       const retryAfter = Math.ceil((current.resetAt - now) / rateLimitCleanupThreshold);
       response.setHeader('Retry-After', String(retryAfter));
-      response.status(HTTP_STATUS.TOO_MANY_REQUESTS).json({
-        code: HTTP_STATUS.TOO_MANY_REQUESTS,
+      response.status(HttpStatus.TOO_MANY_REQUESTS).json({
+        code: HttpStatus.TOO_MANY_REQUESTS,
         message: 'Too many requests',
       });
       return;
@@ -100,5 +100,3 @@ function createRateLimitMiddleware(config: ServerConfig) {
     next();
   };
 }
-
-export {HTTP_STATUS};
