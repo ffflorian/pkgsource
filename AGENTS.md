@@ -94,7 +94,7 @@ yarn dist           # clean + build + write commit hash file
 yarn start          # run app from source with tsx
 yarn start:dev      # start + NODE_DEBUG
 yarn start:prod     # node dist/src/index.js
-yarn lint           # oxlint + eslint
+yarn lint           # oxlint
 yarn test           # run Vitest test suite
 yarn fix            # auto-fix lint issues + prettier
 ```

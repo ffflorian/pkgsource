@@ -70,7 +70,7 @@ function cleanupExpiredRateLimitEntries(now: number): void {
 }
 
 function createRateLimitMiddleware(config: ServerConfig) {
-  const windowMs = config.RATE_LIMIT_WINDOW_SECONDS * 1_000;
+  const windowMs = config.RATE_LIMIT_WINDOW_SECONDS * rateLimitCleanupThreshold;
 
   return (request: Request, response: Response, next: NextFunction) => {
     const now = Date.now();
@@ -87,7 +87,7 @@ function createRateLimitMiddleware(config: ServerConfig) {
     }
 
     if (current.count >= config.RATE_LIMIT_MAX_REQUESTS) {
-      const retryAfter = Math.ceil((current.resetAt - now) / 1_000);
+      const retryAfter = Math.ceil((current.resetAt - now) / rateLimitCleanupThreshold);
       response.setHeader('Retry-After', String(retryAfter));
       response.status(HTTP_STATUS.TOO_MANY_REQUESTS).json({
         code: HTTP_STATUS.TOO_MANY_REQUESTS,
