@@ -96,7 +96,7 @@ yarn start:dev      # start + NODE_DEBUG
 yarn start:prod     # node dist/src/index.js
 yarn lint           # oxlint
 yarn test           # run Vitest test suite
-yarn fix            # auto-fix lint issues + prettier
+yarn fix            # auto-fix lint issues + oxfmt
 ```
 
 ## CI/CD
