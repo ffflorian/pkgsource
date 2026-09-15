@@ -1,14 +1,13 @@
-import {Controller, Get, Query, Res} from '@nestjs/common';
+import {Controller, Get, HttpStatus, Query, Res} from '@nestjs/common';
 import {ApiExcludeEndpoint, ApiOperation, ApiQuery, ApiResponse, ApiTags} from '@nestjs/swagger';
 import {Response} from 'express';
-import {StatusCodes as HTTP_STATUS} from 'http-status-codes';
 
 import {RawResult} from '../swagger.js';
 import {getLogger} from '../utils.js';
 import {unpkgBase} from './packages.controller.js';
 
 interface MainRouteResponseBody {
-  code: HTTP_STATUS;
+  code: HttpStatus;
   message?: string;
   url?: string;
 }
@@ -22,8 +21,8 @@ export class MainController {
   @ApiExcludeEndpoint()
   @Get('favicon.ico')
   favicon(@Res() res: Response): void {
-    res.status(HTTP_STATUS.NOT_FOUND).json({
-      code: HTTP_STATUS.NOT_FOUND,
+    res.status(HttpStatus.NOT_FOUND).json({
+      code: HttpStatus.NOT_FOUND,
       message: 'Not found',
     } satisfies MainRouteResponseBody);
   }
@@ -31,8 +30,8 @@ export class MainController {
   @ApiOperation({description: "Get the server's repository URL", operationId: 'getServerRepositoryUrl'})
   @ApiQuery({description: 'Get the result as JSON', name: 'raw', required: false, type: Boolean})
   @ApiQuery({description: 'Get a link to unpkg.com', name: 'unpkg', required: false, type: Boolean})
-  @ApiResponse({description: 'That worked', status: HTTP_STATUS.OK, type: RawResult})
-  @ApiResponse({description: 'Redirect to repository URL', status: HTTP_STATUS.MOVED_TEMPORARILY})
+  @ApiResponse({description: 'That worked', status: HttpStatus.OK, type: RawResult})
+  @ApiResponse({description: 'Redirect to repository URL', status: HttpStatus.FOUND})
   @Get()
   main(@Query('raw') raw: string, @Query('unpkg') unpkg: string, @Res() res: Response): void {
     logger.info('Got request for main page');
@@ -42,20 +41,20 @@ export class MainController {
       if (raw !== undefined && raw !== 'false') {
         logger.info(`Returning raw unpkg info for main page: "${redirectUrl}" ...`);
         res.json({
-          code: HTTP_STATUS.OK,
+          code: HttpStatus.OK,
           url: redirectUrl,
         } satisfies MainRouteResponseBody);
         return;
       }
       logger.info(`Redirecting main page to unpkg: "${redirectUrl}" ...`);
-      res.redirect(HTTP_STATUS.MOVED_TEMPORARILY, redirectUrl);
+      res.redirect(HttpStatus.FOUND, redirectUrl);
       return;
     }
 
     if (raw !== undefined && raw !== 'false') {
       logger.info(`Returning raw info for main page: "${repositoryUrl}" ...`);
       res.json({
-        code: HTTP_STATUS.OK,
+        code: HttpStatus.OK,
         url: repositoryUrl,
       } satisfies MainRouteResponseBody);
       return;
