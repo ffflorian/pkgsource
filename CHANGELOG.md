@@ -1,3 +1,10 @@
+## [1.14.26](https://github.com/[secure]/pkgsource/compare/v1.14.25...v1.14.26) (2026-09-22)
+
+
+### Bug Fixes
+
+* **deps:** bump node from 26.8.2-alpine to 26.9.0-alpine ([#2021](https://github.com/[secure]/pkgsource/issues/2021)) ([25d0246](https://github.com/[secure]/pkgsource/commit/25d02468f47cc59d2c8d3be254413ed0b69246fa))
+
 ## [1.14.25](https://github.com/[secure]/pkgsource/compare/v1.14.24...v1.14.25) (2026-09-15)
 
 
