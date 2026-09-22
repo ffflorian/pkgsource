@@ -23,7 +23,7 @@
     "@vitest/coverage-v8": "5.0.0",
     "eslint": "10.10.0",
     "eslint-plugin-perfectionist": "5.11.0",
-    "lefthook": "2.1.12",
+    "lefthook": "2.1.14",
     "oxfmt": "0.68.0",
     "oxlint": "1.82.0",
     "tsx": "4.23.13",
