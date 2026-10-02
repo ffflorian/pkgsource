@@ -1,3 +1,11 @@
+## [1.14.28](https://github.com/[secure]/pkgsource/compare/v1.14.27...v1.14.28) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 5.0.9 to 5.0.12 ([#2039](https://github.com/[secure]/pkgsource/issues/2039)) ([89cda53](https://github.com/[secure]/pkgsource/commit/89cda538fc3371228e2ba178e46df39de3acabd1))
+* **deps:** bump ip-address from 10.4.0 to 10.7.3 ([#2040](https://github.com/[secure]/pkgsource/issues/2040)) [ci skip] ([520c0a6](https://github.com/[secure]/pkgsource/commit/520c0a6d34070e93a4567734a753bf6f79f5691b))
+
 ## [1.14.27](https://github.com/[secure]/pkgsource/compare/v1.14.26...v1.14.27) (2026-09-29)
 
 
