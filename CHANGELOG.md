@@ -1,3 +1,13 @@
+## [1.14.29](https://github.com/[secure]/pkgsource/compare/v1.14.28...v1.14.29) (2026-10-06)
+
+
+### Bug Fixes
+
+* **deps:** bump http-cache-semantics from 4.1.1 to 4.3.0 ([#2050](https://github.com/[secure]/pkgsource/issues/2050)) ([285b29c](https://github.com/[secure]/pkgsource/commit/285b29cf045334a6b55b370ef3d8633ed73b9988))
+* **deps:** bump proxy-addr from 2.0.7 to 2.0.8 ([#2052](https://github.com/[secure]/pkgsource/issues/2052)) [ci skip] ([88b9cf9](https://github.com/[secure]/pkgsource/commit/88b9cf99ab17a6c7e92b12021a433a7cebdb1508))
+* **deps:** bump source-map-js from 1.2.1 to 1.2.2 ([#2051](https://github.com/[secure]/pkgsource/issues/2051)) [ci skip] ([e843e1f](https://github.com/[secure]/pkgsource/commit/e843e1ff0ed07c0223972c549c70d821d9063f60))
+* **deps:** bump the nestjs group across 1 directory with 3 updates ([#2042](https://github.com/[secure]/pkgsource/issues/2042)) [ci skip] ([973d092](https://github.com/[secure]/pkgsource/commit/973d092e0b8fa54dbd3c2d06f6e99c3e53b80c4f))
+
 ## [1.14.28](https://github.com/[secure]/pkgsource/compare/v1.14.27...v1.14.28) (2026-10-02)
 
 
