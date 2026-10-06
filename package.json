@@ -20,7 +20,7 @@
     "@types/express": "5.0.6",
     "@types/node": "~26",
     "@types/validate-npm-package-name": "4.0.2",
-    "@vitest/coverage-v8": "5.0.1",
+    "@vitest/coverage-v8": "5.0.3",
     "eslint": "10.11.0",
     "eslint-plugin-perfectionist": "5.12.1",
     "lefthook": "2.1.15",
@@ -30,7 +30,7 @@
     "type-fest": "5.10.0",
     "typescript": "6.0.3",
     "vite": "8.3.1",
-    "vitest": "5.0.1"
+    "vitest": "5.0.3"
   },
   "engines": {
     "node": ">= 20"
