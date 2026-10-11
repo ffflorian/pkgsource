@@ -32,8 +32,9 @@ updates:
           - '@nestjs*'
       oxlint:
         patterns:
-          - oxlint
           - eslint-plugin-oxlint
+          - oxfmt
+          - oxlint
       vitest:
         patterns:
           - vitest
