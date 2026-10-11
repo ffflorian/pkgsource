@@ -91,7 +91,7 @@ jobs:
         with:
           DOCKER_TOKEN: ${{ secrets.DOCKER_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          git_author: 'ffflorian'
+          git_author: 'Florian Imdahl'
           git_email: 'git@ffflorian.de'
 
   # Deploy is part of this workflow because GitHub does not fire release events
