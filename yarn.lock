@@ -466,9 +466,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:12.1.2":
-  version: 12.1.2
-  resolution: "@nestjs/common@npm:12.1.2"
+"@nestjs/common@npm:12.1.3":
+  version: 12.1.3
+  resolution: "@nestjs/common@npm:12.1.3"
   dependencies:
     "@standard-schema/spec": "npm:1.1.0"
     file-type: "npm:22.1.1"
@@ -486,13 +486,13 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 10c0/94675f98943b2414a2cffee5efc909280e57a36163ea54c037052345f4d0fb6d66c354074f2cd2e3cb8edfe0dc537e3bca994bd2a27804a8c62ff23a5411ace3
+  checksum: 10c0/85c0ffc244317152fef2d2b53b394d33a5a4cc47a76d16eee3d243b5dbbbc3331b19a221667c5d7e391f608bcc48d01beb954b7e88dd57ac03c4725dd35d2ba6
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:12.1.2":
-  version: 12.1.2
-  resolution: "@nestjs/core@npm:12.1.2"
+"@nestjs/core@npm:12.1.3":
+  version: 12.1.3
+  resolution: "@nestjs/core@npm:12.1.3"
   dependencies:
     fast-safe-stringify: "npm:2.1.1"
     iterare: "npm:1.2.1"
@@ -513,7 +513,7 @@ __metadata:
       optional: true
     "@nestjs/websockets":
       optional: true
-  checksum: 10c0/09bc525c18d8416010f3a879df63392172dab76d87d4e2f0d95b3e0a2e074b82e34c8f6b22b83388409e0e650c07ba232459ecf1dc4d0b17060a7d0d13efe423
+  checksum: 10c0/a47f4f75070ac24054ed1aa16c34cafe899e7c2e5b816eb7b7124e7859733cfcf59549004b6f71b3482f8e67485b0eededae562adc2f8a22d9af393a0ae8810c
   languageName: node
   linkType: hard
 
@@ -534,9 +534,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:12.1.2":
-  version: 12.1.2
-  resolution: "@nestjs/platform-express@npm:12.1.2"
+"@nestjs/platform-express@npm:12.1.3":
+  version: 12.1.3
+  resolution: "@nestjs/platform-express@npm:12.1.3"
   dependencies:
     cors: "npm:2.8.6"
     express: "npm:5.2.1"
@@ -546,7 +546,7 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^12.0.0
     "@nestjs/core": ^12.0.0
-  checksum: 10c0/5cb7ef6b48b510de4cc19c06acfb34b527c05cf0c361d60da0929834410f128d5641c5ef3cb0eb00786e1014386aedebfbfdbbb733a4bd5076a5803501dc5606
+  checksum: 10c0/e6848d54d952a393214d7023ab52689d6bc1f32b6bcbe0c8e0630fb3df546b1c4a927b61a5b39170cc7af33cef98af98c6022d4487cafb7ff97af6cad19f5044
   languageName: node
   linkType: hard
 
@@ -1142,11 +1142,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:~26":
-  version: 26.6.5
-  resolution: "@types/node@npm:26.6.5"
+  version: 26.6.4
+  resolution: "@types/node@npm:26.6.4"
   dependencies:
     undici-types: "npm:~8.9.0"
-  checksum: 10c0/4f791f69466ace7842c09e7bef96cb1ddbb65cf3db916ef7e84f0e2b2a17220b6b816dc7539d01520cadfb17ed7169b8214910900493e0a83be8bc7d124ec20a
+  checksum: 10c0/094e7362df9200ba4c2da09131ca3b5d1aa51535a268a24e4ee2546d9c5a323d1d30cbdaaaa3db7ef8b2387572d1f9edabb11538ab7a09d3bca33ae5cddc2b1b
   languageName: node
   linkType: hard
 
@@ -3575,9 +3575,9 @@ __metadata:
   dependencies:
     "@ffflorian/oxfmt-config": "npm:1.3.0"
     "@ffflorian/oxlint-config": "npm:1.0.12"
-    "@nestjs/common": "npm:12.1.2"
-    "@nestjs/core": "npm:12.1.2"
-    "@nestjs/platform-express": "npm:12.1.2"
+    "@nestjs/common": "npm:12.1.3"
+    "@nestjs/core": "npm:12.1.3"
+    "@nestjs/platform-express": "npm:12.1.3"
     "@nestjs/swagger": "npm:12.0.2"
     "@types/express": "npm:5.0.6"
     "@types/node": "npm:~26"
