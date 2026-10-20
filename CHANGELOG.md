@@ -1,3 +1,11 @@
+## [1.14.31](https://github.com/ffflorian/pkgsource/compare/v1.14.30...v1.14.31) (2026-10-20)
+
+
+### Bug Fixes
+
+* **deps:** bump node from 26.11.1-alpine to 26.12.0-alpine ([#2070](https://github.com/ffflorian/pkgsource/issues/2070)) ([d0e439f](https://github.com/ffflorian/pkgsource/commit/d0e439fef87c5eae46e2cfbc4205b7018c8dd2de))
+* **deps:** bump the nestjs group with 3 updates ([#2071](https://github.com/ffflorian/pkgsource/issues/2071)) [ci skip] ([e5be204](https://github.com/ffflorian/pkgsource/commit/e5be204fca5d28bba08c2482829c54c3ce05db3b))
+
 ## [1.14.30](https://github.com/ffflorian/pkgsource/compare/v1.14.29...v1.14.30) (2026-10-11)
 
 
