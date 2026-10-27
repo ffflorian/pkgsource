@@ -1,3 +1,11 @@
+## [1.14.34](https://github.com/ffflorian/pkgsource/compare/v1.14.33...v1.14.34) (2026-10-27)
+
+
+### Bug Fixes
+
+* **deps:** bump body-parser from 2.3.0 to 2.4.0 ([#2086](https://github.com/ffflorian/pkgsource/issues/2086)) ([1147b37](https://github.com/ffflorian/pkgsource/commit/1147b37450c92689bbf49ad85b2cebfb09435e7d))
+* **deps:** bump ip-address from 10.7.3 to 10.7.5 ([#2087](https://github.com/ffflorian/pkgsource/issues/2087)) [ci skip] ([4099cab](https://github.com/ffflorian/pkgsource/commit/4099cabcdae3549ffa554ad0aa57277b1a89ba9b))
+
 ## [1.14.33](https://github.com/ffflorian/pkgsource/compare/v1.14.32...v1.14.33) (2026-10-27)
 
 
