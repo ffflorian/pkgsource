@@ -1,3 +1,10 @@
+## [1.14.33](https://github.com/ffflorian/pkgsource/compare/v1.14.32...v1.14.33) (2026-10-27)
+
+
+### Bug Fixes
+
+* **deps:** bump the nestjs group with 3 updates ([#2082](https://github.com/ffflorian/pkgsource/issues/2082)) ([c3e8a5b](https://github.com/ffflorian/pkgsource/commit/c3e8a5b91d67f4ee9e271abe4ad40c64d1bd50f0))
+
 ## [1.14.32](https://github.com/ffflorian/pkgsource/compare/v1.14.31...v1.14.32) (2026-10-22)
 
 
