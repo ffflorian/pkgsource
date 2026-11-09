@@ -29,10 +29,9 @@ updates:
     groups:
       nestjs:
         patterns:
-          - '@nestjs*'
+          - '@nestjs/*'
       oxlint:
         patterns:
-          - eslint-plugin-oxlint
           - oxfmt
           - oxlint
       vitest:
