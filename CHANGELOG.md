@@ -1,3 +1,9 @@
+## [1.14.37](https://github.com/ffflorian/pkgsource/compare/v1.14.36...v1.14.37) (2026-11-09)
+
+### Bug Fixes
+
+* **deps:** Bump minimatch to 10.2.6 ([ace9146](https://github.com/ffflorian/pkgsource/commit/ace9146d23d5c82aa0d74e72383661e4423960c9))
+
 ## [1.14.36](https://github.com/ffflorian/pkgsource/compare/v1.14.35...v1.14.36) (2026-11-09)
 
 ### Bug Fixes
