@@ -1,3 +1,22 @@
+## [1.14.36](https://github.com/ffflorian/pkgsource/compare/v1.14.35...v1.14.36) (2026-11-09)
+
+### Bug Fixes
+
+* **deps:** bump node from `c6ad9e9` to `8996bb5` ([#2093](https://github.com/ffflorian/pkgsource/issues/2093)) ([b3006ee](https://github.com/ffflorian/pkgsource/commit/b3006ee0158bad76403540f6143fd8f9584839c4))
+* **deps:** bump the nestjs group across 1 directory with 4 updates ([#2095](https://github.com/ffflorian/pkgsource/issues/2095)) [ci skip] ([091b0c7](https://github.com/ffflorian/pkgsource/commit/091b0c7efdb5a009226b0f61c3e5d053dfd10653))
+
+### Continuous Integration
+
+* **deps:** bump ffflorian/actions from 1.30.12 to 1.30.13 ([#2094](https://github.com/ffflorian/pkgsource/issues/2094)) [ci skip] ([352ec2b](https://github.com/ffflorian/pkgsource/commit/352ec2bba9948a63a8a6487813b033a0b004eb6e))
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @ffflorian/oxlint-config from 1.0.14 to 1.0.15 ([#2098](https://github.com/ffflorian/pkgsource/issues/2098)) [ci skip] ([f57f779](https://github.com/ffflorian/pkgsource/commit/f57f77904f0237f47d62684663bb2dfc95f93465))
+* **deps-dev:** bump eslint from 10.13.0 to 10.14.0 ([#2099](https://github.com/ffflorian/pkgsource/issues/2099)) [ci skip] ([da7abfd](https://github.com/ffflorian/pkgsource/commit/da7abfd0297f8666c8177638741cf443120c81fb))
+* **deps-dev:** bump the oxlint group with 2 updates ([#2096](https://github.com/ffflorian/pkgsource/issues/2096)) [ci skip] ([b255d67](https://github.com/ffflorian/pkgsource/commit/b255d67431c0f4607e4759a60f46266064fff75b))
+* **deps-dev:** bump the vitest group across 1 directory with 2 updates ([#2097](https://github.com/ffflorian/pkgsource/issues/2097)) [ci skip] ([4567eb4](https://github.com/ffflorian/pkgsource/commit/4567eb41a08fcd9226bd8133685ec67deb9baf09))
+* stricter nestjs dependency grouping [ci skip] ([f173259](https://github.com/ffflorian/pkgsource/commit/f173259de525d59f1f2ef1365895ee86aeb1b48c))
+
 ## [1.14.35](https://github.com/ffflorian/pkgsource/compare/v1.14.34...v1.14.35) (2026-11-03)
 
 
