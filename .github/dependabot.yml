@@ -3,10 +3,6 @@ updates:
       - ffflorian
     commit-message:
       prefix: fix(deps)
-    cooldown:
-      default-days: 5
-      exclude:
-        - node
     directory: /
     ignore:
       - dependency-name: node
@@ -15,7 +11,7 @@ updates:
     open-pull-requests-limit: 99
     package-ecosystem: docker
     schedule:
-      interval: weekly
+      interval: daily
   - assignees:
       - ffflorian
     commit-message:
