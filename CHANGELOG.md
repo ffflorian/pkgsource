@@ -1,3 +1,19 @@
+## [1.14.38](https://github.com/ffflorian/pkgsource/compare/v1.14.37...v1.14.38) (2026-11-14)
+
+### Bug Fixes
+
+* **docker:** drop Alpine yarn from runtime image ([#2103](https://github.com/ffflorian/pkgsource/issues/2103)) ([9e5ecea](https://github.com/ffflorian/pkgsource/commit/9e5ecea71cddfd3fe8046c63914ae7a3d3cd016f))
+
+### Continuous Integration
+
+* **deps:** bump ffflorian/actions from 1.30.13 to 1.30.14 ([#2100](https://github.com/ffflorian/pkgsource/issues/2100)) ([9ce8477](https://github.com/ffflorian/pkgsource/commit/9ce8477a83e086aaf230d30d63420762cb9c8bfa))
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @ffflorian/oxlint-config from 1.0.15 to 1.0.16 ([#2101](https://github.com/ffflorian/pkgsource/issues/2101)) ([24eaa48](https://github.com/ffflorian/pkgsource/commit/24eaa489c8eed5b83cd3aa96eac76f217362b0e8))
+* **deps-dev:** bump vite from 8.3.5 to 8.3.6 ([#2102](https://github.com/ffflorian/pkgsource/issues/2102)) [ci skip] ([f37c584](https://github.com/ffflorian/pkgsource/commit/f37c58492ac145f7ab62e2cd2660479593cfc162))
+* Update Docker dependencies daily [ci skip] ([41825a6](https://github.com/ffflorian/pkgsource/commit/41825a6f4018d0fe555f9751a1df89e4647557a3))
+
 ## [1.14.37](https://github.com/ffflorian/pkgsource/compare/v1.14.36...v1.14.37) (2026-11-09)
 
 ### Bug Fixes
