@@ -37,8 +37,7 @@ ENV VERSION=${VERSION}
 WORKDIR /app
 
 # Do not install yarn here: Alpine's yarn package pulls in Alpine's own nodejs
-# hadolint ignore=DL3018
-RUN apk add --no-cache curl && chown node:node /app
+RUN chown node:node /app
 
 # Copy built application from builder
 COPY --from=builder --chown=node:node /app/dist ./dist
