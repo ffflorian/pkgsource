@@ -18,7 +18,10 @@ RUN yarn install --immutable && yarn cache clean
 COPY tsconfig.json ./
 COPY src/ src/
 
-RUN yarn build
+RUN yarn build && test -f dist/index.js
+
+# Keep only production dependencies for the runtime image
+RUN yarn workspaces focus --all --production && yarn cache clean
 
 # Run
 FROM node:26.13.0-alpine@sha256:8996bb5821d62a8fd9bb27c1cb07462f3fdce6e47d640c6a881ead0b064ce216
@@ -33,17 +36,15 @@ ENV VERSION=${VERSION}
 
 WORKDIR /app
 
+# Do not install yarn here: Alpine's yarn package pulls in Alpine's own nodejs
 # hadolint ignore=DL3018
-RUN apk add --no-cache curl yarn && chown node:node /app
+RUN apk add --no-cache curl && chown node:node /app
 
 # Copy built application from builder
 COPY --from=builder --chown=node:node /app/dist ./dist
 COPY --from=builder --chown=node:node /app/node_modules ./node_modules
-COPY --from=builder --chown=node:node /app/.yarn ./.yarn
-COPY --from=builder --chown=node:node /app/package.json /app/yarn.lock /app/.yarnrc.yml ./
-
-RUN yarn install --immutable && yarn cache clean
+COPY --from=builder --chown=node:node /app/package.json ./
 
 EXPOSE 3000
 
-CMD ["yarn", "start:prod"]
+CMD ["node", "dist/index.js"]
