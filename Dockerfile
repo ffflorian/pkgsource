@@ -37,7 +37,8 @@ ENV VERSION=${VERSION}
 WORKDIR /app
 
 # Do not install yarn here: Alpine's yarn package pulls in Alpine's own nodejs
-RUN chown node:node /app
+# npm is not used at runtime and ships its own dependencies (e.g. undici)
+RUN chown node:node /app && rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 
 # Copy built application from builder
 COPY --from=builder --chown=node:node /app/dist ./dist
