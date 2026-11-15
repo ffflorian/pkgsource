@@ -1,3 +1,9 @@
+## [1.14.40](https://github.com/ffflorian/pkgsource/compare/v1.14.39...v1.14.40) (2026-11-15)
+
+### Bug Fixes
+
+* **docker:** remove npm from runtime image ([#2106](https://github.com/ffflorian/pkgsource/issues/2106)) ([2ada649](https://github.com/ffflorian/pkgsource/commit/2ada649ba359a667f5bba0938773262fc69f92cc))
+
 ## [1.14.39](https://github.com/ffflorian/pkgsource/compare/v1.14.38...v1.14.39) (2026-11-15)
 
 ### Bug Fixes
