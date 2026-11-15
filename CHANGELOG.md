@@ -1,3 +1,13 @@
+## [1.14.39](https://github.com/ffflorian/pkgsource/compare/v1.14.38...v1.14.39) (2026-11-15)
+
+### Bug Fixes
+
+* **deps:** bump node from 26.13.0-alpine to 26.13.1-alpine ([#2105](https://github.com/ffflorian/pkgsource/issues/2105)) ([ccbeec9](https://github.com/ffflorian/pkgsource/commit/ccbeec907bf20255580f347e707576605fa791a8))
+
+### Miscellaneous Chores
+
+* **docker:** remove curl from runtime image ([#2104](https://github.com/ffflorian/pkgsource/issues/2104)) ([c1505d9](https://github.com/ffflorian/pkgsource/commit/c1505d98ed4ec9b7a5ca6533190ec156cc064a4a))
+
 ## [1.14.38](https://github.com/ffflorian/pkgsource/compare/v1.14.37...v1.14.38) (2026-11-14)
 
 ### Bug Fixes
