@@ -1,3 +1,14 @@
+## [1.14.41](https://github.com/ffflorian/pkgsource/compare/v1.14.40...v1.14.41) (2026-11-17)
+
+### Bug Fixes
+
+* **deps:** bump the nestjs group across 1 directory with 4 updates ([#2107](https://github.com/ffflorian/pkgsource/issues/2107)) ([80adbbc](https://github.com/ffflorian/pkgsource/commit/80adbbce0238412ae82c11bf52bf520636a99ce0))
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump the oxlint group with 2 updates ([#2108](https://github.com/ffflorian/pkgsource/issues/2108)) ([c686688](https://github.com/ffflorian/pkgsource/commit/c6866887f85ceca7dbf8c5ce7ea89857e310cccc))
+* **deps-dev:** bump vite from 8.3.6 to 8.3.8 ([#2109](https://github.com/ffflorian/pkgsource/issues/2109)) ([eba03fe](https://github.com/ffflorian/pkgsource/commit/eba03fe58499535013484710f6a3dc42677a39ae))
+
 ## [1.14.40](https://github.com/ffflorian/pkgsource/compare/v1.14.39...v1.14.40) (2026-11-15)
 
 ### Bug Fixes
