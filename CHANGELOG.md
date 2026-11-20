@@ -1,3 +1,9 @@
+## [1.14.42](https://github.com/ffflorian/pkgsource/compare/v1.14.41...v1.14.42) (2026-11-20)
+
+### Bug Fixes
+
+* **deps:** bump eslint and minimatch ([23f50ec](https://github.com/ffflorian/pkgsource/commit/23f50ecbfe04678ae8b2053c0eaaf7debfe59e4e))
+
 ## [1.14.41](https://github.com/ffflorian/pkgsource/compare/v1.14.40...v1.14.41) (2026-11-17)
 
 ### Bug Fixes
