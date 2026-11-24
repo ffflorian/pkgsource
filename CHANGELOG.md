@@ -1,3 +1,18 @@
+## [1.14.43](https://github.com/ffflorian/pkgsource/compare/v1.14.42...v1.14.43) (2026-11-24)
+
+### Bug Fixes
+
+* **deps:** bump the nestjs group across 1 directory with 4 updates ([#2110](https://github.com/ffflorian/pkgsource/issues/2110)) ([2eb0033](https://github.com/ffflorian/pkgsource/commit/2eb0033a95ff4621eb2c7c4c1f008c234936cae2))
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @ffflorian/oxfmt-config from 1.3.0 to 1.5.0 ([#2113](https://github.com/ffflorian/pkgsource/issues/2113)) ([f910eaa](https://github.com/ffflorian/pkgsource/commit/f910eaa9b64b53ad88138560f7966645fde6ab42))
+* **deps-dev:** bump @ffflorian/oxlint-config from 1.0.16 to 1.2.1 ([#2116](https://github.com/ffflorian/pkgsource/issues/2116)) ([c595180](https://github.com/ffflorian/pkgsource/commit/c5951803bd76a92f8bf01228332586fb66d06fce))
+* **deps-dev:** bump eslint-plugin-perfectionist from 5.13.0 to 5.14.0 ([#2114](https://github.com/ffflorian/pkgsource/issues/2114)) ([b73b9a1](https://github.com/ffflorian/pkgsource/commit/b73b9a144472b2841664a14ddad8018044445e69))
+* **deps-dev:** bump the oxlint group across 1 directory with 2 updates ([#2111](https://github.com/ffflorian/pkgsource/issues/2111)) ([3d0fc20](https://github.com/ffflorian/pkgsource/commit/3d0fc20c3e89c7d36762181f3c7e1e8f5b9790fe))
+* **deps-dev:** bump the vitest group with 2 updates ([#2112](https://github.com/ffflorian/pkgsource/issues/2112)) ([f619572](https://github.com/ffflorian/pkgsource/commit/f6195721c671418ca6a54dfd077697e5282152f2))
+* **deps-dev:** bump type-fest from 5.10.0 to 6.0.2 ([#2115](https://github.com/ffflorian/pkgsource/issues/2115)) ([b17f345](https://github.com/ffflorian/pkgsource/commit/b17f34581a6e9f7f5eed5a6d470ef5f9816fb3c9))
+
 ## [1.14.42](https://github.com/ffflorian/pkgsource/compare/v1.14.41...v1.14.42) (2026-11-20)
 
 ### Bug Fixes
